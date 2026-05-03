@@ -27,7 +27,7 @@ export default function Navbar() {
         padding: "10px 32px", borderRadius: "999px", gap: "28px", border: "1px solid rgba(255,255,255,0.08)",
         boxShadow: "0 4px 24px rgba(0,0,0,0.2)"
       }}>
-        {["Home", "About", "Skills", "Projects", "Experience", "Testimonials", "Contact"].map((item) => (
+        {["Home", "About", "Skills", "Projects", "Experience", "Contact"].map((item) => (
           <a key={item} href={`#${item.toLowerCase()}`} style={{
             fontSize: "18px", fontWeight: 400, color: item === "Home" ? "#D9FF00" : "#a1a1aa",
             textDecoration: "none", transition: "all 0.3s ease", position: "relative",
