@@ -25,7 +25,7 @@ export default function Hero() {
             Agentic AI <span style={{ color: "#A3FF12" }}>Developer.</span>
           </h1>
           <p style={{ color: "#a1a1aa", fontSize: "18px", lineHeight: 1.6, maxWidth: "540px", marginBottom: "40px" }}>
-            Expert in complete Agentic AI Development, full-stack Software Engineering (SDE), and robust DevOps. Building scalable applications and intelligent agent workflows.
+            Expert in complete Agentic AI Development and full-stack Software Engineering (SDE), with strong foundational skills in DevOps. Building scalable applications and intelligent agent workflows.
           </p>
 
           {/* CTAs */}

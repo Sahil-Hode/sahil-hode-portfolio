@@ -20,7 +20,7 @@ export default function About() {
             <div style={{ width: "40px", height: "4px", background: "#A3FF12", marginBottom: "32px" }} />
             
             <p style={{ color: "#a1a1aa", fontSize: "15px", lineHeight: 1.7, marginBottom: "24px" }}>
-              I am an SDE, DevOps & AI ML Engineer, and Agentic AI Developer. I specialize in building complete Agentic AI workflows, scalable Software Engineering solutions, and have robust DevOps capabilities. I am passionate about delivering production-ready solutions that drive performance and impact.
+              I am an SDE & Full Stack Developer, and Agentic AI Developer. I specialize in building complete Agentic AI workflows, full-stack Software Engineering solutions, and have solid foundational DevOps skills. I am passionate about delivering production-ready solutions that drive performance and impact.
             </p>
             <p style={{ color: "#a1a1aa", fontSize: "15px", lineHeight: 1.7, marginBottom: "32px" }}>
               Currently pursuing a Bachelor of Computer Application (2024-2027) with a focus on programming fundamentals, data structures, and web development.

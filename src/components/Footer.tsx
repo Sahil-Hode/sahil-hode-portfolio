@@ -44,7 +44,7 @@ export default function Footer() {
               </div>
               <div>
                 <div style={{ fontSize: "20px", fontWeight: 800, letterSpacing: "-0.02em" }}>SAHIL HODE</div>
-                <div style={{ fontSize: "11px", color: "#a1a1aa" }}>SDE DevOps & AI ML Engineer, Agentic AI Developer</div>
+                <div style={{ fontSize: "11px", color: "#a1a1aa" }}>SDE & Full Stack Developer, Agentic AI Developer</div>
               </div>
             </div>
             <p style={{ color: "#a1a1aa", fontSize: "14px", lineHeight: 1.6, marginBottom: "24px", maxWidth: "260px" }}>
