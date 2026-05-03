@@ -1,10 +1,39 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { FaGithub, FaLinkedin, FaTwitter, FaDribbble, FaBehance, FaPaperPlane } from "react-icons/fa";
 import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker, HiOutlineClock } from "react-icons/hi";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<{ type: "success" | "error" | null, message: string }>({ type: null, message: "" });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus({ type: null, message: "" });
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      
+      if (res.ok) {
+        setStatus({ type: "success", message: "Email sent successfully!" });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setStatus({ type: "error", message: data.error || "Something went wrong." });
+      }
+    } catch (err) {
+      setStatus({ type: "error", message: "Failed to send message. Try again later." });
+    } finally {
+      setLoading(false);
+    }
+  };
   const contactInfo = [
     { label: "Email", value: "sahilhode67@gmail.com", icon: <HiOutlineMail /> },
     { label: "Phone", value: "+91 8652601566", icon: <HiOutlinePhone /> },
@@ -117,10 +146,10 @@ export default function Contact() {
               background: "linear-gradient(45deg, transparent 50%, rgba(217,255,0,0.1) 100%)", pointerEvents: "none" 
             }} />
 
-            <form style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
+            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
               <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                 <label style={{ fontSize: "14px", fontWeight: 700, color: "#fff" }}>Your Name</label>
-                <input type="text" placeholder="Enter your name" style={{
+                <input required type="text" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} placeholder="Enter your name" style={{
                   background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.08)",
                   padding: "18px 24px", borderRadius: "12px", color: "#fff", outline: "none", fontSize: "15px"
                 }} />
@@ -128,7 +157,7 @@ export default function Contact() {
               
               <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                 <label style={{ fontSize: "14px", fontWeight: 700, color: "#fff" }}>Your Email</label>
-                <input type="email" placeholder="Enter your email" style={{
+                <input required type="email" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} placeholder="Enter your email" style={{
                   background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.08)",
                   padding: "18px 24px", borderRadius: "12px", color: "#fff", outline: "none", fontSize: "15px"
                 }} />
@@ -136,7 +165,7 @@ export default function Contact() {
 
               <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                 <label style={{ fontSize: "14px", fontWeight: 700, color: "#fff" }}>Subject</label>
-                <input type="text" placeholder="How can I help you?" style={{
+                <input type="text" value={formData.subject} onChange={(e) => setFormData({...formData, subject: e.target.value})} placeholder="How can I help you?" style={{
                   background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.08)",
                   padding: "18px 24px", borderRadius: "12px", color: "#fff", outline: "none", fontSize: "15px"
                 }} />
@@ -144,21 +173,28 @@ export default function Contact() {
 
               <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                 <label style={{ fontSize: "14px", fontWeight: 700, color: "#fff" }}>Message</label>
-                <textarea placeholder="Write your message here..." rows={6} style={{
+                <textarea required value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} placeholder="Write your message here..." rows={6} style={{
                   background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.08)",
                   padding: "18px 24px", borderRadius: "20px", color: "#fff", outline: "none", fontSize: "15px",
                   resize: "none"
                 }} />
               </div>
 
-              <button style={{
+              {status.message && (
+                <div style={{ color: status.type === "error" ? "#ff4444" : "#A3FF12", fontSize: "14px", fontWeight: 600 }}>
+                  {status.message}
+                </div>
+              )}
+
+              <button type="submit" disabled={loading} style={{
                 background: "#A3FF12", color: "#000", padding: "18px 32px", borderRadius: "12px",
-                fontWeight: 900, fontSize: "16px", border: "none", cursor: "pointer",
+                fontWeight: 900, fontSize: "16px", border: "none", cursor: loading ? "not-allowed" : "pointer",
                 display: "flex", alignItems: "center", justifyContent: "center", gap: "12px",
-                boxShadow: "0 10px 30px rgba(217,255,0,0.2)", transition: "all 0.3s ease"
-              }} onMouseOver={(e) => e.currentTarget.style.transform = "translateY(-2px)"} onMouseOut={(e) => e.currentTarget.style.transform = "translateY(0)"}>
-                Send Message
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M7 17l9.2-9.2M17 17V7H7" /></svg>
+                boxShadow: "0 10px 30px rgba(217,255,0,0.2)", transition: "all 0.3s ease",
+                opacity: loading ? 0.7 : 1
+              }} onMouseOver={(e) => !loading && (e.currentTarget.style.transform = "translateY(-2px)")} onMouseOut={(e) => !loading && (e.currentTarget.style.transform = "translateY(0)")}>
+                {loading ? "Sending..." : "Send Message"}
+                {!loading && <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M7 17l9.2-9.2M17 17V7H7" /></svg>}
               </button>
             </form>
           </div>

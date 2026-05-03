@@ -93,6 +93,7 @@ export default function Hero() {
               width={450} 
               height={550} 
               priority={true}
+              loading="eager"
               sizes="(max-width: 768px) 100vw, 50vw"
               placeholder="blur"
               blurDataURL="data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAACwAQCdASoIAAkAAQAkJZwCBNgAAud0LwAA/v5YIf5wM8kZzH+2d77vNnAAAAA="

@@ -99,7 +99,7 @@ export default function Projects() {
                   alt={project.title}
                   fill
                   loading="lazy"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   placeholder="blur"
                   blurDataURL="data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAACwAQCdASoIAAkAAQAkJZwCBNgAAud0LwAA/v5YIf5wM8kZzH+2d77vNnAAAAA="
                   style={{ objectFit: "cover", transition: "transform 0.5s ease", willChange: "transform" }}
