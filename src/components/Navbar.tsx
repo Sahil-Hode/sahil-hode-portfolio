@@ -13,13 +13,13 @@ export default function Navbar() {
       {/* Brand */}
       <div style={{ display: "flex", alignItems: "center", gap: "16px", flexShrink: 0 }}>
         <div style={{ 
-          width: "48px", height: "48px", background: "#D9FF00", borderRadius: "10px",
+          width: "48px", height: "48px", background: "#A3FF12", borderRadius: "10px",
           display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 900, color: "#000", fontSize: "22px",
           boxShadow: "0 0 20px rgba(217,255,0,0.2)"
         }}>SH</div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <h1 style={{ fontSize: "18px", fontWeight: 900, margin: 0, letterSpacing: "0.02em", color: "#fff" }}>SAHIL HODE</h1>
-          <p style={{ fontSize: "11px", color: "#71717a", margin: 0, fontWeight: 600, letterSpacing: "0.05em" }}>Full Stack Developer | SDE | AI Agent Developer</p>
+          <p style={{ fontSize: "11px", color: "#71717a", margin: 0, fontWeight: 600, letterSpacing: "0.05em" }}>SDE DevOps & AI ML Engineer, Agentic AI Developer</p>
         </div>
       </div>
 
@@ -50,7 +50,7 @@ export default function Navbar() {
       }}>
         {["Home", "About", "Skills", "Projects", "Experience", "Contact"].map((item) => (
           <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMenuOpen(false)} style={{
-            fontSize: "18px", fontWeight: 400, color: item === "Home" ? "#D9FF00" : "#a1a1aa",
+            fontSize: "18px", fontWeight: 400, color: item === "Home" ? "#A3FF12" : "#a1a1aa",
             textDecoration: "none", transition: "all 0.3s ease", position: "relative",
             display: "flex", flexDirection: "column", alignItems: "center"
           }} className="nav-link">
@@ -58,7 +58,7 @@ export default function Navbar() {
             {item === "Home" && (
               <span style={{ 
                 position: "absolute", bottom: "-8px", width: "14px", height: "2.5px", 
-                background: "#D9FF00", borderRadius: "2px" 
+                background: "#A3FF12", borderRadius: "2px" 
               }} />
             )}
           </a>
@@ -88,7 +88,7 @@ export default function Navbar() {
           </button>
           {["Home", "About", "Skills", "Projects", "Experience", "Contact"].map((item) => (
             <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMenuOpen(false)} style={{
-              fontSize: "28px", fontWeight: 700, color: item === "Home" ? "#D9FF00" : "#fff",
+              fontSize: "28px", fontWeight: 700, color: item === "Home" ? "#A3FF12" : "#fff",
               textDecoration: "none", transition: "all 0.3s ease"
             }}>
               {item}
@@ -100,7 +100,7 @@ export default function Navbar() {
       {/* Actions */}
       <div className="nav-actions" style={{ display: "flex", alignItems: "center", gap: "16px", flexShrink: 0 }}>
         <button style={{
-          background: "#D9FF00", color: "#000", padding: "12px 28px", borderRadius: "999px",
+          background: "#A3FF12", color: "#000", padding: "12px 28px", borderRadius: "999px",
           fontWeight: 800, fontSize: "14px", border: "none", cursor: "pointer", 
           display: "flex", alignItems: "center", gap: "8px", transition: "transform 0.2s"
         }}>

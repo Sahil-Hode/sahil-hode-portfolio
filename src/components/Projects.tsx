@@ -55,11 +55,11 @@ export default function Projects() {
         <div className="responsive-flex" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "60px" }}>
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
-              <span style={{ color: "#D9FF00", fontSize: "12px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.2em" }}>MY WORK</span>
-              <div style={{ width: "40px", height: "2px", background: "#D9FF00" }} />
+              <span style={{ color: "#A3FF12", fontSize: "12px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.2em" }}>MY WORK</span>
+              <div style={{ width: "40px", height: "2px", background: "#A3FF12" }} />
             </div>
             <h2 style={{ fontSize: "52px", fontWeight: 900, marginBottom: "20px", letterSpacing: "-0.03em" }}>
-              Featured <span style={{ color: "#D9FF00" }}>Projects</span>
+              Featured <span style={{ color: "#A3FF12" }}>Projects</span>
             </h2>
             <p style={{ color: "#a1a1aa", fontSize: "16px", maxWidth: "500px", lineHeight: 1.6 }}>
               Here are some of the projects I&apos;ve worked on. Each one was a challenge that helped me grow.
@@ -74,7 +74,7 @@ export default function Projects() {
                 onClick={() => setActiveFilter(f)}
                 style={{
                   padding: "10px 24px", borderRadius: "999px", border: "1px solid rgba(255,255,255,0.08)",
-                  background: activeFilter === f ? "#D9FF00" : "rgba(255,255,255,0.02)",
+                  background: activeFilter === f ? "#A3FF12" : "rgba(255,255,255,0.02)",
                   color: activeFilter === f ? "#000" : "#a1a1aa",
                   fontSize: "13px", fontWeight: 700, cursor: "pointer", transition: "all 0.3s ease"
                 }}
@@ -110,7 +110,7 @@ export default function Projects() {
               {/* Content */}
               <div style={{ padding: "32px" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" }}>
-                  <div style={{ width: "8px", height: "8px", background: "#D9FF00", borderRadius: "50%" }} />
+                  <div style={{ width: "8px", height: "8px", background: "#A3FF12", borderRadius: "50%" }} />
                   <span style={{ fontSize: "12px", color: "#a1a1aa", fontWeight: 600 }}>{project.category}</span>
                 </div>
                 <h3 style={{ fontSize: "24px", fontWeight: 800, marginBottom: "16px" }}>{project.title}</h3>
@@ -131,7 +131,7 @@ export default function Projects() {
                 {/* Links */}
                 <div style={{ display: "flex", gap: "24px" }}>
                   <a href="#" style={{ 
-                    color: "#D9FF00", fontSize: "14px", fontWeight: 800, textDecoration: "none", 
+                    color: "#A3FF12", fontSize: "14px", fontWeight: 800, textDecoration: "none", 
                     display: "flex", alignItems: "center", gap: "8px" 
                   }}>
                     Live Demo 

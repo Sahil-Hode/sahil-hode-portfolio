@@ -6,9 +6,9 @@ import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker, HiOutlineClock 
 
 export default function Contact() {
   const contactInfo = [
-    { label: "Email", value: "sahil.hode@example.com", icon: <HiOutlineMail /> },
+    { label: "Email", value: "sahilhode67@gmail.com", icon: <HiOutlineMail /> },
     { label: "Phone", value: "+91 8652601566", icon: <HiOutlinePhone /> },
-    { label: "Location", value: "Kolkata, West Bengal, India", icon: <HiOutlineLocationMarker /> },
+    { label: "Location", value: "Thane, Mumbai, Maharashtra", icon: <HiOutlineLocationMarker /> },
     { label: "Availability", value: "Open for Freelance & Full-time", icon: <HiOutlineClock /> }
   ];
 
@@ -31,11 +31,11 @@ export default function Contact() {
             {/* Header */}
             <div style={{ marginBottom: "60px", position: "relative" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
-                <span style={{ color: "#D9FF00", fontSize: "12px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.2em" }}>GET IN TOUCH</span>
-                <div style={{ width: "40px", height: "2px", background: "#D9FF00" }} />
+                <span style={{ color: "#A3FF12", fontSize: "12px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.2em" }}>GET IN TOUCH</span>
+                <div style={{ width: "40px", height: "2px", background: "#A3FF12" }} />
               </div>
               <h2 style={{ fontSize: "clamp(32px, 8vw, 64px)", fontWeight: 900, marginBottom: "20px", letterSpacing: "-0.03em" }}>
-                Let&apos;s <span style={{ color: "#D9FF00" }}>Connect</span>
+                Let&apos;s <span style={{ color: "#A3FF12" }}>Connect</span>
               </h2>
               <p style={{ color: "#a1a1aa", fontSize: "18px", maxWidth: "480px", lineHeight: 1.6 }}>
                 I&apos;m always open to discussing new opportunities, exciting projects, or just having a chat.
@@ -47,7 +47,7 @@ export default function Contact() {
                 <svg width="200" height="200" viewBox="0 0 200 200" fill="none" style={{ position: "absolute", left: "-20px", top: "20px", overflow: "visible" }}>
                   <path 
                     d="M 0 150 C 100 150, 110 60, 80 60 C 50 60, 50 110, 80 110 C 110 110, 120 70, 140 40" 
-                    stroke="#D9FF00" 
+                    stroke="#A3FF12" 
                     strokeWidth="2" 
                     strokeDasharray="6 6" 
                     opacity="0.6"
@@ -56,8 +56,8 @@ export default function Contact() {
                   />
                 </svg>
                 <div style={{ 
-                  width: "72px", height: "72px", borderRadius: "50%", border: "2px solid #D9FF00", 
-                  display: "flex", alignItems: "center", justifyContent: "center", color: "#D9FF00", fontSize: "32px",
+                  width: "72px", height: "72px", borderRadius: "50%", border: "2px solid #A3FF12", 
+                  display: "flex", alignItems: "center", justifyContent: "center", color: "#A3FF12", fontSize: "32px",
                   boxShadow: "0 0 20px rgba(217,255,0,0.3)", background: "#060606", position: "absolute", right: "0", top: "0", zIndex: 2, pointerEvents: "auto"
                 }}>
                   <FaPaperPlane style={{ transform: "rotate(-10deg) translateX(-2px)" }} />
@@ -76,7 +76,7 @@ export default function Contact() {
                   <div style={{ 
                     width: "48px", height: "48px", borderRadius: "50%", background: "rgba(217,255,0,0.05)",
                     border: "1px solid rgba(217,255,0,0.1)", display: "flex", alignItems: "center", justifyContent: "center", 
-                    color: "#D9FF00", fontSize: "20px" 
+                    color: "#A3FF12", fontSize: "20px" 
                   }}>
                     {info.icon}
                   </div>
@@ -90,7 +90,7 @@ export default function Contact() {
 
             {/* Socials */}
             <div>
-              <p style={{ color: "#D9FF00", fontSize: "13px", fontWeight: 800, marginBottom: "20px" }}>Follow Me</p>
+              <p style={{ color: "#A3FF12", fontSize: "13px", fontWeight: 800, marginBottom: "20px" }}>Follow Me</p>
               <div style={{ display: "flex", gap: "12px" }}>
                 {socials.map((soc, i) => (
                   <a key={i} href={soc.link} style={{ 
@@ -152,7 +152,7 @@ export default function Contact() {
               </div>
 
               <button style={{
-                background: "#D9FF00", color: "#000", padding: "18px 32px", borderRadius: "12px",
+                background: "#A3FF12", color: "#000", padding: "18px 32px", borderRadius: "12px",
                 fontWeight: 900, fontSize: "16px", border: "none", cursor: "pointer",
                 display: "flex", alignItems: "center", justifyContent: "center", gap: "12px",
                 boxShadow: "0 10px 30px rgba(217,255,0,0.2)", transition: "all 0.3s ease"

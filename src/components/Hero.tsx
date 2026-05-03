@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Navbar from "./Navbar";
+import { MdWavingHand } from "react-icons/md";
 
 export default function Hero() {
   return (
@@ -16,21 +17,21 @@ export default function Hero() {
         
         {/* Left Column */}
         <div style={{ zIndex: 10 }}>
-          <p style={{ color: "#D9FF00", fontSize: "16px", fontWeight: 600, marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
-            Hello, I&apos;m Sahil 👋
+          <p style={{ color: "#A3FF12", fontSize: "16px", fontWeight: 600, marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
+            Hello, I&apos;m Sahil <MdWavingHand />
           </p>
           <h1 style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 900, lineHeight: 1.1, letterSpacing: "-0.03em", marginBottom: "24px" }}>
-            Results-driven <br />
-            Full-Stack <span style={{ color: "#D9FF00" }}>SDE.</span>
+            SDE & Full Stack Developer, <br />
+            Agentic AI <span style={{ color: "#A3FF12" }}>Developer.</span>
           </h1>
           <p style={{ color: "#a1a1aa", fontSize: "18px", lineHeight: 1.6, maxWidth: "540px", marginBottom: "40px" }}>
-            Specializing in building scalable, AI-integrated applications. Experienced in Next.js, React, Node.js, Express, MongoDB, and cloud deployment. AI Agent Developer skilled in Python, LangChain, and RAG.
+            Expert in complete Agentic AI Development, full-stack Software Engineering (SDE), and robust DevOps. Building scalable applications and intelligent agent workflows.
           </p>
 
           {/* CTAs */}
           <div className="hero-ctas" style={{ display: "flex", gap: "20px", marginBottom: "60px" }}>
             <button style={{
-              background: "#D9FF00", color: "#000", padding: "16px 32px", borderRadius: "12px",
+              background: "#A3FF12", color: "#000", padding: "16px 32px", borderRadius: "12px",
               fontWeight: 800, fontSize: "16px", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: "10px",
               whiteSpace: "nowrap", justifyContent: "center"
             }}>
@@ -106,7 +107,7 @@ export default function Hero() {
             padding: "12px 20px", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.1)",
             display: "flex", alignItems: "center", gap: "12px"
           }}>
-            <div style={{ width: "8px", height: "8px", background: "#D9FF00", borderRadius: "50%", boxShadow: "0 0 10px #D9FF00" }} />
+            <div style={{ width: "8px", height: "8px", background: "#A3FF12", borderRadius: "50%", boxShadow: "0 0 10px #A3FF12" }} />
             <div>
               <p style={{ fontSize: "10px", color: "#71717a", margin: 0, fontWeight: 700 }}>Available for</p>
               <p style={{ fontSize: "14px", fontWeight: 800, margin: 0 }}>Freelance Projects</p>

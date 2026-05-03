@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({ 
+const inter = Inter({ 
   subsets: ['latin'],
   display: 'swap',
-  preload: true,
-  weight: ['400', '700'],
-  variable: '--font-main'
+  variable: '--font-sans'
+});
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-serif'
 });
 
 export const metadata: Metadata = {
@@ -47,7 +51,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} h-full antialiased`}
+      className={`${inter.variable} ${playfair.variable} h-full antialiased`}
     >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />

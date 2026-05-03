@@ -10,6 +10,7 @@ import {
 } from "react-icons/si";
 import { HiOutlineLightningBolt, HiOutlineServer, HiOutlineCog, HiOutlineSparkles } from "react-icons/hi";
 import { TbCloudCode, TbInfinity, TbRoute, TbBrain } from "react-icons/tb";
+import { FaRocket } from "react-icons/fa";
 
 export default function Skills() {
   const categories = [
@@ -34,7 +35,7 @@ export default function Skills() {
         { name: "Bun / Express", icon: <SiBun color="#fff" /> },
         { name: "MongoDB", icon: <SiMongodb color="#47A248" /> },
         { name: "Postgres / MySQL", icon: <SiPostgresql color="#4169E1" /> },
-        { name: "REST APIs", icon: <TbCloudCode color="#D9FF00" /> }
+        { name: "REST APIs", icon: <TbCloudCode color="#A3FF12" /> }
       ]
     },
     {
@@ -46,7 +47,7 @@ export default function Skills() {
         { name: "GitHub / GitLab", icon: <SiGitlab color="#FC6D26" /> },
         { name: "Vercel / Netlify", icon: <SiVercel color="#fff" /> },
         { name: "AWS / Railway", icon: <SiRailway color="#fff" /> },
-        { name: "CI / CD", icon: <TbInfinity color="#D9FF00" /> }
+        { name: "CI / CD", icon: <TbInfinity color="#A3FF12" /> }
       ]
     },
     {
@@ -55,10 +56,10 @@ export default function Skills() {
       desc: "Integrating LLMs and building autonomous AI agent workflows.",
       skills: [
         { name: "Python", icon: <SiPython color="#3776AB" /> },
-        { name: "LangChain", icon: <TbRoute color="#D9FF00" /> },
-        { name: "RAG Systems", icon: <TbBrain color="#D9FF00" /> },
+        { name: "LangChain & LangGraph", icon: <TbRoute color="#A3FF12" /> },
+        { name: "RAG Systems", icon: <TbBrain color="#A3FF12" /> },
         { name: "Gemini / OpenAI", icon: <SiOpenai color="#412991" /> },
-        { name: "Automation", icon: <HiOutlineLightningBolt color="#D9FF00" /> }
+        { name: "Automation", icon: <HiOutlineLightningBolt color="#A3FF12" /> }
       ]
     }
   ];
@@ -72,11 +73,11 @@ export default function Skills() {
           <div>
             <div style={{ width: "100%", height: "1px", background: "linear-gradient(90deg, rgba(217,255,0,0.3) 0%, rgba(217,255,0,0) 100%)", marginBottom: "40px" }} />
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
-              <span style={{ color: "#D9FF00", fontSize: "12px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.2em" }}>MY SKILLS</span>
-              <div style={{ width: "40px", height: "2px", background: "#D9FF00" }} />
+              <span style={{ color: "#A3FF12", fontSize: "12px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.2em" }}>MY SKILLS</span>
+              <div style={{ width: "40px", height: "2px", background: "#A3FF12" }} />
             </div>
             <h2 style={{ fontSize: "52px", fontWeight: 900, marginBottom: "20px", letterSpacing: "-0.03em" }}>
-              Skills & <span style={{ color: "#D9FF00" }}>Expertise</span>
+              Skills & <span style={{ color: "#A3FF12" }}>Expertise</span>
             </h2>
             <p style={{ color: "#a1a1aa", fontSize: "16px", maxWidth: "500px", lineHeight: 1.6 }}>
               I combine creativity with technology to build fast, scalable, and user-focused digital products.
@@ -86,7 +87,7 @@ export default function Skills() {
             background: "rgba(255,255,255,0.03)", padding: "10px 24px", borderRadius: "999px", border: "1px solid rgba(255,255,255,0.08)",
             display: "flex", alignItems: "center", gap: "10px", color: "#a1a1aa", fontSize: "13px", fontWeight: 600
           }}>
-            <div style={{ width: "8px", height: "8px", background: "#D9FF00", borderRadius: "50%", boxShadow: "0 0 10px #D9FF00" }} />
+            <div style={{ width: "8px", height: "8px", background: "#A3FF12", borderRadius: "50%", boxShadow: "0 0 10px #A3FF12" }} />
             Always learning new technologies
           </div>
         </div>
@@ -101,12 +102,12 @@ export default function Skills() {
               <div style={{ 
                 width: "48px", height: "48px", background: "rgba(217,255,0,0.1)", borderRadius: "12px",
                 display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px", marginBottom: "32px",
-                border: "1px solid rgba(217,255,0,0.2)", color: "#D9FF00"
+                border: "1px solid rgba(217,255,0,0.2)", color: "#A3FF12"
               }}>
                 {cat.icon}
               </div>
               <h3 style={{ fontSize: "18px", fontWeight: 800, marginBottom: "12px" }}>{cat.title}</h3>
-              <div style={{ width: "30px", height: "3px", background: "#D9FF00", marginBottom: "24px" }} />
+              <div style={{ width: "30px", height: "3px", background: "#A3FF12", marginBottom: "24px" }} />
               <p style={{ fontSize: "13px", color: "#71717a", lineHeight: 1.6, marginBottom: "32px" }}>{cat.desc}</p>
               
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
@@ -134,7 +135,7 @@ export default function Skills() {
             <p style={{ color: "#71717a", fontSize: "16px", margin: 0 }}>I&apos;m always open to discussing new opportunities and exciting projects.</p>
           </div>
           <button style={{
-            background: "#D9FF00", color: "#000", padding: "18px 40px", borderRadius: "16px",
+            background: "#A3FF12", color: "#000", padding: "18px 40px", borderRadius: "16px",
             fontWeight: 800, fontSize: "16px", border: "none", cursor: "pointer", 
             display: "flex", alignItems: "center", gap: "12px", zIndex: 2,
             boxShadow: "0 10px 30px rgba(217,255,0,0.2)"
@@ -147,7 +148,9 @@ export default function Skills() {
           <div style={{ 
             position: "absolute", left: "20px", top: "50%", transform: "translateY(-50%)", 
             opacity: 0.05, fontSize: "80px", pointerEvents: "none" 
-          }}>🚀</div>
+          }}>
+            <FaRocket />
+          </div>
         </div>
 
       </div>

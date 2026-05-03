@@ -5,7 +5,7 @@ import {
   SiNextdotjs, SiReact, SiNodedotjs, SiMongodb, 
   SiPython, SiNestjs, SiExpress
 } from "react-icons/si";
-import { HiOutlineBriefcase, HiOutlineCode, HiCheckCircle, HiOutlineLocationMarker, HiOutlineUserGroup, HiOutlineServer } from "react-icons/hi";
+import { HiOutlineBriefcase, HiOutlineCode, HiCheckCircle, HiOutlineLocationMarker, HiOutlineServer } from "react-icons/hi";
 import { TbTrophy, TbRoute } from "react-icons/tb";
 
 export default function Experience() {
@@ -68,11 +68,11 @@ export default function Experience() {
         <div className="responsive-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1.5fr", gap: "60px", marginBottom: "80px" }}>
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
-              <span style={{ color: "#D9FF00", fontSize: "12px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.2em" }}>MY JOURNEY</span>
-              <div style={{ width: "40px", height: "2px", background: "#D9FF00" }} />
+              <span style={{ color: "#A3FF12", fontSize: "12px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.2em" }}>MY JOURNEY</span>
+              <div style={{ width: "40px", height: "2px", background: "#A3FF12" }} />
             </div>
             <h2 style={{ fontSize: "52px", fontWeight: 900, marginBottom: "20px", letterSpacing: "-0.03em" }}>
-              Experience & <span style={{ color: "#D9FF00" }}>Journey</span>
+              Experience & <span style={{ color: "#A3FF12" }}>Journey</span>
             </h2>
             <p style={{ color: "#a1a1aa", fontSize: "16px", maxWidth: "400px", lineHeight: 1.6 }}>
               Over the years, I&apos;ve worked with amazing teams and built solutions that solve real-world problems.
@@ -86,7 +86,7 @@ export default function Experience() {
           }}>
             {stats.map((s, i) => (
               <div key={i} style={{ textAlign: "center" }}>
-                <div style={{ color: "#D9FF00", fontSize: "24px", marginBottom: "12px", display: "flex", justifyContent: "center" }}>{s.icon}</div>
+                <div style={{ color: "#A3FF12", fontSize: "24px", marginBottom: "12px", display: "flex", justifyContent: "center" }}>{s.icon}</div>
                 <div style={{ fontSize: "28px", fontWeight: 900, marginBottom: "4px" }}>{s.value}</div>
                 <div style={{ fontSize: "11px", fontWeight: 700, color: "#71717a", textTransform: "uppercase", letterSpacing: "0.05em" }}>{s.label}</div>
               </div>
@@ -109,7 +109,7 @@ export default function Experience() {
               
               {/* Date Column */}
               <div className="timeline-date" style={{ width: "160px", textAlign: "left", paddingTop: "12px", flexShrink: 0 }}>
-                <div style={{ fontSize: "16px", fontWeight: 800, color: "#D9FF00", marginBottom: "4px" }}>{exp.date}</div>
+                <div style={{ fontSize: "16px", fontWeight: 800, color: "#A3FF12", marginBottom: "4px" }}>{exp.date}</div>
                 <div style={{ fontSize: "13px", color: "#a1a1aa", fontWeight: 600 }}>{exp.duration}</div>
               </div>
 
@@ -119,14 +119,14 @@ export default function Experience() {
                   width: "24px", height: "24px", borderRadius: "50%", border: "2px solid rgba(217,255,0,0.5)",
                   display: "flex", alignItems: "center", justifyContent: "center", background: "#060606"
                 }}>
-                  <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#D9FF00", boxShadow: "0 0 10px #D9FF00" }} />
+                  <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#A3FF12", boxShadow: "0 0 10px #A3FF12" }} />
                 </div>
               </div>
 
               {/* Experience Card */}
               <div style={{ 
                 flex: 1, background: "rgba(255,255,255,0.02)", padding: "40px", borderRadius: "32px",
-                border: "1px solid rgba(255,255,255,0.05)", borderLeft: "4px solid #D9FF00",
+                border: "1px solid rgba(255,255,255,0.05)", borderLeft: "4px solid #A3FF12",
                 transition: "all 0.3s ease", position: "relative"
               }} className="experience-card">
                 
@@ -134,13 +134,13 @@ export default function Experience() {
                   <div style={{ display: "flex", gap: "24px" }}>
                     <div style={{ 
                       width: "60px", height: "60px", background: "rgba(217,255,0,0.05)", borderRadius: "16px",
-                      display: "flex", alignItems: "center", justifyContent: "center", color: "#D9FF00", fontSize: "28px"
+                      display: "flex", alignItems: "center", justifyContent: "center", color: "#A3FF12", fontSize: "28px"
                     }}>
                       {exp.icon}
                     </div>
                     <div>
                       <h3 style={{ fontSize: "26px", fontWeight: 800, marginBottom: "4px" }}>{exp.role}</h3>
-                      <p style={{ color: "#D9FF00", fontSize: "16px", fontWeight: 700 }}>{exp.company}</p>
+                      <p style={{ color: "#A3FF12", fontSize: "16px", fontWeight: 700 }}>{exp.company}</p>
                     </div>
                   </div>
                   <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#71717a", fontSize: "14px", fontWeight: 600 }}>
@@ -154,11 +154,11 @@ export default function Experience() {
                 </p>
 
                 <div style={{ marginBottom: "32px" }}>
-                  <p style={{ color: "#D9FF00", fontSize: "14px", fontWeight: 800, marginBottom: "16px" }}>Key Achievements:</p>
+                  <p style={{ color: "#A3FF12", fontSize: "14px", fontWeight: 800, marginBottom: "16px" }}>Key Achievements:</p>
                   <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                     {exp.achievements.map((ach, j) => (
                       <div key={j} style={{ display: "flex", alignItems: "center", gap: "12px", color: "#fff", fontSize: "14px", fontWeight: 500 }}>
-                        <HiCheckCircle color="#D9FF00" fontSize="18px" />
+                        <HiCheckCircle color="#A3FF12" fontSize="18px" />
                         {ach}
                       </div>
                     ))}
@@ -172,7 +172,7 @@ export default function Experience() {
                       fontSize: "13px", fontWeight: 700, padding: "8px 18px", borderRadius: "12px",
                       background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.05)", color: "#fff"
                     }}>
-                      <span style={{ color: "#D9FF00" }}>{t.icon}</span>
+                      <span style={{ color: "#A3FF12" }}>{t.icon}</span>
                       {t.name}
                     </div>
                   ))}

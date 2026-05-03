@@ -10,9 +10,9 @@ export default function Footer() {
   const tech = ["React", "Next.js", "Node.js", "TypeScript", "MongoDB", "Tailwind CSS", "Express.js"];
   
   const connect = [
-    { label: "Email", value: "sahil.hode@example.com", icon: <HiOutlineMail /> },
-    { label: "Phone", value: "+91 12345 67890", icon: <HiOutlinePhone /> },
-    { label: "Location", value: "Kolkata, West Bengal, India", icon: <HiOutlineLocationMarker /> },
+    { label: "Email", value: "sahilhode67@gmail.com", icon: <HiOutlineMail /> },
+    { label: "Phone", value: "+91 8652601566", icon: <HiOutlinePhone /> },
+    { label: "Location", value: "Thane, Mumbai, Maharashtra", icon: <HiOutlineLocationMarker /> },
     { label: "Availability", value: "Open for Freelance & Full-time", icon: <HiOutlineClock /> }
   ];
 
@@ -39,18 +39,18 @@ export default function Footer() {
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "24px" }}>
               {/* Logo icon */}
-              <div style={{ color: "#D9FF00", fontSize: "40px", fontWeight: 900, lineHeight: 1, letterSpacing: "-2px" }}>
+              <div style={{ color: "#A3FF12", fontSize: "40px", fontWeight: 900, lineHeight: 1, letterSpacing: "-2px" }}>
                 SH
               </div>
               <div>
                 <div style={{ fontSize: "20px", fontWeight: 800, letterSpacing: "-0.02em" }}>SAHIL HODE</div>
-                <div style={{ fontSize: "12px", color: "#a1a1aa" }}>Full Stack Developer</div>
+                <div style={{ fontSize: "11px", color: "#a1a1aa" }}>SDE DevOps & AI ML Engineer, Agentic AI Developer</div>
               </div>
             </div>
             <p style={{ color: "#a1a1aa", fontSize: "14px", lineHeight: 1.6, marginBottom: "24px", maxWidth: "260px" }}>
               I build high-performance web applications that are fast, scalable and create real impact.
             </p>
-            <div style={{ width: "40px", height: "2px", background: "#D9FF00", marginBottom: "24px" }} />
+            <div style={{ width: "40px", height: "2px", background: "#A3FF12", marginBottom: "24px" }} />
             <div style={{ display: "flex", gap: "12px" }}>
               {socials.map((social, i) => (
                 <a key={i} href={social.link} style={{
@@ -70,7 +70,7 @@ export default function Footer() {
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
               {quickLinks.map((link, i) => (
                 <li key={i} style={{ display: "flex", alignItems: "center", gap: "8px", color: "#a1a1aa", fontSize: "14px", cursor: "pointer" }}>
-                  <HiChevronRight color="#D9FF00" size={16} />
+                  <HiChevronRight color="#A3FF12" size={16} />
                   {link}
                 </li>
               ))}
@@ -83,7 +83,7 @@ export default function Footer() {
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
               {services.map((service, i) => (
                 <li key={i} style={{ display: "flex", alignItems: "center", gap: "8px", color: "#a1a1aa", fontSize: "14px", cursor: "pointer" }}>
-                  <HiChevronRight color="#D9FF00" size={16} />
+                  <HiChevronRight color="#A3FF12" size={16} />
                   {service}
                 </li>
               ))}
@@ -96,7 +96,7 @@ export default function Footer() {
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
               {tech.map((item, i) => (
                 <li key={i} style={{ display: "flex", alignItems: "center", gap: "10px", color: "#a1a1aa", fontSize: "14px", cursor: "pointer" }}>
-                  <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#D9FF00" }} />
+                  <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#A3FF12" }} />
                   {item}
                 </li>
               ))}
@@ -111,7 +111,7 @@ export default function Footer() {
                 <div key={i} style={{ display: "flex", gap: "16px", alignItems: "center" }}>
                   <div style={{ 
                     width: "36px", height: "36px", borderRadius: "8px", border: "1px solid rgba(217,255,0,0.3)",
-                    display: "flex", alignItems: "center", justifyContent: "center", color: "#D9FF00", fontSize: "16px", flexShrink: 0
+                    display: "flex", alignItems: "center", justifyContent: "center", color: "#A3FF12", fontSize: "16px", flexShrink: 0
                   }}>
                     {info.icon}
                   </div>
@@ -134,7 +134,7 @@ export default function Footer() {
           <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
             <div style={{ 
               width: "56px", height: "56px", borderRadius: "50%", border: "1px solid rgba(217,255,0,0.5)",
-              display: "flex", alignItems: "center", justifyContent: "center", color: "#D9FF00", fontSize: "24px",
+              display: "flex", alignItems: "center", justifyContent: "center", color: "#A3FF12", fontSize: "24px",
               boxShadow: "0 0 15px rgba(217,255,0,0.1)", background: "rgba(217,255,0,0.05)"
             }}>
               <FaPaperPlane style={{ transform: "rotate(-10deg)" }} />
@@ -160,7 +160,7 @@ export default function Footer() {
               }} 
             />
             <button style={{
-              background: "#D9FF00", color: "#000", border: "none", borderRadius: "6px",
+              background: "#A3FF12", color: "#000", border: "none", borderRadius: "6px",
               padding: "10px 20px", fontWeight: 700, fontSize: "14px", cursor: "pointer",
               display: "flex", alignItems: "center", gap: "8px", flexShrink: 0
             }}>
@@ -175,7 +175,7 @@ export default function Footer() {
           <div>© 2024 Sahil Hode. All rights reserved.</div>
           
           <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <HiOutlineHeart color="#D9FF00" size={16} />
+            <HiOutlineHeart color="#A3FF12" size={16} />
             Built with passion and lots of ☕
           </div>
 
