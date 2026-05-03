@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { FaGithub, FaLinkedin, FaTwitter, FaDribbble, FaBehance, FaPaperPlane } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaPaperPlane, FaWhatsapp } from "react-icons/fa";
 import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker, HiOutlineClock, HiChevronRight, HiOutlineHeart, HiOutlineArrowUp } from "react-icons/hi";
 
 export default function Footer() {
@@ -17,11 +17,9 @@ export default function Footer() {
   ];
 
   const socials = [
-    { icon: <FaLinkedin />, link: "#" },
-    { icon: <FaGithub />, link: "#" },
-    { icon: <FaTwitter />, link: "#" },
-    { icon: <FaBehance />, link: "#" },
-    { icon: <FaDribbble />, link: "#" }
+    { icon: <FaLinkedin />, link: "https://www.linkedin.com/in/sahil-hode" },
+    { icon: <FaGithub />, link: "https://github.com/Sahil-Hode" },
+    { icon: <FaWhatsapp />, link: "https://wa.me/918652601566" }
   ];
 
   const scrollToTop = () => {
@@ -53,11 +51,11 @@ export default function Footer() {
             <div style={{ width: "40px", height: "2px", background: "#A3FF12", marginBottom: "24px" }} />
             <div style={{ display: "flex", gap: "12px" }}>
               {socials.map((social, i) => (
-                <a key={i} href={social.link} style={{
-                  width: "36px", height: "36px", borderRadius: "8px", border: "1px solid rgba(255,255,255,0.1)",
-                  display: "flex", alignItems: "center", justifyContent: "center", color: "#a1a1aa",
-                  textDecoration: "none", transition: "all 0.3s ease"
-                }}>
+                <a key={i} href={social.link} target="_blank" rel="noopener noreferrer" style={{ 
+                  width: "44px", height: "44px", background: "rgba(255,255,255,0.02)", borderRadius: "10px",
+                  display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: "18px",
+                  border: "1px solid rgba(255,255,255,0.05)", transition: "all 0.3s ease"
+                }} onMouseOver={(e) => e.currentTarget.style.background = "rgba(255,255,255,0.08)"} onMouseOut={(e) => e.currentTarget.style.background = "rgba(255,255,255,0.02)"}>
                   {social.icon}
                 </a>
               ))}
@@ -126,49 +124,7 @@ export default function Footer() {
 
         </div>
 
-        {/* Newsletter Section */}
-        <div className="responsive-flex newsletter-section" style={{ 
-          padding: "40px 0", borderTop: "1px solid rgba(255,255,255,0.05)", borderBottom: "1px solid rgba(255,255,255,0.05)",
-          display: "flex", justifyContent: "space-between", alignItems: "center", gap: "40px", flexWrap: "wrap"
-        }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
-            <div style={{ 
-              width: "56px", height: "56px", borderRadius: "50%", border: "1px solid rgba(217,255,0,0.5)",
-              display: "flex", alignItems: "center", justifyContent: "center", color: "#A3FF12", fontSize: "24px",
-              boxShadow: "0 0 15px rgba(217,255,0,0.1)", background: "rgba(217,255,0,0.05)"
-            }}>
-              <FaPaperPlane style={{ transform: "rotate(-10deg)" }} />
-            </div>
-            <div>
-              <h3 style={{ fontSize: "20px", fontWeight: 700, marginBottom: "6px" }}>Stay Updated</h3>
-              <p style={{ color: "#a1a1aa", fontSize: "14px", margin: 0, maxWidth: "320px", lineHeight: 1.5 }}>
-                Get the latest updates about my projects, blogs and tech insights.
-              </p>
-            </div>
-          </div>
 
-          <div style={{ 
-            display: "flex", background: "#060606", border: "1px solid rgba(255,255,255,0.1)", 
-            borderRadius: "8px", padding: "6px", width: "400px", maxWidth: "100%" 
-          }}>
-            <input 
-              type="email" 
-              placeholder="Enter your email" 
-              style={{ 
-                background: "transparent", border: "none", color: "#fff", padding: "0 16px",
-                width: "100%", outline: "none", fontSize: "14px"
-              }} 
-            />
-            <button style={{
-              background: "#A3FF12", color: "#000", border: "none", borderRadius: "6px",
-              padding: "10px 20px", fontWeight: 700, fontSize: "14px", cursor: "pointer",
-              display: "flex", alignItems: "center", gap: "8px", flexShrink: 0
-            }}>
-              Subscribe
-              <FaPaperPlane size={12} />
-            </button>
-          </div>
-        </div>
 
         {/* Bottom Section */}
         <div className="responsive-flex" style={{ padding: "30px 0", display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "13px", color: "#71717a", gap: "20px" }}>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { FaGithub, FaLinkedin, FaTwitter, FaDribbble, FaBehance, FaPaperPlane } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaPaperPlane, FaWhatsapp } from "react-icons/fa";
 import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker, HiOutlineClock } from "react-icons/hi";
 
 export default function Contact() {
@@ -42,11 +42,9 @@ export default function Contact() {
   ];
 
   const socials = [
-    { icon: <FaLinkedin />, link: "#" },
-    { icon: <FaGithub />, link: "#" },
-    { icon: <FaTwitter />, link: "#" },
-    { icon: <FaBehance />, link: "#" },
-    { icon: <FaDribbble />, link: "#" }
+    { icon: <FaLinkedin />, link: "https://www.linkedin.com/in/sahil-hode" },
+    { icon: <FaGithub />, link: "https://github.com/Sahil-Hode" },
+    { icon: <FaWhatsapp />, link: "https://wa.me/918652601566" }
   ];
 
   return (
@@ -122,7 +120,7 @@ export default function Contact() {
               <p style={{ color: "#A3FF12", fontSize: "13px", fontWeight: 800, marginBottom: "20px" }}>Follow Me</p>
               <div style={{ display: "flex", gap: "12px" }}>
                 {socials.map((soc, i) => (
-                  <a key={i} href={soc.link} style={{ 
+                  <a key={i} href={soc.link} target="_blank" rel="noopener noreferrer" style={{ 
                     width: "48px", height: "48px", background: "rgba(255,255,255,0.02)", borderRadius: "12px",
                     display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: "20px",
                     border: "1px solid rgba(255,255,255,0.05)", transition: "all 0.3s ease"
