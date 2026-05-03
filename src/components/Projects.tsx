@@ -22,7 +22,7 @@ export default function Projects() {
       category: "MERN Stack",
       desc: "Engineered and deployed a new user analytics dashboard on AWS, providing real-time insights.",
       tech: ["MongoDB", "Express", "React", "Node.js"],
-      image: "https://images.unsplash.com/photo-1551288049-bbda38a5f9a2?auto=format&fit=crop&q=80&w=800",
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800",
       type: "Web Apps"
     },
     {

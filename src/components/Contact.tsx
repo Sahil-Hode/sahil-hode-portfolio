@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin, FaTwitter, FaDribbble, FaBehance, FaPaperPlane } 
 import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker, HiOutlineClock } from "react-icons/hi";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", subject: "", message: "" });
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<{ type: "success" | "error" | null, message: string }>({ type: null, message: "" });
 
@@ -24,7 +24,7 @@ export default function Contact() {
       
       if (res.ok) {
         setStatus({ type: "success", message: "Email sent successfully!" });
-        setFormData({ name: "", email: "", subject: "", message: "" });
+        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
       } else {
         setStatus({ type: "error", message: data.error || "Something went wrong." });
       }
@@ -158,6 +158,14 @@ export default function Contact() {
               <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                 <label style={{ fontSize: "14px", fontWeight: 700, color: "#fff" }}>Your Email</label>
                 <input required type="email" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} placeholder="Enter your email" style={{
+                  background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.08)",
+                  padding: "18px 24px", borderRadius: "12px", color: "#fff", outline: "none", fontSize: "15px"
+                }} />
+              </div>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                <label style={{ fontSize: "14px", fontWeight: 700, color: "#fff" }}>Contact Number</label>
+                <input type="tel" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} placeholder="+91 XXXXXXXXXX" style={{
                   background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.08)",
                   padding: "18px 24px", borderRadius: "12px", color: "#fff", outline: "none", fontSize: "15px"
                 }} />

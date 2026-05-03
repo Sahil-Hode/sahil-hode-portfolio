@@ -32,7 +32,7 @@ export async function POST(req: Request) {
 
     // 2. Parse Body
     const body = await req.json();
-    const { name, email, subject, message } = body;
+    const { name, email, phone, subject, message } = body;
 
     if (!name || !email || !message) {
       return NextResponse.json({ error: 'Name, email, and message are required fields.' }, { status: 400 });
@@ -56,6 +56,7 @@ export async function POST(req: Request) {
       text: `
 Name: ${name}
 Email: ${email}
+Phone: ${phone || 'Not provided'}
 Subject: ${subject}
 
 Message:
@@ -65,6 +66,7 @@ ${message}
         <h3>New Contact Message from Portfolio</h3>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
         <p><strong>Subject:</strong> ${subject}</p>
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, '<br>')}</p>

@@ -8,8 +8,10 @@ export default function CustomCursor() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Only show on non-touch devices
-    if (window.matchMedia("(pointer: coarse)").matches) return;
+    // Only show on non-touch, non-mobile devices
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+    const isMobileWidth = window.innerWidth <= 768;
+    if (isTouchDevice || isMobileWidth) return;
 
     const updatePosition = (e: MouseEvent) => {
       if (!isVisible) setIsVisible(true);
