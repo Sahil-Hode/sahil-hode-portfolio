@@ -21,7 +21,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" style={{ background: "#060606", color: "#fff", padding: "120px 48px", position: "relative" }}>
+    <section id="contact" style={{ background: "#060606", color: "#fff", padding: "40px 48px 120px 48px", position: "relative" }}>
       <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
         
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "100px", alignItems: "start" }}>

@@ -85,7 +85,7 @@ export default function Hero() {
           {/* Image */}
           <div style={{ position: "relative", zIndex: 5, width: "100%", height: "100%", display: "flex", justifyContent: "center" }}>
             <Image 
-              src="/mine.png" 
+              src="https://res.cloudinary.com/dvyxf0plo/image/upload/v1777808344/mine_qsf9ji.png" 
               alt="Sahil Hode" 
               width={450} 
               height={550} 

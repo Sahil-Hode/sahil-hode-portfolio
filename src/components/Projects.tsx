@@ -48,7 +48,7 @@ export default function Projects() {
     : projects.filter(p => p.type === activeFilter);
 
   return (
-    <section id="projects" style={{ background: "#060606", color: "#fff", padding: "120px 48px", position: "relative" }}>
+    <section id="projects" style={{ background: "#060606", color: "#fff", padding: "80px 48px 40px 48px", position: "relative" }}>
       <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
         
         {/* Header */}

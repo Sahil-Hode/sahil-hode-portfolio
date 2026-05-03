@@ -82,7 +82,7 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" style={{ background: "#060606", color: "#fff", padding: "120px 48px", position: "relative" }}>
+    <section id="experience" style={{ background: "#060606", color: "#fff", padding: "40px 48px", position: "relative" }}>
       <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
         
         {/* Header Grid */}
