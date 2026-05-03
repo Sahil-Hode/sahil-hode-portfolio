@@ -186,7 +186,7 @@ export default function Hero() {
 
       {/* ══ MARQUEE ══ */}
       <div style={{ background: "#D9FF00", overflow: "hidden", userSelect: "none", borderTop: "6px solid rgba(0,0,0,0.1)", padding: "18px 0", marginTop: "-110px", position: "relative", zIndex: 30 }}>
-        <div style={{ display: "flex", whiteSpace: "nowrap", animation: "marquee 40s linear infinite" }}>
+        <div style={{ display: "flex", whiteSpace: "nowrap", animation: "marquee 8s linear infinite" }}>
           {[1,2,3,4].map((i) => (
             <div key={i} style={{
               display: "flex", alignItems: "center",
