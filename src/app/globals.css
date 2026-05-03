@@ -81,55 +81,6 @@ body {
     display: none !important;
   }
 
-  /* About: 3-col → 1-col */
-  .about-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Skills: 4-col → 2-col */
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-
-  /* Projects: 4-col → 2-col */
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-
-  /* Footer: 5-col → 2-col + 1fr pattern */
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-
-  /* Experience header: 2-col → 1-col */
-  .responsive-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Stats: 4-col → 2-col */
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-
-  /* About stats bar: horizontal → wrap */
-  .about-stats-bar {
-    flex-wrap: wrap !important;
-    gap: 24px !important;
-  }
-  .about-stats-bar > div {
-    flex: 1 1 auto !important;
-    min-width: 120px !important;
-    border-right: none !important;
-  }
-
-  /* Skills CTA: stack vertically */
-  .skills-cta {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 24px !important;
-    padding: 32px !important;
-  }
-
   /* Padding adjustments */
   section, main, footer {
     padding-left: 24px !important;
@@ -147,17 +98,6 @@ body {
   }
 
   /* ---- NAVBAR ---- */
-  .nav-links-pill {
-    display: none !important;
-  }
-  .hamburger-btn {
-    display: flex !important;
-    z-index: 101;
-    flex-shrink: 0;
-  }
-  .nav-actions {
-    display: none !important;
-  }
   .navbar {
     padding: 12px 16px !important;
     gap: 12px !important;
@@ -219,14 +159,6 @@ body {
     max-width: 100% !important;
     overflow: hidden !important;
   }
-  .hero-photo > div[style*="500px"] {
-    width: 280px !important;
-    height: 280px !important;
-  }
-  .hero-photo > div[style*="420px"] {
-    width: 240px !important;
-    height: 240px !important;
-  }
   .hero-photo img {
     max-width: 100% !important;
     height: auto !important;
@@ -238,143 +170,6 @@ body {
   }
   .hero-grid + div {
     display: none !important;
-  }
-
-  /* ---- ABOUT ---- */
-  .about-grid {
-    grid-template-columns: 1fr !important;
-    gap: 32px !important;
-  }
-  .about-specialties {
-    grid-template-columns: 1fr !important;
-  }
-  .about-stats-bar {
-    flex-wrap: wrap !important;
-    gap: 20px !important;
-    padding: 24px 16px !important;
-    justify-content: center !important;
-  }
-  .about-stats-bar > div {
-    border-right: none !important;
-    flex: 0 0 auto !important;
-    text-align: center !important;
-    min-width: 100px !important;
-  }
-  .about-stats-bar > div p:first-child {
-    font-size: 28px !important;
-  }
-
-  /* ---- SKILLS ---- */
-  .skills-grid {
-    grid-template-columns: 1fr !important;
-  }
-  .skills-header {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 20px !important;
-  }
-  .skills-cta {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 24px !important;
-    padding: 24px !important;
-  }
-  .skills-cta button {
-    width: 100% !important;
-    justify-content: center !important;
-  }
-
-  /* ---- PROJECTS ---- */
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 12px !important;
-  }
-  .project-card {
-    padding: 20px 16px !important;
-  }
-  .project-card h3 {
-    font-size: 15px !important;
-  }
-  .project-card p {
-    font-size: 11px !important;
-    min-height: auto !important;
-  }
-  .responsive-flex {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 20px !important;
-  }
-
-  /* ---- EXPERIENCE ---- */
-  .timeline-content {
-    overflow: hidden !important;
-    gap: 24px !important;
-  }
-  .timeline-date {
-    display: none !important;
-  }
-  .timeline-line {
-    left: 19px !important;
-  }
-  .timeline-item {
-    flex-direction: row !important;
-    max-width: 100% !important;
-  }
-  .timeline-dot-wrapper {
-    width: 40px !important;
-    flex-shrink: 0 !important;
-  }
-  .experience-card {
-    padding: 20px !important;
-    min-width: 0 !important;
-    flex: 1 !important;
-    border-radius: 20px !important;
-    overflow: hidden !important;
-    word-break: break-word !important;
-  }
-  .experience-card h3 {
-    font-size: 18px !important;
-  }
-  .exp-card-header {
-    flex-direction: column !important;
-    gap: 12px !important;
-  }
-  .exp-card-header > div:first-child {
-    gap: 16px !important;
-  }
-  .exp-card-header > div:first-child > div:first-child {
-    width: 48px !important;
-    height: 48px !important;
-    font-size: 22px !important;
-    flex-shrink: 0 !important;
-  }
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    padding: 24px !important;
-  }
-
-  /* ---- CONTACT ---- */
-  .contact-grid {
-    grid-template-columns: 1fr !important;
-    gap: 60px !important;
-  }
-  .contact-info-card {
-    padding: 20px !important;
-    gap: 16px !important;
-  }
-
-  /* ---- FOOTER ---- */
-  .footer-grid {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 40px !important;
-  }
-  .newsletter-section {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 24px !important;
-  }
-  .newsletter-section > div:last-child {
-    width: 100% !important;
   }
 
   /* ---- GLOBAL ---- */
@@ -395,6 +190,7 @@ body {
 
   /* All inputs/textareas full-width */
   input, textarea, select {
+    width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
   }
@@ -421,14 +217,5 @@ body {
   }
   .navbar {
     padding: 12px 16px !important;
-  }
-  .footer-grid {
-    grid-template-columns: 1fr !important;
-  }
-  .about-stats-bar {
-    padding: 16px !important;
-  }
-  .about-stats-bar > div p:first-child {
-    font-size: 24px !important;
   }
 }

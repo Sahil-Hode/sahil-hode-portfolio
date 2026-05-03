@@ -69,14 +69,14 @@ export default function Skills() {
       <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
         
         {/* Header */}
-        <div className="responsive-flex skills-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "60px" }}>
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-10">
           <div>
             <div style={{ width: "100%", height: "1px", background: "linear-gradient(90deg, rgba(217,255,0,0.3) 0%, rgba(217,255,0,0) 100%)", marginBottom: "40px" }} />
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
               <span style={{ color: "#A3FF12", fontSize: "12px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.2em" }}>MY SKILLS</span>
               <div style={{ width: "40px", height: "2px", background: "#A3FF12" }} />
             </div>
-            <h2 style={{ fontSize: "52px", fontWeight: 900, marginBottom: "20px", letterSpacing: "-0.03em" }}>
+            <h2 style={{ fontSize: "clamp(32px, 8vw, 52px)", fontWeight: 900, marginBottom: "20px", letterSpacing: "-0.03em" }}>
               Skills & <span style={{ color: "#A3FF12" }}>Expertise</span>
             </h2>
             <p style={{ color: "#a1a1aa", fontSize: "16px", maxWidth: "500px", lineHeight: 1.6 }}>
@@ -93,7 +93,7 @@ export default function Skills() {
         </div>
 
         {/* Categories Grid */}
-        <div className="responsive-grid skills-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "24px", marginBottom: "60px" }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {categories.map((cat, i) => (
             <div key={i} style={{ 
               background: "rgba(255,255,255,0.02)", padding: "40px 32px", borderRadius: "24px", 
@@ -125,20 +125,16 @@ export default function Skills() {
         </div>
 
         {/* Footer CTA */}
-        <div className="responsive-flex skills-cta" style={{ 
-          background: "rgba(217,255,0,0.03)", padding: "40px 60px", borderRadius: "32px",
-          border: "1px solid rgba(217,255,0,0.1)", display: "flex", justifyContent: "space-between", alignItems: "center",
-          position: "relative", overflow: "hidden"
-        }}>
-          <div style={{ position: "relative", zIndex: 2 }}>
-            <h3 style={{ fontSize: "28px", fontWeight: 900, marginBottom: "8px" }}>Let&apos;s build something amazing together!</h3>
+        <div className="flex flex-col lg:flex-row justify-between items-center bg-white/[0.03] border border-white/[0.08] rounded-[32px] p-8 md:p-12 lg:p-16 relative overflow-hidden gap-10">
+          <div style={{ position: "relative", zIndex: 2, textAlign: "center" }} className="lg:text-left">
+            <h3 style={{ fontSize: "clamp(24px, 5vw, 28px)", fontWeight: 900, marginBottom: "8px" }}>Let&apos;s build something amazing together!</h3>
             <p style={{ color: "#71717a", fontSize: "16px", margin: 0 }}>I&apos;m always open to discussing new opportunities and exciting projects.</p>
           </div>
           <button style={{
             background: "#A3FF12", color: "#000", padding: "18px 40px", borderRadius: "16px",
             fontWeight: 800, fontSize: "16px", border: "none", cursor: "pointer", 
             display: "flex", alignItems: "center", gap: "12px", zIndex: 2,
-            boxShadow: "0 10px 30px rgba(217,255,0,0.2)"
+            boxShadow: "0 10px 30px rgba(217,255,0,0.2)", width: "100%", maxWidth: "300px", justifyContent: "center"
           }}>
             Let&apos;s Connect
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M7 17l9.2-9.2M17 17V7H7" /></svg>

@@ -78,12 +78,8 @@ export default function Projects() {
           </h2>
         </div>
 
-        {/* Projects Grid — 4 columns */}
-        <div className="projects-grid" style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap: "24px"
-        }}>
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {projects.map((project, i) => (
             <div key={i} className="project-card" style={{
               background: "rgba(255,255,255,0.02)",

@@ -31,10 +31,10 @@ export default function Footer() {
       <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 24px" }}>
         
         {/* Top Grid */}
-        <div className="responsive-grid footer-grid" style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr 1fr 1.5fr", gap: "40px", marginBottom: "80px" }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-20">
           
           {/* Col 1: Brand */}
-          <div>
+          <div className="md:col-span-2 lg:col-span-1">
             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "24px" }}>
               {/* Logo icon */}
               <div style={{ color: "#A3FF12", fontSize: "40px", fontWeight: 900, lineHeight: 1, letterSpacing: "-2px" }}>
@@ -113,8 +113,8 @@ export default function Footer() {
                   }}>
                     {info.icon}
                   </div>
-                  <div>
-                    <div style={{ color: "#fff", fontSize: "13px", fontWeight: 500, marginBottom: "2px" }}>{info.value}</div>
+                  <div style={{ minWidth: 0, flex: 1 }}>
+                    <div style={{ color: "#fff", fontSize: "13px", fontWeight: 500, marginBottom: "2px", wordBreak: "break-all" }}>{info.value}</div>
                     <div style={{ color: "#71717a", fontSize: "11px" }}>{info.label}</div>
                   </div>
                 </div>
@@ -127,15 +127,15 @@ export default function Footer() {
 
 
         {/* Bottom Section */}
-        <div className="responsive-flex" style={{ padding: "30px 0", display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "13px", color: "#71717a", gap: "20px" }}>
+        <div className="flex flex-col md:flex-row justify-between items-center py-8 gap-6 border-t border-white/5 text-[13px] color-[#71717a]">
           <div>© 2024 Sahil Hode. All rights reserved.</div>
           
-          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <div className="flex items-center gap-2">
             <HiOutlineHeart color="#A3FF12" size={16} />
             Built with passion and lots of ☕
           </div>
 
-          <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
+          <div className="flex items-center gap-6">
             <div>Privacy Policy &nbsp;|&nbsp; Terms of Use</div>
             <button 
               onClick={scrollToTop}

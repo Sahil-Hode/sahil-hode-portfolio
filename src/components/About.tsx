@@ -9,10 +9,10 @@ export default function About() {
       <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
         
         {/* About Grid */}
-        <div className="responsive-grid about-grid" style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr 1.8fr", gap: "40px", marginBottom: "80px" }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16 mb-20">
           
           {/* Column 1 — Bio */}
-          <div>
+          <div className="lg:col-span-1">
             <p style={{ color: "#A3FF12", fontSize: "12px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: "12px" }}>
               GET TO KNOW ME
             </p>
@@ -66,9 +66,9 @@ export default function About() {
           </div>
 
           {/* Column 3 — Specialties Grid */}
-          <div style={{ background: "rgba(255,255,255,0.02)", padding: "40px", borderRadius: "24px", border: "1px solid rgba(255,255,255,0.05)" }}>
+          <div className="md:col-span-2 lg:col-span-1" style={{ background: "rgba(255,255,255,0.02)", padding: "40px", borderRadius: "24px", border: "1px solid rgba(255,255,255,0.05)" }}>
             <h3 style={{ fontSize: "20px", fontWeight: 800, marginBottom: "32px" }}>What I Do Best</h3>
-            <div className="responsive-grid about-specialties" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px" }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-8">
               {[
                 { title: "User-Centered Design", desc: "Designing intuitive interfaces that users love." },
                 { title: "AI-Enhanced Solutions", desc: "Integrating AI tools to automate workflows." },
@@ -92,17 +92,14 @@ export default function About() {
         </div>
 
         {/* Bottom Horizontal Stats Bar */}
-        <div className="responsive-flex about-stats-bar" style={{ 
-          background: "rgba(255,255,255,0.03)", padding: "40px", borderRadius: "24px", border: "1px solid rgba(255,255,255,0.05)",
-          display: "flex", justifyContent: "space-between", alignItems: "center"
-        }}>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 bg-white/[0.03] p-10 rounded-[24px] border border-white/[0.05]">
           {[
             { val: "10+", label: "Tech Stack" },
             { val: "2", label: "Work Experience" },
             { val: "BCA", label: "Current Education" },
             { val: "100%", label: "Open To Work" }
           ].map((stat, i) => (
-            <div key={i} style={{ textAlign: "center", flex: 1, borderRight: i === 3 ? "none" : "1px solid rgba(255,255,255,0.05)" }}>
+            <div key={i} className={`text-center px-4 ${i !== 3 ? 'lg:border-r border-white/[0.05]' : ''}`}>
               <p style={{ fontSize: "36px", fontWeight: 900, color: "#A3FF12", margin: "0 0 4px" }}>{stat.val}</p>
               <p style={{ fontSize: "11px", color: "#71717a", fontWeight: 700, textTransform: "uppercase" }}>{stat.label}</p>
             </div>

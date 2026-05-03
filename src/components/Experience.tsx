@@ -65,13 +65,13 @@ export default function Experience() {
       <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
         
         {/* Header Grid */}
-        <div className="responsive-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1.5fr", gap: "60px", marginBottom: "80px" }}>
-          <div>
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center mb-20">
+          <div className="lg:col-span-2">
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
               <span style={{ color: "#A3FF12", fontSize: "12px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.2em" }}>MY JOURNEY</span>
               <div style={{ width: "40px", height: "2px", background: "#A3FF12" }} />
             </div>
-            <h2 style={{ fontSize: "52px", fontWeight: 900, marginBottom: "20px", letterSpacing: "-0.03em" }}>
+            <h2 style={{ fontSize: "clamp(32px, 8vw, 52px)", fontWeight: 900, marginBottom: "20px", letterSpacing: "-0.03em" }}>
               Experience & <span style={{ color: "#A3FF12" }}>Journey</span>
             </h2>
             <p style={{ color: "#a1a1aa", fontSize: "16px", maxWidth: "400px", lineHeight: 1.6 }}>
@@ -80,12 +80,9 @@ export default function Experience() {
           </div>
 
           {/* Stats Box */}
-          <div className="responsive-grid stats-grid" style={{ 
-            background: "rgba(255,255,255,0.02)", padding: "40px", borderRadius: "32px",
-            border: "1px solid rgba(255,255,255,0.05)", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "20px"
-          }}>
+          <div className="lg:col-span-3 grid grid-cols-2 sm:grid-cols-4 gap-6 bg-white/[0.02] p-8 md:p-10 rounded-[32px] border border-white/[0.05]">
             {stats.map((s, i) => (
-              <div key={i} style={{ textAlign: "center" }}>
+              <div key={i} className="text-center">
                 <div style={{ color: "#A3FF12", fontSize: "24px", marginBottom: "12px", display: "flex", justifyContent: "center" }}>{s.icon}</div>
                 <div style={{ fontSize: "28px", fontWeight: 900, marginBottom: "4px" }}>{s.value}</div>
                 <div style={{ fontSize: "11px", fontWeight: 700, color: "#71717a", textTransform: "uppercase", letterSpacing: "0.05em" }}>{s.label}</div>
@@ -95,26 +92,22 @@ export default function Experience() {
         </div>
 
         {/* Timeline Content */}
-        <div className="timeline-content" style={{ display: "flex", flexDirection: "column", gap: "40px", position: "relative", maxWidth: "100%" }}>
+        <div className="flex flex-col gap-10 relative max-w-full">
           
-          {/* Vertical Line */}
-          <div className="timeline-line" style={{ 
-            position: "absolute", left: "189px", top: "16px", bottom: "10px", width: "2px", 
-            background: "linear-gradient(to bottom, rgba(217,255,0,0.3) 0%, rgba(217,255,0,0) 100%)",
-            zIndex: 1
-          }} />
+          {/* Vertical Line - Hidden on mobile */}
+          <div className="hidden lg:block absolute left-[189px] top-4 bottom-2.5 w-[2px] bg-gradient-to-b from-[#A3FF12]/30 to-transparent z-[1]" />
 
           {experiences.map((exp, i) => (
-            <div key={i} className="timeline-item" style={{ display: "flex" }}>
+            <div key={i} className="flex flex-col lg:flex-row gap-6 lg:gap-0">
               
               {/* Date Column */}
-              <div className="timeline-date" style={{ width: "160px", textAlign: "left", paddingTop: "12px", flexShrink: 0 }}>
+              <div className="lg:w-[160px] text-left pt-3 shrink-0">
                 <div style={{ fontSize: "16px", fontWeight: 800, color: "#A3FF12", marginBottom: "4px" }}>{exp.date}</div>
                 <div style={{ fontSize: "13px", color: "#a1a1aa", fontWeight: 600 }}>{exp.duration}</div>
               </div>
 
-              {/* Glowing Dot Wrapper */}
-              <div className="timeline-dot-wrapper" style={{ width: "60px", display: "flex", justifyContent: "center", paddingTop: "12px", flexShrink: 0, zIndex: 2 }}>
+              {/* Glowing Dot Wrapper - Hidden on small screens */}
+              <div className="hidden lg:flex w-[60px] justify-center pt-3 shrink-0 z-[2]">
                 <div style={{ 
                   width: "24px", height: "24px", borderRadius: "50%", border: "2px solid rgba(217,255,0,0.5)",
                   display: "flex", alignItems: "center", justifyContent: "center", background: "#060606"
@@ -127,23 +120,23 @@ export default function Experience() {
               <div style={{ 
                 flex: 1, background: "rgba(255,255,255,0.02)", padding: "40px", borderRadius: "32px",
                 border: "1px solid rgba(255,255,255,0.05)", borderLeft: "4px solid #A3FF12",
-                transition: "all 0.3s ease", position: "relative"
+                transition: "all 0.3s ease", position: "relative", minWidth: 0
               }} className="experience-card">
                 
-                <div className="responsive-flex exp-card-header" style={{ display: "flex", justifyContent: "space-between", marginBottom: "24px" }}>
-                  <div style={{ display: "flex", gap: "24px" }}>
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+                  <div className="flex gap-4 sm:gap-6">
                     <div style={{ 
                       width: "60px", height: "60px", background: "rgba(217,255,0,0.05)", borderRadius: "16px",
-                      display: "flex", alignItems: "center", justifyContent: "center", color: "#A3FF12", fontSize: "28px"
+                      display: "flex", alignItems: "center", justifyContent: "center", color: "#A3FF12", fontSize: "28px", shrink: 0
                     }}>
                       {exp.icon}
                     </div>
                     <div>
-                      <h3 style={{ fontSize: "26px", fontWeight: 800, marginBottom: "4px" }}>{exp.role}</h3>
+                      <h3 style={{ fontSize: "22px", md: "26px", fontWeight: 800, marginBottom: "4px" }}>{exp.role}</h3>
                       <p style={{ color: "#A3FF12", fontSize: "16px", fontWeight: 700 }}>{exp.company}</p>
                     </div>
                   </div>
-                  <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#71717a", fontSize: "14px", fontWeight: 600 }}>
+                  <div className="flex items-center gap-2 text-[#71717a] text-sm font-semibold">
                     <HiOutlineLocationMarker />
                     {exp.location}
                   </div>
@@ -165,7 +158,7 @@ export default function Experience() {
                   </div>
                 </div>
 
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
+                <div className="flex flex-wrap gap-3">
                   {exp.tech.map((t, j) => (
                     <div key={j} style={{ 
                       display: "flex", alignItems: "center", gap: "10px",
@@ -182,9 +175,6 @@ export default function Experience() {
             </div>
           ))}
         </div>
-
-
-
       </div>
     </section>
   );
