@@ -10,19 +10,19 @@ export default function Projects() {
 
   const projects = [
     {
-      title: "AI Analytics Dashboard",
-      category: "Web Application",
-      desc: "Real-time analytics dashboard for tracking key metrics and generating insights.",
-      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Chart.js"],
-      image: "https://images.unsplash.com/photo-1551288049-bbda38a5f9a2?auto=format&fit=crop&q=80&w=800",
+      title: "AI-Powered Code Reviewer",
+      category: "AI Tool",
+      desc: "Built an intelligent code review platform integrated with Gemini AI API for real-time feedback and analysis.",
+      tech: ["React", "Node.js", "Express.js", "Gemini AI"],
+      image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=800",
       type: "AI"
     },
     {
-      title: "Modern E-Commerce Store",
-      category: "Web Application",
-      desc: "Full-stack e-commerce platform with product management, cart, and secure payments.",
-      tech: ["Next.js", "Node.js", "MongoDB", "Stripe"],
-      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=800",
+      title: "User Analytics Dashboard",
+      category: "MERN Stack",
+      desc: "Engineered and deployed a new user analytics dashboard on AWS, providing real-time insights.",
+      tech: ["MongoDB", "Express", "React", "Node.js"],
+      image: "https://images.unsplash.com/photo-1551288049-bbda38a5f9a2?auto=format&fit=crop&q=80&w=800",
       type: "Web Apps"
     },
     {

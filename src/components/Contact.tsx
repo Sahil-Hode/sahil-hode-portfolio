@@ -7,7 +7,7 @@ import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker, HiOutlineClock 
 export default function Contact() {
   const contactInfo = [
     { label: "Email", value: "sahil.hode@example.com", icon: <HiOutlineMail /> },
-    { label: "Phone", value: "+91 12345 67890", icon: <HiOutlinePhone /> },
+    { label: "Phone", value: "+91 8652601566", icon: <HiOutlinePhone /> },
     { label: "Location", value: "Kolkata, West Bengal, India", icon: <HiOutlineLocationMarker /> },
     { label: "Availability", value: "Open for Freelance & Full-time", icon: <HiOutlineClock /> }
   ];

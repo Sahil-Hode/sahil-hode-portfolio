@@ -2,81 +2,60 @@
 
 import React from "react";
 import { 
-  SiNextdotjs, SiReact, SiNodedotjs, SiTypescript, SiMongodb, 
-  SiTailwindcss, SiJavascript, SiFigma, SiHtml5, SiBootstrap 
+  SiNextdotjs, SiReact, SiNodedotjs, SiMongodb, 
+  SiPython, SiNestjs, SiExpress
 } from "react-icons/si";
-import { HiOutlineBriefcase, HiOutlineCode, HiOutlineDesktopComputer, HiCheckCircle, HiOutlineLocationMarker, HiOutlineUserGroup } from "react-icons/hi";
-import { TbTrophy, TbBrandCss3 } from "react-icons/tb";
+import { HiOutlineBriefcase, HiOutlineCode, HiCheckCircle, HiOutlineLocationMarker, HiOutlineUserGroup, HiOutlineServer } from "react-icons/hi";
+import { TbTrophy, TbRoute } from "react-icons/tb";
 
 export default function Experience() {
   const stats = [
-    { label: "Years Experience", value: "3+", icon: <HiOutlineBriefcase /> },
-    { label: "Projects Completed", value: "15+", icon: <HiOutlineCode /> },
-    { label: "Happy Clients", value: "10+", icon: <HiOutlineUserGroup /> },
-    { label: "Technologies Mastered", value: "5+", icon: <TbTrophy /> }
+    { label: "Live Projects", value: "10+", icon: <HiOutlineCode /> },
+    { label: "Work Experiences", value: "2", icon: <HiOutlineBriefcase /> },
+    { label: "AI Tools Built", value: "5+", icon: <HiOutlineServer /> },
+    { label: "Tech Stack", value: "15+", icon: <TbTrophy /> }
   ];
 
   const experiences = [
     {
-      date: "2023 – Present",
-      duration: "1.5+ Years",
-      role: "Full Stack Developer",
-      company: "TechNova Solutions",
-      location: "Remote",
+      date: "Jan 2026 – Apr 2026",
+      duration: "4 Months",
+      role: "Software Developer & LLM Apps",
+      company: "Yours Faithfully Advisors LLP",
+      location: "Ghansoli, Navi Mumbai (On-site)",
       icon: <HiOutlineBriefcase />,
-      desc: "Building scalable web applications and AI-powered tools for clients across various industries. Leading the development of high-performance solutions with modern technologies.",
+      desc: "Developing and optimizing LLM-based applications and software solutions for complex business workflows.",
       achievements: [
-        "Delivered 10+ production-grade applications",
-        "Improved application performance by 40%",
-        "Integrated AI features that enhanced user experience"
+        "Architecting AI-driven automation systems",
+        "Building scalable enterprise-grade software",
+        "Collaborating on-site with core development teams"
       ],
       tech: [
+        { name: "Python", icon: <SiPython /> },
+        { name: "LangChain", icon: <TbRoute /> },
         { name: "Next.js", icon: <SiNextdotjs /> },
+        { name: "NestJS", icon: <SiNestjs /> }
+      ]
+    },
+    {
+      date: "Aug 2025 – Jan 2026",
+      duration: "6 Months",
+      role: "Full Stack Developer Intern",
+      company: "Gristip Software Private Limited",
+      location: "Thane (Remote)",
+      icon: <HiOutlineCode />,
+      desc: "Engineered and deployed user analytics dashboards and refactored API integration points for live web and mobile projects.",
+      achievements: [
+        "10% increase in user engagement tracking via MERN dashboards",
+        "Reduced data load times by 30% through API refactoring",
+        "Automated deployment with CI/CD (GitHub Actions/AWS)"
+      ],
+      tech: [
+        { name: "MongoDB", icon: <SiMongodb /> },
+        { name: "Express.js", icon: <SiExpress /> },
         { name: "React", icon: <SiReact /> },
         { name: "Node.js", icon: <SiNodedotjs /> },
-        { name: "TypeScript", icon: <SiTypescript /> },
-        { name: "MongoDB", icon: <SiMongodb /> }
-      ]
-    },
-    {
-      date: "2022 – 2023",
-      duration: "1 Year",
-      role: "Frontend Developer",
-      company: "Pixel Perfect Studios",
-      location: "Remote",
-      icon: <HiOutlineCode />,
-      desc: "Developed responsive and interactive user interfaces for web applications and collaborated with designers to bring ideas to life.",
-      achievements: [
-        "Built 15+ responsive websites",
-        "Improved UI/UX and performance",
-        "Maintained 95%+ client satisfaction"
-      ],
-      tech: [
-        { name: "React", icon: <SiReact /> },
-        { name: "Next.js", icon: <SiNextdotjs /> },
-        { name: "Tailwind CSS", icon: <SiTailwindcss /> },
-        { name: "JavaScript", icon: <SiJavascript /> },
-        { name: "Figma", icon: <SiFigma /> }
-      ]
-    },
-    {
-      date: "2021 – 2022",
-      duration: "1 Year",
-      role: "Web Developer Intern",
-      company: "CodeCraft IT Solutions",
-      location: "Kolkata, India",
-      icon: <HiOutlineDesktopComputer />,
-      desc: "Worked on real-world projects, learned modern technologies and best practices in web development.",
-      achievements: [
-        "Completed 5+ client projects",
-        "Assisted in building internal tools",
-        "Gained strong foundation in full-stack development"
-      ],
-      tech: [
-        { name: "HTML", icon: <SiHtml5 /> },
-        { name: "CSS", icon: <TbBrandCss3 /> },
-        { name: "JavaScript", icon: <SiJavascript /> },
-        { name: "Bootstrap", icon: <SiBootstrap /> }
+        { name: "AWS", icon: <HiOutlineServer /> }
       ]
     }
   ];

@@ -19,7 +19,7 @@ export default function Navbar() {
         }}>SH</div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <h1 style={{ fontSize: "18px", fontWeight: 900, margin: 0, letterSpacing: "0.02em", color: "#fff" }}>SAHIL HODE</h1>
-          <p style={{ fontSize: "11px", color: "#71717a", margin: 0, fontWeight: 600, letterSpacing: "0.05em" }}>UI/UX Designer &amp; Developer</p>
+          <p style={{ fontSize: "11px", color: "#71717a", margin: 0, fontWeight: 600, letterSpacing: "0.05em" }}>Full Stack Developer | SDE | AI Agent Developer</p>
         </div>
       </div>
 

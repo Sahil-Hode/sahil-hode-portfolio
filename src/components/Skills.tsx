@@ -2,61 +2,63 @@
 
 import React from "react";
 import { 
-  SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiHtml5, 
-  SiNodedotjs, SiExpress, SiMongodb, SiPostman, SiOpenai,
-  SiDocker, SiVercel, SiGithub, SiJsonwebtokens
+  SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, 
+  SiNodedotjs, SiMongodb, SiOpenai,
+  SiDocker, SiVercel, SiPython,
+  SiPostgresql, SiFlutter, SiRailway,
+  SiGitlab, SiBun
 } from "react-icons/si";
 import { HiOutlineLightningBolt, HiOutlineServer, HiOutlineCog, HiOutlineSparkles } from "react-icons/hi";
-import { TbCloudCode, TbInfinity, TbRoute, TbDatabase, TbBrain } from "react-icons/tb";
+import { TbCloudCode, TbInfinity, TbRoute, TbBrain } from "react-icons/tb";
 
 export default function Skills() {
   const categories = [
     {
-      title: "Frontend Development",
+      title: "Frontend & Mobile",
       icon: <HiOutlineLightningBolt />,
-      desc: "Building responsive, interactive and high-performance user interfaces.",
+      desc: "Building high-performance interfaces for web and mobile platforms.",
       skills: [
-        { name: "React", icon: <SiReact color="#61DAFB" /> },
         { name: "Next.js", icon: <SiNextdotjs color="#fff" /> },
+        { name: "React / Native", icon: <SiReact color="#61DAFB" /> },
         { name: "TypeScript", icon: <SiTypescript color="#3178C6" /> },
-        { name: "Tailwind CSS", icon: <SiTailwindcss color="#06B6D4" /> },
-        { name: "HTML5 & CSS3", icon: <SiHtml5 color="#E34F26" /> }
+        { name: "Flutter & Dart", icon: <SiFlutter color="#02569B" /> },
+        { name: "Tailwind CSS", icon: <SiTailwindcss color="#06B6D4" /> }
       ]
     },
     {
-      title: "Backend Development",
+      title: "Backend & DB",
       icon: <HiOutlineServer />,
-      desc: "Creating robust APIs and scalable server-side applications.",
+      desc: "Architecting scalable server-side systems and robust databases.",
       skills: [
-        { name: "Node.js", icon: <SiNodedotjs color="#339933" /> },
-        { name: "Express.js", icon: <SiExpress color="#fff" /> },
+        { name: "Node / NestJS", icon: <SiNodedotjs color="#339933" /> },
+        { name: "Bun / Express", icon: <SiBun color="#fff" /> },
         { name: "MongoDB", icon: <SiMongodb color="#47A248" /> },
-        { name: "REST APIs", icon: <TbCloudCode color="#D9FF00" /> },
-        { name: "Auth (JWT)", icon: <SiJsonwebtokens color="#D9FF00" /> }
+        { name: "Postgres / MySQL", icon: <SiPostgresql color="#4169E1" /> },
+        { name: "REST APIs", icon: <TbCloudCode color="#D9FF00" /> }
       ]
     },
     {
-      title: "Tools & DevOps",
+      title: "DevOps & Cloud",
       icon: <HiOutlineCog />,
-      desc: "Using modern tools to streamline development and deployment.",
+      desc: "Managing deployments, CI/CD pipelines, and cloud infrastructure.",
       skills: [
-        { name: "Git & GitHub", icon: <SiGithub color="#fff" /> },
-        { name: "Docker", icon: <SiDocker color="#2496ED" /> },
-        { name: "Vercel", icon: <SiVercel color="#fff" /> },
-        { name: "Postman", icon: <SiPostman color="#FF6C37" /> },
+        { name: "Docker & Git", icon: <SiDocker color="#2496ED" /> },
+        { name: "GitHub / GitLab", icon: <SiGitlab color="#FC6D26" /> },
+        { name: "Vercel / Netlify", icon: <SiVercel color="#fff" /> },
+        { name: "AWS / Railway", icon: <SiRailway color="#fff" /> },
         { name: "CI / CD", icon: <TbInfinity color="#D9FF00" /> }
       ]
     },
     {
-      title: "AI & Advanced",
+      title: "AI & Automation",
       icon: <HiOutlineSparkles />,
-      desc: "Integrating AI capabilities and building smart solutions.",
+      desc: "Integrating LLMs and building autonomous AI agent workflows.",
       skills: [
-        { name: "OpenAI API", icon: <SiOpenai color="#412991" /> },
-        { name: "AI Workflows", icon: <TbBrain color="#D9FF00" /> },
+        { name: "Python", icon: <SiPython color="#3776AB" /> },
         { name: "LangChain", icon: <TbRoute color="#D9FF00" /> },
-        { name: "Automation", icon: <HiOutlineLightningBolt color="#D9FF00" /> },
-        { name: "Vector DB", icon: <TbDatabase color="#D9FF00" /> }
+        { name: "RAG Systems", icon: <TbBrain color="#D9FF00" /> },
+        { name: "Gemini / OpenAI", icon: <SiOpenai color="#412991" /> },
+        { name: "Automation", icon: <HiOutlineLightningBolt color="#D9FF00" /> }
       ]
     }
   ];

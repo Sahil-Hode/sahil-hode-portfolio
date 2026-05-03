@@ -20,11 +20,11 @@ export default function Hero() {
             Hello, I&apos;m Sahil 👋
           </p>
           <h1 style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 900, lineHeight: 1.1, letterSpacing: "-0.03em", marginBottom: "24px" }}>
-            I build digital products <br />
-            that drive real <span style={{ color: "#D9FF00" }}>impact.</span>
+            Results-driven <br />
+            Full-Stack <span style={{ color: "#D9FF00" }}>SDE.</span>
           </h1>
           <p style={{ color: "#a1a1aa", fontSize: "18px", lineHeight: 1.6, maxWidth: "540px", marginBottom: "40px" }}>
-            I&apos;m a full-stack developer and AI enthusiast who loves building scalable, user-friendly web applications. I help startups and businesses turn ideas into high-performance products.
+            Specializing in building scalable, AI-integrated applications. Experienced in Next.js, React, Node.js, Express, MongoDB, and cloud deployment. AI Agent Developer skilled in Python, LangChain, and RAG.
           </p>
 
           {/* CTAs */}

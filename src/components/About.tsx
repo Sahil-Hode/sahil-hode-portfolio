@@ -19,24 +19,24 @@ export default function About() {
             <div style={{ width: "40px", height: "4px", background: "#D9FF00", marginBottom: "32px" }} />
             
             <p style={{ color: "#a1a1aa", fontSize: "15px", lineHeight: 1.7, marginBottom: "24px" }}>
-              With a passion for clean design and efficient code, I create digital experiences that are not only visually appealing but also functional, accessible, and scalable.
+              I am a results-driven Full-Stack SDE specializing in building scalable, AI-integrated applications. Recognized for innovative problem-solving, I am passionate about delivering production-ready solutions that drive performance and impact.
             </p>
             <p style={{ color: "#a1a1aa", fontSize: "15px", lineHeight: 1.7, marginBottom: "32px" }}>
-              I&apos;ve worked with clients across different industries, delivering solutions that solve real problems and drive business growth.
+              Currently pursuing a Bachelor of Computer Application (2024-2027) with a focus on programming fundamentals, data structures, and web development.
             </p>
 
-            <div style={{ display: "flex", gap: "16px", marginBottom: "32px" }}>
+            <div style={{ display: "flex", gap: "16px", marginBottom: "32px", flexWrap: "wrap" }}>
               <div style={{ 
                 background: "rgba(255,255,255,0.03)", padding: "12px 20px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)",
                 display: "flex", alignItems: "center", gap: "10px", fontSize: "13px", fontWeight: 600, color: "#a1a1aa"
               }}>
-                📍 Kolkata, India
+                📍 Thane, Maharashtra
               </div>
               <div style={{ 
                 background: "rgba(255,255,255,0.03)", padding: "12px 20px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)",
                 display: "flex", alignItems: "center", gap: "10px", fontSize: "13px", fontWeight: 600, color: "#a1a1aa"
               }}>
-                📅 Available Worldwide
+                📅 BCA 2024-2027
               </div>
             </div>
 
@@ -50,13 +50,12 @@ export default function About() {
           </div>
 
           {/* Column 2 — Stats List */}
-          <div style={{ background: "rgba(255,255,255,0.02)", padding: "40px", borderRadius: "24px", border: "1px solid rgba(255,255,255,0.05)", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+          <div style={{ background: "rgba(255,255,255,0.02)", padding: "40px", borderRadius: "24px", border: "1px solid rgba(255,255,255,0.05)", display: "flex", flexDirection: "column", gap: "24px", justifyContent: "center" }}>
             {[
-              { val: "10+", label: "Years Experience" },
-              { val: "300+", label: "Happy Clients" },
-              { val: "200+", label: "Projects Completed" },
-              { val: "50+", label: "Tech Integrations" },
-              { val: "99%", label: "Client Satisfaction" }
+              { val: "2+", label: "Internships" },
+              { val: "10+", label: "Live Projects" },
+              { val: "5+", label: "AI Integrations" },
+              { val: "100%", label: "Dedication" }
             ].map((stat, i) => (
               <div key={i} style={{ display: "flex", alignItems: "center", gap: "20px" }}>
                 <span style={{ fontSize: "32px", fontWeight: 900, color: "#D9FF00" }}>{stat.val}</span>
@@ -97,13 +96,12 @@ export default function About() {
           display: "flex", justifyContent: "space-between", alignItems: "center"
         }}>
           {[
-            { val: "300+", label: "Happy Clients" },
-            { val: "200+", label: "Projects Completed" },
-            { val: "10+", label: "Years Experience" },
-            { val: "1K+", label: "Cups of Coffee" },
-            { val: "99%", label: "Client Satisfaction" }
+            { val: "10+", label: "Tech Stack" },
+            { val: "2", label: "Work Experience" },
+            { val: "BCA", label: "Current Education" },
+            { val: "100%", label: "Open To Work" }
           ].map((stat, i) => (
-            <div key={i} style={{ textAlign: "center", flex: 1, borderRight: i === 4 ? "none" : "1px solid rgba(255,255,255,0.05)" }}>
+            <div key={i} style={{ textAlign: "center", flex: 1, borderRight: i === 3 ? "none" : "1px solid rgba(255,255,255,0.05)" }}>
               <p style={{ fontSize: "36px", fontWeight: 900, color: "#D9FF00", margin: "0 0 4px" }}>{stat.val}</p>
               <p style={{ fontSize: "11px", color: "#71717a", fontWeight: 700, textTransform: "uppercase" }}>{stat.label}</p>
             </div>
