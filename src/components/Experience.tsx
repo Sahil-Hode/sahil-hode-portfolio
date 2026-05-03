@@ -127,12 +127,12 @@ export default function Experience() {
                   <div className="flex gap-4 sm:gap-6">
                     <div style={{ 
                       width: "60px", height: "60px", background: "rgba(217,255,0,0.05)", borderRadius: "16px",
-                      display: "flex", alignItems: "center", justifyContent: "center", color: "#A3FF12", fontSize: "28px", shrink: 0
+                      display: "flex", alignItems: "center", justifyContent: "center", color: "#A3FF12", fontSize: "28px", flexShrink: 0
                     }}>
                       {exp.icon}
                     </div>
                     <div>
-                      <h3 style={{ fontSize: "22px", md: "26px", fontWeight: 800, marginBottom: "4px" }}>{exp.role}</h3>
+                      <h3 style={{ fontSize: "clamp(22px, 4vw, 26px)", fontWeight: 800, marginBottom: "4px" }}>{exp.role}</h3>
                       <p style={{ color: "#A3FF12", fontSize: "16px", fontWeight: 700 }}>{exp.company}</p>
                     </div>
                   </div>
