@@ -41,6 +41,7 @@
 html, body {
   overflow-x: hidden;
   max-width: 100vw;
+  position: relative;
 }
 
 body {
@@ -201,6 +202,14 @@ body {
   .hero-photo img {
     max-width: 100% !important;
     height: auto !important;
+  }
+  .hero-photo > div:last-child {
+    right: 5% !important;
+    bottom: 5% !important;
+    transform: scale(0.85) !important;
+  }
+  .hero-grid + div {
+    display: none !important;
   }
 
   /* ---- ABOUT ---- */
