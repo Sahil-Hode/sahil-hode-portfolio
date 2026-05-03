@@ -1,10 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  
   return (
-    <nav style={{
+    <nav className="navbar" style={{
       display: "flex", justifyContent: "space-between", alignItems: "center",
       padding: "20px 32px", position: "relative", zIndex: 100, maxWidth: "1400px", margin: "0 auto", width: "100%"
     }}>
@@ -17,18 +19,37 @@ export default function Navbar() {
         }}>SH</div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <h1 style={{ fontSize: "18px", fontWeight: 900, margin: 0, letterSpacing: "0.02em", color: "#fff" }}>SAHIL HODE</h1>
-          <p style={{ fontSize: "11px", color: "#71717a", margin: 0, fontWeight: 600, letterSpacing: "0.05em" }}>UI/UX Designer & Developer</p>
+          <p style={{ fontSize: "11px", color: "#71717a", margin: 0, fontWeight: 600, letterSpacing: "0.05em" }}>UI/UX Designer &amp; Developer</p>
         </div>
       </div>
 
+      {/* Hamburger (mobile only) */}
+      <button 
+        className="hamburger-btn"
+        onClick={() => setMenuOpen(!menuOpen)}
+        style={{
+          display: "none", background: "transparent", border: "1px solid rgba(255,255,255,0.1)",
+          borderRadius: "8px", padding: "8px", color: "#fff", cursor: "pointer",
+          width: "44px", height: "44px", alignItems: "center", justifyContent: "center"
+        }}
+      >
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+          {menuOpen ? (
+            <><path d="M18 6L6 18" /><path d="M6 6l12 12" /></>
+          ) : (
+            <><path d="M4 6h16" /><path d="M4 12h16" /><path d="M4 18h16" /></>
+          )}
+        </svg>
+      </button>
+
       {/* Nav Links Pill */}
-      <div style={{
+      <div className="nav-links-pill" style={{
         display: "flex", background: "rgba(255,255,255,0.03)", backdropFilter: "blur(20px)",
         padding: "10px 32px", borderRadius: "999px", gap: "28px", border: "1px solid rgba(255,255,255,0.08)",
         boxShadow: "0 4px 24px rgba(0,0,0,0.2)"
       }}>
         {["Home", "About", "Skills", "Projects", "Experience", "Contact"].map((item) => (
-          <a key={item} href={`#${item.toLowerCase()}`} style={{
+          <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMenuOpen(false)} style={{
             fontSize: "18px", fontWeight: 400, color: item === "Home" ? "#D9FF00" : "#a1a1aa",
             textDecoration: "none", transition: "all 0.3s ease", position: "relative",
             display: "flex", flexDirection: "column", alignItems: "center"
@@ -44,8 +65,40 @@ export default function Navbar() {
         ))}
       </div>
 
+      {/* Mobile Menu Overlay */}
+      {menuOpen && (
+        <div className="mobile-menu" style={{
+          position: "fixed", top: 0, left: 0, width: "100%", height: "100vh",
+          background: "rgba(6,6,6,0.98)", backdropFilter: "blur(20px)",
+          display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+          gap: "32px", zIndex: 999
+        }}>
+          <button 
+            onClick={() => setMenuOpen(false)}
+            style={{
+              position: "absolute", top: "24px", right: "24px",
+              background: "transparent", border: "1px solid rgba(255,255,255,0.1)",
+              borderRadius: "8px", padding: "8px", color: "#fff", cursor: "pointer",
+              width: "44px", height: "44px", display: "flex", alignItems: "center", justifyContent: "center"
+            }}
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              <path d="M18 6L6 18" /><path d="M6 6l12 12" />
+            </svg>
+          </button>
+          {["Home", "About", "Skills", "Projects", "Experience", "Contact"].map((item) => (
+            <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMenuOpen(false)} style={{
+              fontSize: "28px", fontWeight: 700, color: item === "Home" ? "#D9FF00" : "#fff",
+              textDecoration: "none", transition: "all 0.3s ease"
+            }}>
+              {item}
+            </a>
+          ))}
+        </div>
+      )}
+
       {/* Actions */}
-      <div style={{ display: "flex", alignItems: "center", gap: "16px", flexShrink: 0 }}>
+      <div className="nav-actions" style={{ display: "flex", alignItems: "center", gap: "16px", flexShrink: 0 }}>
         <button style={{
           background: "#D9FF00", color: "#000", padding: "12px 28px", borderRadius: "999px",
           fontWeight: 800, fontSize: "14px", border: "none", cursor: "pointer", 

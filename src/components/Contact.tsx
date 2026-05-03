@@ -21,10 +21,10 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" style={{ background: "#060606", color: "#fff", padding: "40px 48px 120px 48px", position: "relative" }}>
+    <section id="contact" style={{ background: "#060606", color: "#fff", padding: "80px 24px 120px 24px", position: "relative", overflow: "hidden" }}>
       <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
         
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "100px", alignItems: "start" }}>
+        <div className="responsive-grid contact-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "100px", alignItems: "start" }}>
           
           {/* Left Column */}
           <div style={{ position: "relative" }}>
@@ -34,7 +34,7 @@ export default function Contact() {
                 <span style={{ color: "#D9FF00", fontSize: "12px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.2em" }}>GET IN TOUCH</span>
                 <div style={{ width: "40px", height: "2px", background: "#D9FF00" }} />
               </div>
-              <h2 style={{ fontSize: "64px", fontWeight: 900, marginBottom: "20px", letterSpacing: "-0.03em" }}>
+              <h2 style={{ fontSize: "clamp(32px, 8vw, 64px)", fontWeight: 900, marginBottom: "20px", letterSpacing: "-0.03em" }}>
                 Let&apos;s <span style={{ color: "#D9FF00" }}>Connect</span>
               </h2>
               <p style={{ color: "#a1a1aa", fontSize: "18px", maxWidth: "480px", lineHeight: 1.6 }}>
@@ -106,10 +106,10 @@ export default function Contact() {
           </div>
 
           {/* Right Column - Form */}
-          <div style={{ 
-            background: "rgba(255,255,255,0.02)", padding: "60px", borderRadius: "32px",
+          <div className="contact-form-container" style={{ 
+            background: "rgba(255,255,255,0.02)", padding: "clamp(24px, 5vw, 60px)", borderRadius: "32px",
             border: "1px solid rgba(255,255,255,0.05)", position: "relative",
-            boxShadow: "0 20px 40px rgba(0,0,0,0.2)"
+            boxShadow: "0 20px 40px rgba(0,0,0,0.2)", width: "100%"
           }}>
             {/* Glow border effect */}
             <div style={{ 
@@ -164,34 +164,7 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Footer CTA */}
-        <div style={{ 
-          background: "rgba(255,255,255,0.01)", padding: "40px 60px", borderRadius: "32px",
-          border: "1px solid rgba(255,255,255,0.05)", display: "flex", justifyContent: "space-between", alignItems: "center",
-          marginTop: "120px"
-        }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
-            <div style={{ 
-              width: "64px", height: "64px", borderRadius: "50%", background: "rgba(217,255,0,0.05)", 
-              display: "flex", alignItems: "center", justifyContent: "center", color: "#D9FF00", fontSize: "28px",
-              border: "1px solid rgba(217,255,0,0.1)"
-            }}>
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
-            </div>
-            <div>
-              <h3 style={{ fontSize: "24px", fontWeight: 800, marginBottom: "4px" }}>Let&apos;s build something amazing together!</h3>
-              <p style={{ color: "#71717a", fontSize: "16px" }}>I usually respond within 24 hours.</p>
-            </div>
-          </div>
-          <button style={{
-            background: "transparent", color: "#fff", padding: "16px 40px", borderRadius: "12px",
-            fontWeight: 800, fontSize: "16px", border: "1px solid rgba(255,255,255,0.1)", cursor: "pointer", 
-            display: "flex", alignItems: "center", gap: "12px", transition: "all 0.3s ease"
-          }} onMouseOver={(e) => {e.currentTarget.style.background = "rgba(255,255,255,0.05)"; e.currentTarget.style.borderColor = "#D9FF00"}} onMouseOut={(e) => {e.currentTarget.style.background = "transparent"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"}}>
-            Let&apos;s Talk
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M7 17l9.2-9.2M17 17V7H7" /></svg>
-          </button>
-        </div>
+
 
       </div>
     </section>

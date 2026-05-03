@@ -82,11 +82,11 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" style={{ background: "#060606", color: "#fff", padding: "40px 48px", position: "relative" }}>
+    <section id="experience" style={{ background: "#060606", color: "#fff", padding: "80px 24px", position: "relative", overflow: "hidden" }}>
       <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
         
         {/* Header Grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.5fr", gap: "60px", marginBottom: "80px" }}>
+        <div className="responsive-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1.5fr", gap: "60px", marginBottom: "80px" }}>
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
               <span style={{ color: "#D9FF00", fontSize: "12px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.2em" }}>MY JOURNEY</span>
@@ -101,7 +101,7 @@ export default function Experience() {
           </div>
 
           {/* Stats Box */}
-          <div style={{ 
+          <div className="responsive-grid stats-grid" style={{ 
             background: "rgba(255,255,255,0.02)", padding: "40px", borderRadius: "32px",
             border: "1px solid rgba(255,255,255,0.05)", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "20px"
           }}>
@@ -119,23 +119,23 @@ export default function Experience() {
         <div style={{ display: "flex", flexDirection: "column", gap: "40px", position: "relative" }}>
           
           {/* Vertical Line */}
-          <div style={{ 
+          <div className="timeline-line" style={{ 
             position: "absolute", left: "189px", top: "16px", bottom: "10px", width: "2px", 
             background: "linear-gradient(to bottom, rgba(217,255,0,0.3) 0%, rgba(217,255,0,0) 100%)",
             zIndex: 1
           }} />
 
           {experiences.map((exp, i) => (
-            <div key={i} style={{ display: "flex" }}>
+            <div key={i} className="timeline-item" style={{ display: "flex" }}>
               
               {/* Date Column */}
-              <div style={{ width: "160px", textAlign: "left", paddingTop: "12px", flexShrink: 0 }}>
+              <div className="timeline-date" style={{ width: "160px", textAlign: "left", paddingTop: "12px", flexShrink: 0 }}>
                 <div style={{ fontSize: "16px", fontWeight: 800, color: "#D9FF00", marginBottom: "4px" }}>{exp.date}</div>
                 <div style={{ fontSize: "13px", color: "#a1a1aa", fontWeight: 600 }}>{exp.duration}</div>
               </div>
 
               {/* Glowing Dot Wrapper */}
-              <div style={{ width: "60px", display: "flex", justifyContent: "center", paddingTop: "12px", flexShrink: 0, zIndex: 2 }}>
+              <div className="timeline-dot-wrapper" style={{ width: "60px", display: "flex", justifyContent: "center", paddingTop: "12px", flexShrink: 0, zIndex: 2 }}>
                 <div style={{ 
                   width: "24px", height: "24px", borderRadius: "50%", border: "2px solid rgba(217,255,0,0.5)",
                   display: "flex", alignItems: "center", justifyContent: "center", background: "#060606"
@@ -151,7 +151,7 @@ export default function Experience() {
                 transition: "all 0.3s ease", position: "relative"
               }} className="experience-card">
                 
-                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "24px" }}>
+                <div className="responsive-flex exp-card-header" style={{ display: "flex", justifyContent: "space-between", marginBottom: "24px" }}>
                   <div style={{ display: "flex", gap: "24px" }}>
                     <div style={{ 
                       width: "60px", height: "60px", background: "rgba(217,255,0,0.05)", borderRadius: "16px",

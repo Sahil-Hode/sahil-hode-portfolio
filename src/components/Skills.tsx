@@ -62,11 +62,11 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" style={{ background: "#060606", color: "#fff", padding: "120px 48px", position: "relative" }}>
+    <section id="skills" style={{ background: "#060606", color: "#fff", padding: "80px 24px", position: "relative", overflow: "hidden" }}>
       <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
         
         {/* Header */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "60px" }}>
+        <div className="responsive-flex skills-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "60px" }}>
           <div>
             <div style={{ width: "100%", height: "1px", background: "linear-gradient(90deg, rgba(217,255,0,0.3) 0%, rgba(217,255,0,0) 100%)", marginBottom: "40px" }} />
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
@@ -90,7 +90,7 @@ export default function Skills() {
         </div>
 
         {/* Categories Grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "24px", marginBottom: "60px" }}>
+        <div className="responsive-grid skills-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "24px", marginBottom: "60px" }}>
           {categories.map((cat, i) => (
             <div key={i} style={{ 
               background: "rgba(255,255,255,0.02)", padding: "40px 32px", borderRadius: "24px", 
@@ -122,7 +122,7 @@ export default function Skills() {
         </div>
 
         {/* Footer CTA */}
-        <div style={{ 
+        <div className="responsive-flex skills-cta" style={{ 
           background: "rgba(217,255,0,0.03)", padding: "40px 60px", borderRadius: "32px",
           border: "1px solid rgba(217,255,0,0.1)", display: "flex", justifyContent: "space-between", alignItems: "center",
           position: "relative", overflow: "hidden"

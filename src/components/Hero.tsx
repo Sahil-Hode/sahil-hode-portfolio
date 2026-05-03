@@ -8,9 +8,9 @@ export default function Hero() {
     <div className="relative min-h-screen bg-[#0A0A0A] text-white overflow-hidden font-sans">
       <Navbar />
 
-      <main style={{
+      <main className="responsive-grid hero-grid" style={{
         position: "relative", width: "100%", maxWidth: "1400px", margin: "0 auto",
-        padding: "10px 48px 0 48px", display: "grid", gridTemplateColumns: "1fr 1fr",
+        padding: "10px 24px 0 24px", display: "grid", gridTemplateColumns: "1fr 1fr",
         alignItems: "center", minHeight: "calc(100vh - 80px)"
       }}>
         
@@ -28,10 +28,11 @@ export default function Hero() {
           </p>
 
           {/* CTAs */}
-          <div style={{ display: "flex", gap: "20px", marginBottom: "60px" }}>
+          <div className="hero-ctas" style={{ display: "flex", gap: "20px", marginBottom: "60px" }}>
             <button style={{
               background: "#D9FF00", color: "#000", padding: "16px 32px", borderRadius: "12px",
-              fontWeight: 800, fontSize: "16px", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: "10px"
+              fontWeight: 800, fontSize: "16px", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: "10px",
+              whiteSpace: "nowrap", justifyContent: "center"
             }}>
               View My Work
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
@@ -40,7 +41,8 @@ export default function Hero() {
             </button>
             <button style={{
               background: "transparent", color: "#fff", padding: "16px 32px", borderRadius: "12px",
-              fontWeight: 700, fontSize: "16px", border: "2px solid rgba(255,255,255,0.1)", cursor: "pointer", display: "flex", alignItems: "center", gap: "10px"
+              fontWeight: 700, fontSize: "16px", border: "2px solid rgba(255,255,255,0.1)", cursor: "pointer", display: "flex", alignItems: "center", gap: "10px",
+              whiteSpace: "nowrap", justifyContent: "center"
             }}>
               Download CV
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -70,7 +72,7 @@ export default function Hero() {
         </div>
 
         {/* Right Column — Photo */}
-        <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <div className="hero-photo" style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", overflow: "hidden" }}>
           {/* Circular Glow */}
           <div style={{
             position: "absolute", width: "500px", height: "500px",
@@ -89,7 +91,11 @@ export default function Hero() {
               alt="Sahil Hode" 
               width={450} 
               height={550} 
-              style={{ objectFit: "contain", position: "relative", zIndex: 10 }}
+              priority={true}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              placeholder="blur"
+              blurDataURL="data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAACwAQCdASoIAAkAAQAkJZwCBNgAAud0LwAA/v5YIf5wM8kZzH+2d77vNnAAAAA="
+              style={{ objectFit: "contain", position: "relative", zIndex: 10, willChange: "transform" }}
             />
           </div>
 

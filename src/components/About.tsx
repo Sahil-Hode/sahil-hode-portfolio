@@ -4,11 +4,11 @@ import React from "react";
 
 export default function About() {
   return (
-    <section id="about" style={{ background: "#060606", color: "#fff", padding: "100px 48px", position: "relative" }}>
+    <section id="about" style={{ background: "#060606", color: "#fff", padding: "80px 24px", position: "relative", overflow: "hidden" }}>
       <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
         
         {/* About Grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr 1.8fr", gap: "40px", marginBottom: "80px" }}>
+        <div className="responsive-grid about-grid" style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr 1.8fr", gap: "40px", marginBottom: "80px" }}>
           
           {/* Column 1 — Bio */}
           <div>
@@ -68,7 +68,7 @@ export default function About() {
           {/* Column 3 — Specialties Grid */}
           <div style={{ background: "rgba(255,255,255,0.02)", padding: "40px", borderRadius: "24px", border: "1px solid rgba(255,255,255,0.05)" }}>
             <h3 style={{ fontSize: "20px", fontWeight: 800, marginBottom: "32px" }}>What I Do Best</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px" }}>
+            <div className="responsive-grid about-specialties" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px" }}>
               {[
                 { title: "User-Centered Design", desc: "Designing intuitive interfaces that users love." },
                 { title: "AI-Enhanced Solutions", desc: "Integrating AI tools to automate workflows." },
@@ -92,7 +92,7 @@ export default function About() {
         </div>
 
         {/* Bottom Horizontal Stats Bar */}
-        <div style={{ 
+        <div className="responsive-flex about-stats-bar" style={{ 
           background: "rgba(255,255,255,0.03)", padding: "40px", borderRadius: "24px", border: "1px solid rgba(255,255,255,0.05)",
           display: "flex", justifyContent: "space-between", alignItems: "center"
         }}>

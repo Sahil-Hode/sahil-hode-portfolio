@@ -48,11 +48,11 @@ export default function Projects() {
     : projects.filter(p => p.type === activeFilter);
 
   return (
-    <section id="projects" style={{ background: "#060606", color: "#fff", padding: "80px 48px 40px 48px", position: "relative" }}>
+    <section id="projects" style={{ background: "#060606", color: "#fff", padding: "80px 24px 40px 24px", position: "relative", overflow: "hidden" }}>
       <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
         
         {/* Header */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "60px" }}>
+        <div className="responsive-flex" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "60px" }}>
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
               <span style={{ color: "#D9FF00", fontSize: "12px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.2em" }}>MY WORK</span>
@@ -67,7 +67,7 @@ export default function Projects() {
           </div>
           
           {/* Filters */}
-          <div style={{ display: "flex", gap: "12px", marginBottom: "10px" }}>
+          <div style={{ display: "flex", gap: "12px", marginBottom: "10px", flexWrap: "wrap", marginTop: "20px" }}>
             {filters.map((f) => (
               <button
                 key={f}
@@ -86,7 +86,7 @@ export default function Projects() {
         </div>
 
         {/* Projects Grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(400px, 1fr))", gap: "32px", marginBottom: "80px" }}>
+        <div className="responsive-grid projects-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "32px", marginBottom: "80px" }}>
           {filteredProjects.map((project, i) => (
             <div key={i} style={{ 
               background: "rgba(255,255,255,0.02)", borderRadius: "32px", overflow: "hidden",
@@ -98,7 +98,11 @@ export default function Projects() {
                   src={project.image} 
                   alt={project.title}
                   fill
-                  style={{ objectFit: "cover", transition: "transform 0.5s ease" }}
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  placeholder="blur"
+                  blurDataURL="data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAACwAQCdASoIAAkAAQAkJZwCBNgAAud0LwAA/v5YIf5wM8kZzH+2d77vNnAAAAA="
+                  style={{ objectFit: "cover", transition: "transform 0.5s ease", willChange: "transform" }}
                   className="project-image"
                 />
               </div>

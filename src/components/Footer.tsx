@@ -1,0 +1,200 @@
+"use client";
+
+import React from "react";
+import { FaGithub, FaLinkedin, FaTwitter, FaDribbble, FaBehance, FaPaperPlane } from "react-icons/fa";
+import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker, HiOutlineClock, HiChevronRight, HiOutlineHeart, HiOutlineArrowUp } from "react-icons/hi";
+
+export default function Footer() {
+  const quickLinks = ["About Me", "Skills", "Projects", "Experience", "Contact"];
+  const services = ["Web Development", "UI/UX Design", "Full Stack Development", "API Development", "Consulting"];
+  const tech = ["React", "Next.js", "Node.js", "TypeScript", "MongoDB", "Tailwind CSS", "Express.js"];
+  
+  const connect = [
+    { label: "Email", value: "sahil.hode@example.com", icon: <HiOutlineMail /> },
+    { label: "Phone", value: "+91 12345 67890", icon: <HiOutlinePhone /> },
+    { label: "Location", value: "Kolkata, West Bengal, India", icon: <HiOutlineLocationMarker /> },
+    { label: "Availability", value: "Open for Freelance & Full-time", icon: <HiOutlineClock /> }
+  ];
+
+  const socials = [
+    { icon: <FaLinkedin />, link: "#" },
+    { icon: <FaGithub />, link: "#" },
+    { icon: <FaTwitter />, link: "#" },
+    { icon: <FaBehance />, link: "#" },
+    { icon: <FaDribbble />, link: "#" }
+  ];
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  return (
+    <footer style={{ background: "#060606", color: "#fff", paddingTop: "80px", borderTop: "1px solid rgba(255,255,255,0.05)", overflow: "hidden" }}>
+      <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 24px" }}>
+        
+        {/* Top Grid */}
+        <div className="responsive-grid footer-grid" style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr 1fr 1.5fr", gap: "40px", marginBottom: "80px" }}>
+          
+          {/* Col 1: Brand */}
+          <div>
+            <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "24px" }}>
+              {/* Logo icon */}
+              <div style={{ color: "#D9FF00", fontSize: "40px", fontWeight: 900, lineHeight: 1, letterSpacing: "-2px" }}>
+                SH
+              </div>
+              <div>
+                <div style={{ fontSize: "20px", fontWeight: 800, letterSpacing: "-0.02em" }}>SAHIL HODE</div>
+                <div style={{ fontSize: "12px", color: "#a1a1aa" }}>Full Stack Developer</div>
+              </div>
+            </div>
+            <p style={{ color: "#a1a1aa", fontSize: "14px", lineHeight: 1.6, marginBottom: "24px", maxWidth: "260px" }}>
+              I build high-performance web applications that are fast, scalable and create real impact.
+            </p>
+            <div style={{ width: "40px", height: "2px", background: "#D9FF00", marginBottom: "24px" }} />
+            <div style={{ display: "flex", gap: "12px" }}>
+              {socials.map((social, i) => (
+                <a key={i} href={social.link} style={{
+                  width: "36px", height: "36px", borderRadius: "8px", border: "1px solid rgba(255,255,255,0.1)",
+                  display: "flex", alignItems: "center", justifyContent: "center", color: "#a1a1aa",
+                  textDecoration: "none", transition: "all 0.3s ease"
+                }}>
+                  {social.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Col 2: Quick Links */}
+          <div>
+            <h4 style={{ fontSize: "16px", fontWeight: 700, marginBottom: "24px" }}>Quick Links</h4>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
+              {quickLinks.map((link, i) => (
+                <li key={i} style={{ display: "flex", alignItems: "center", gap: "8px", color: "#a1a1aa", fontSize: "14px", cursor: "pointer" }}>
+                  <HiChevronRight color="#D9FF00" size={16} />
+                  {link}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 3: Services */}
+          <div>
+            <h4 style={{ fontSize: "16px", fontWeight: 700, marginBottom: "24px" }}>Services</h4>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
+              {services.map((service, i) => (
+                <li key={i} style={{ display: "flex", alignItems: "center", gap: "8px", color: "#a1a1aa", fontSize: "14px", cursor: "pointer" }}>
+                  <HiChevronRight color="#D9FF00" size={16} />
+                  {service}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 4: Technologies */}
+          <div>
+            <h4 style={{ fontSize: "16px", fontWeight: 700, marginBottom: "24px" }}>Technologies</h4>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
+              {tech.map((item, i) => (
+                <li key={i} style={{ display: "flex", alignItems: "center", gap: "10px", color: "#a1a1aa", fontSize: "14px", cursor: "pointer" }}>
+                  <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#D9FF00" }} />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 5: Let's Connect */}
+          <div>
+            <h4 style={{ fontSize: "16px", fontWeight: 700, marginBottom: "24px" }}>Let&apos;s Connect</h4>
+            <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              {connect.map((info, i) => (
+                <div key={i} style={{ display: "flex", gap: "16px", alignItems: "center" }}>
+                  <div style={{ 
+                    width: "36px", height: "36px", borderRadius: "8px", border: "1px solid rgba(217,255,0,0.3)",
+                    display: "flex", alignItems: "center", justifyContent: "center", color: "#D9FF00", fontSize: "16px", flexShrink: 0
+                  }}>
+                    {info.icon}
+                  </div>
+                  <div>
+                    <div style={{ color: "#fff", fontSize: "13px", fontWeight: 500, marginBottom: "2px" }}>{info.value}</div>
+                    <div style={{ color: "#71717a", fontSize: "11px" }}>{info.label}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+
+        {/* Newsletter Section */}
+        <div className="responsive-flex newsletter-section" style={{ 
+          padding: "40px 0", borderTop: "1px solid rgba(255,255,255,0.05)", borderBottom: "1px solid rgba(255,255,255,0.05)",
+          display: "flex", justifyContent: "space-between", alignItems: "center", gap: "40px", flexWrap: "wrap"
+        }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
+            <div style={{ 
+              width: "56px", height: "56px", borderRadius: "50%", border: "1px solid rgba(217,255,0,0.5)",
+              display: "flex", alignItems: "center", justifyContent: "center", color: "#D9FF00", fontSize: "24px",
+              boxShadow: "0 0 15px rgba(217,255,0,0.1)", background: "rgba(217,255,0,0.05)"
+            }}>
+              <FaPaperPlane style={{ transform: "rotate(-10deg)" }} />
+            </div>
+            <div>
+              <h3 style={{ fontSize: "20px", fontWeight: 700, marginBottom: "6px" }}>Stay Updated</h3>
+              <p style={{ color: "#a1a1aa", fontSize: "14px", margin: 0, maxWidth: "320px", lineHeight: 1.5 }}>
+                Get the latest updates about my projects, blogs and tech insights.
+              </p>
+            </div>
+          </div>
+
+          <div style={{ 
+            display: "flex", background: "#060606", border: "1px solid rgba(255,255,255,0.1)", 
+            borderRadius: "8px", padding: "6px", width: "400px", maxWidth: "100%" 
+          }}>
+            <input 
+              type="email" 
+              placeholder="Enter your email" 
+              style={{ 
+                background: "transparent", border: "none", color: "#fff", padding: "0 16px",
+                width: "100%", outline: "none", fontSize: "14px"
+              }} 
+            />
+            <button style={{
+              background: "#D9FF00", color: "#000", border: "none", borderRadius: "6px",
+              padding: "10px 20px", fontWeight: 700, fontSize: "14px", cursor: "pointer",
+              display: "flex", alignItems: "center", gap: "8px", flexShrink: 0
+            }}>
+              Subscribe
+              <FaPaperPlane size={12} />
+            </button>
+          </div>
+        </div>
+
+        {/* Bottom Section */}
+        <div className="responsive-flex" style={{ padding: "30px 0", display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "13px", color: "#71717a", gap: "20px" }}>
+          <div>© 2024 Sahil Hode. All rights reserved.</div>
+          
+          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <HiOutlineHeart color="#D9FF00" size={16} />
+            Built with passion and lots of ☕
+          </div>
+
+          <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
+            <div>Privacy Policy &nbsp;|&nbsp; Terms of Use</div>
+            <button 
+              onClick={scrollToTop}
+              style={{ 
+                width: "36px", height: "36px", borderRadius: "8px", border: "1px solid rgba(255,255,255,0.1)",
+                background: "transparent", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center",
+                cursor: "pointer", transition: "all 0.3s ease"
+              }}
+            >
+              <HiOutlineArrowUp size={18} />
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+  );
+}
