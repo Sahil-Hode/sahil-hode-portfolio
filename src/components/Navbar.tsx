@@ -9,7 +9,7 @@ export default function Navbar() {
       padding: "20px 32px", position: "relative", zIndex: 100, maxWidth: "1400px", margin: "0 auto", width: "100%"
     }}>
       {/* Brand */}
-      <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "16px", flexShrink: 0 }}>
         <div style={{ 
           width: "48px", height: "48px", background: "#D9FF00", borderRadius: "10px",
           display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 900, color: "#000", fontSize: "22px",
@@ -24,12 +24,12 @@ export default function Navbar() {
       {/* Nav Links Pill */}
       <div style={{
         display: "flex", background: "rgba(255,255,255,0.03)", backdropFilter: "blur(20px)",
-        padding: "10px 36px", borderRadius: "999px", gap: "34px", border: "1px solid rgba(255,255,255,0.08)",
+        padding: "10px 32px", borderRadius: "999px", gap: "28px", border: "1px solid rgba(255,255,255,0.08)",
         boxShadow: "0 4px 24px rgba(0,0,0,0.2)"
       }}>
         {["Home", "About", "Skills", "Projects", "Experience", "Testimonials", "Contact"].map((item) => (
           <a key={item} href={`#${item.toLowerCase()}`} style={{
-            fontSize: "20px", fontWeight: 400, color: item === "Home" ? "#D9FF00" : "#a1a1aa",
+            fontSize: "18px", fontWeight: 400, color: item === "Home" ? "#D9FF00" : "#a1a1aa",
             textDecoration: "none", transition: "all 0.3s ease", position: "relative",
             display: "flex", flexDirection: "column", alignItems: "center"
           }} className="nav-link">
@@ -45,7 +45,7 @@ export default function Navbar() {
       </div>
 
       {/* Actions */}
-      <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "16px", flexShrink: 0 }}>
         <button style={{
           background: "#D9FF00", color: "#000", padding: "12px 28px", borderRadius: "999px",
           fontWeight: 800, fontSize: "14px", border: "none", cursor: "pointer", 
