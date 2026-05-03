@@ -204,30 +204,7 @@ export default function Experience() {
           ))}
         </div>
 
-        {/* Footer CTA */}
-        <div style={{ 
-          background: "rgba(217,255,0,0.03)", padding: "40px 60px", borderRadius: "32px",
-          border: "1px solid rgba(217,255,0,0.1)", display: "flex", justifyContent: "space-between", alignItems: "center",
-          marginTop: "100px", position: "relative", overflow: "hidden"
-        }}>
-          <div style={{ position: "relative", zIndex: 2 }}>
-            <h3 style={{ fontSize: "28px", fontWeight: 900, marginBottom: "8px" }}>Let&apos;s build something amazing together!</h3>
-            <p style={{ color: "#71717a", fontSize: "16px", margin: 0 }}>I&apos;m always open to discussing new opportunities and exciting projects.</p>
-          </div>
-          <button style={{
-            background: "#D9FF00", color: "#000", padding: "18px 40px", borderRadius: "16px",
-            fontWeight: 800, fontSize: "16px", border: "none", cursor: "pointer", 
-            display: "flex", alignItems: "center", gap: "12px", zIndex: 2,
-            boxShadow: "0 10px 30px rgba(217,255,0,0.2)"
-          }}>
-            Let&apos;s Talk
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M7 17l9.2-9.2M17 17V7H7" /></svg>
-          </button>
-          <div style={{ 
-            position: "absolute", left: "20px", top: "50%", transform: "translateY(-50%)", 
-            opacity: 0.05, fontSize: "80px", pointerEvents: "none" 
-          }}>🚀</div>
-        </div>
+
 
       </div>
     </section>
