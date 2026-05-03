@@ -91,6 +91,11 @@ body {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 
+  /* Projects: 4-col → 2-col */
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
   /* Footer: 5-col → 2-col + 1fr pattern */
   .footer-grid {
     grid-template-columns: repeat(2, 1fr) !important;
@@ -281,7 +286,18 @@ body {
 
   /* ---- PROJECTS ---- */
   .projects-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+  .project-card {
+    padding: 20px 16px !important;
+  }
+  .project-card h3 {
+    font-size: 15px !important;
+  }
+  .project-card p {
+    font-size: 11px !important;
+    min-height: auto !important;
   }
   .responsive-flex {
     flex-direction: column !important;
