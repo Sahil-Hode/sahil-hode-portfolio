@@ -1,64 +1,81 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export default function CustomCursor() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const cursorRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [hovering, setHovering] = useState(false);
 
   useEffect(() => {
-    // Only show on non-touch, non-mobile devices
+    setMounted(true);
+
+    // Only enable on desktop with mouse
     const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
     const isMobileWidth = window.innerWidth <= 768;
-    if (isTouchDevice || isMobileWidth) return;
+    
+    if (isTouchDevice || isMobileWidth) {
+      setIsDesktop(false);
+      return;
+    }
+    
+    setIsDesktop(true);
 
-    const updatePosition = (e: MouseEvent) => {
-      if (!isVisible) setIsVisible(true);
-      setPosition({ x: e.clientX, y: e.clientY });
+    const move = (e: MouseEvent) => {
+      if (cursorRef.current) {
+        cursorRef.current.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+      }
     };
 
-    const updateHoverState = (e: MouseEvent) => {
+    const hover = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      // Check if hovering over interactive elements
       const isInteractive = target.closest('a, button, input, textarea, select, [role="button"]');
-      setIsHovering(!!isInteractive);
+      setHovering(!!isInteractive);
     };
 
-    const handleMouseLeave = () => setIsVisible(false);
-    const handleMouseEnter = () => setIsVisible(true);
+    const show = () => {
+      if (cursorRef.current) cursorRef.current.style.opacity = "1";
+    };
+    const hide = () => {
+      if (cursorRef.current) cursorRef.current.style.opacity = "0";
+    };
 
-    window.addEventListener("mousemove", updatePosition);
-    window.addEventListener("mouseover", updateHoverState);
-    document.addEventListener("mouseleave", handleMouseLeave);
-    document.addEventListener("mouseenter", handleMouseEnter);
+    window.addEventListener("mousemove", move);
+    window.addEventListener("mouseover", hover);
+    document.addEventListener("mouseenter", show);
+    document.addEventListener("mouseleave", hide);
 
     return () => {
-      window.removeEventListener("mousemove", updatePosition);
-      window.removeEventListener("mouseover", updateHoverState);
-      document.removeEventListener("mouseleave", handleMouseLeave);
-      document.removeEventListener("mouseenter", handleMouseEnter);
+      window.removeEventListener("mousemove", move);
+      window.removeEventListener("mouseover", hover);
+      document.removeEventListener("mouseenter", show);
+      document.removeEventListener("mouseleave", hide);
     };
-  }, [isVisible]);
+  }, []);
 
-  if (!isVisible) return null;
+  // Don't render on server or on mobile
+  if (!mounted || !isDesktop) return null;
+
+  const size = hovering ? 100 : 50;
 
   return (
-    <div 
+    <div
+      ref={cursorRef}
       style={{
         position: "fixed",
-        top: 0,
-        left: 0,
-        width: isHovering ? "100px" : "50px",
-        height: isHovering ? "100px" : "50px",
+        top: -(size / 2),
+        left: -(size / 2),
+        width: size,
+        height: size,
         backgroundColor: "#fff",
         borderRadius: "50%",
         pointerEvents: "none",
-        transform: `translate(${position.x - (isHovering ? 50 : 25)}px, ${position.y - (isHovering ? 50 : 25)}px)`,
-        transition: "width 0.3s ease-out, height 0.3s ease-out",
+        transition: "width 0.3s ease-out, height 0.3s ease-out, opacity 0.3s ease",
         zIndex: 9999,
         mixBlendMode: "difference",
-        willChange: "transform, width, height"
+        willChange: "transform",
+        opacity: 0,
       }}
     />
   );

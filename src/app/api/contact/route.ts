@@ -39,11 +39,23 @@ export async function POST(req: Request) {
     }
 
     // 3. Configure Nodemailer
+    const mailUser = process.env.MAIL_USER;
+    const mailPass = process.env.MAIL_PASS;
+    
+    console.log('SMTP Debug - User:', mailUser);
+    console.log('SMTP Debug - Pass length:', mailPass?.length, 'chars');
+
+    if (!mailUser || !mailPass) {
+      return NextResponse.json({ error: 'Email service not configured.' }, { status: 500 });
+    }
+
     const transporter = nodemailer.createTransport({
-      service: 'gmail', // You can change this or use host/port directly
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
       auth: {
-        user: process.env.MAIL_USER,
-        pass: process.env.MAIL_PASS,
+        user: mailUser,
+        pass: mailPass,
       },
     });
 
