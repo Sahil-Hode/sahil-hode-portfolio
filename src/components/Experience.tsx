@@ -116,7 +116,7 @@ export default function Experience() {
         </div>
 
         {/* Timeline Content */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "40px", position: "relative" }}>
+        <div className="timeline-content" style={{ display: "flex", flexDirection: "column", gap: "40px", position: "relative", maxWidth: "100%" }}>
           
           {/* Vertical Line */}
           <div className="timeline-line" style={{ 
