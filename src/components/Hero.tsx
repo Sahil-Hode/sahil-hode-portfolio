@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Navbar from "./Navbar";
 import { MdWavingHand } from "react-icons/md";
+import { FaLinkedinIn, FaGithub, FaBehance, FaDribbble } from "react-icons/fa";
 
 export default function Hero() {
   return (
@@ -59,16 +60,26 @@ export default function Hero() {
             <span style={{ fontSize: "14px", color: "#71717a", fontWeight: 600 }}>Follow Me On</span>
             <div style={{ display: "flex", gap: "12px" }}>
               {[
-                { icon: "in", href: "#" },
-                { icon: "gh", href: "#" },
-                { icon: "be", href: "#" },
-                { icon: "dr", href: "#" }
+                { icon: <FaLinkedinIn />, href: "https://www.linkedin.com/in/sahil-hode" },
+                { icon: <FaGithub />, href: "https://github.com/Sahil-Hode" },
+                { icon: <FaBehance />, href: "#" },
+                { icon: <FaDribbble />, href: "#" }
               ].map((social, i) => (
-                <div key={i} style={{
-                  width: "40px", height: "40px", borderRadius: "50%", background: "rgba(255,255,255,0.05)",
-                  display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", border: "1px solid rgba(255,255,255,0.1)",
-                  fontSize: "14px", fontWeight: 800, color: "#a1a1aa"
-                }}>{social.icon}</div>
+                <a 
+                  key={i} 
+                  href={social.href} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="social-btn"
+                  style={{
+                    width: "42px", height: "42px", borderRadius: "50%", background: "rgba(255,255,255,0.03)",
+                    display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", 
+                    border: "1px solid rgba(255,255,255,0.08)", fontSize: "18px", color: "#a1a1aa",
+                    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)", textDecoration: "none"
+                  }}
+                >
+                  {social.icon}
+                </a>
               ))}
             </div>
           </div>

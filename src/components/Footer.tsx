@@ -138,11 +138,11 @@ export default function Footer() {
 
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center py-8 gap-6 border-t border-white/5 text-[13px] color-[#71717a]">
-          <div>© 2024 Sahil Hode. All rights reserved.</div>
+          <div>© 2026 Sahil Hode. All rights reserved.</div>
           
           <div className="flex items-center gap-2">
             <HiOutlineHeart color="#A3FF12" size={16} />
-            Built with passion and lots of ☕
+            Made with ❤️ by Sahil Hode
           </div>
 
           <div className="flex items-center gap-6">
