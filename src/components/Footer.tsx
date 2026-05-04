@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { FaGithub, FaLinkedin, FaPaperPlane, FaWhatsapp } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker, HiOutlineClock, HiChevronRight, HiOutlineHeart, HiOutlineArrowUp } from "react-icons/hi";
 
 export default function Footer() {

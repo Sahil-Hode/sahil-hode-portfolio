@@ -70,6 +70,26 @@ body {
   border-color: #ffffff !important;
 }
 
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.glow-hover:hover {
+  border-color: #A3FF12 !important;
+  box-shadow: 0 0 20px rgba(163, 255, 18, 0.15);
+}
+
 .project-card:hover .project-image {
   transform: scale(1.05);
 }
