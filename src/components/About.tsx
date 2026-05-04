@@ -127,18 +127,18 @@
              <div style={{ position: "relative", width: "100%", maxWidth: "340px", aspectRatio: "1/1", marginBottom: "48px" }}>
                {/* Achievement Badge (Floating) */}
                <div style={{ 
-                 position: "absolute", bottom: "10%", right: "-40px", zIndex: 10,
+                 position: "absolute", zIndex: 10,
                  background: "rgba(18,18,18,0.9)", backdropFilter: "blur(12px)",
-                 padding: "12px 16px", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.1)",
-                 display: "flex", alignItems: "center", gap: "12px", boxShadow: "0 20px 40px rgba(0,0,0,0.4)",
+                 padding: "10px 16px", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.1)",
+                 display: "flex", alignItems: "center", gap: "10px", boxShadow: "0 20px 40px rgba(0,0,0,0.4)",
                  whiteSpace: "nowrap"
-               }} className="hidden md:flex">
-                 <div style={{ width: "36px", height: "36px", background: "rgba(163,255,18,0.1)", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", color: "#A3FF12" }}>
-                   <FaTrophy size={18} />
+               }} className="bottom-[5%] left-1/2 -translate-x-1/2 md:bottom-[10%] md:right-[-40px] md:left-auto md:translate-x-0">
+                 <div style={{ width: "32px", height: "32px", background: "rgba(163,255,18,0.1)", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", color: "#A3FF12" }}>
+                   <FaTrophy size={16} />
                  </div>
                  <div>
                    <p style={{ fontSize: "9px", color: "#A3FF12", fontWeight: 800, margin: 0, textTransform: "uppercase" }}>Hackathon Winner</p>
-                   <p style={{ fontSize: "12px", fontWeight: 800, margin: 0 }}>National Finalist</p>
+                   <p style={{ fontSize: "11px", fontWeight: 800, margin: 0 }}>National Finalist</p>
                  </div>
                </div>
  
