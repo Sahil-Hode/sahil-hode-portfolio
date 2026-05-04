@@ -53,18 +53,18 @@
    ];
  
    return (
-     <section id="about" style={{ background: "#060606", color: "#fff", padding: "100px 24px", position: "relative", overflow: "hidden" }}>
-       <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+     <section id="about" style={{ background: "#060606", color: "#fff", padding: "clamp(60px, 10vw, 100px) 24px", position: "relative", overflow: "hidden" }}>
+       <div style={{ maxWidth: "1400px", margin: "0 auto", width: "100%" }}>
          
          {/* Main 3-Column Grid */}
          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-24">
            
            {/* Column 1 — Bio (Left) */}
-           <div className="lg:col-span-4 flex flex-col">
+           <div className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left">
              <p style={{ color: "#A3FF12", fontSize: "14px", fontWeight: 900, textTransform: "uppercase", letterSpacing: "0.25em", marginBottom: "16px" }}>
                GET TO KNOW ME
              </p>
-             <h2 style={{ fontSize: "48px", fontWeight: 900, marginBottom: "24px", letterSpacing: "-0.04em" }}>About Me</h2>
+             <h2 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: 900, marginBottom: "24px", letterSpacing: "-0.04em" }}>About Me</h2>
              <div style={{ width: "120px", height: "5px", background: "#A3FF12", borderRadius: "2px", marginBottom: "32px" }} />
              
              <p style={{ color: "#a1a1aa", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>
@@ -106,7 +106,7 @@
              <div style={{ 
                background: "linear-gradient(135deg, rgba(163,255,18,0.1) 0%, rgba(163,255,18,0.02) 100%)", 
                padding: "20px", borderRadius: "20px", border: "1px solid rgba(163,255,18,0.2)",
-               marginTop: "auto"
+               marginTop: "auto", width: "100%", maxWidth: "400px", textAlign: "left"
              }}>
                <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px" }}>
                  <FaTrophy color="#A3FF12" size={14} />
@@ -178,9 +178,10 @@
  
            {/* Column 3 — Specialties Grid (Right) */}
            <div className="lg:col-span-4">
-             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px" }}>
-               <div style={{ width: "40px", height: "2px", background: "#A3FF12" }} />
+             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", justifyContent: "center", lg: { justifyContent: "flex-start" } }} className="justify-center lg:justify-start">
+               <div className="hidden lg:block" style={{ width: "40px", height: "2px", background: "#A3FF12" }} />
                <h3 style={{ fontSize: "24px", fontWeight: 800 }}>What I Do Best</h3>
+               <div className="lg:hidden" style={{ width: "40px", height: "2px", background: "#A3FF12" }} />
              </div>
              <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                {specialties.map((item, i) => (
@@ -216,12 +217,12 @@
            </div>
            
            <div className="flex overflow-hidden">
-             <div className="animate-marquee flex items-center gap-12 px-6">
+             <div className="animate-marquee flex items-center gap-6 md:gap-12 px-6">
                {[...techStack, ...techStack].map((tech, i) => (
-                 <div key={i} style={{ display: "flex", alignItems: "center", gap: "12px", color: "#a1a1aa", fontSize: "18px", fontWeight: 700, whiteSpace: "nowrap" }}>
-                   <span style={{ fontSize: "24px", color: "#fff" }}>{tech.icon}</span>
+                 <div key={i} style={{ display: "flex", alignItems: "center", gap: "8px", color: "#a1a1aa", fontSize: "clamp(14px, 2vw, 18px)", fontWeight: 700, whiteSpace: "nowrap" }}>
+                   <span style={{ fontSize: "clamp(18px, 3vw, 24px)", color: "#fff" }}>{tech.icon}</span>
                    {tech.name}
-                   <span style={{ color: "#A3FF12", margin: "0 10px" }}>★</span>
+                   <span style={{ color: "#A3FF12", margin: "0 5px" }}>★</span>
                  </div>
                ))}
              </div>
