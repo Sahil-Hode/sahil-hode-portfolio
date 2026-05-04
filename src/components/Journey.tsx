@@ -9,51 +9,51 @@
    HiOutlineStar, HiOutlineClock
  } from "react-icons/hi";
  
+ interface GitHubData {
+   publicRepos: number;
+   followers: number;
+   totalStars: number;
+   languages: { name: string; count: number; percentage: number }[];
+   recentRepos: {
+     name: string;
+     description: string;
+     language: string;
+     stars: number;
+     forks: number;
+     url: string;
+     updatedAt: string;
+   }[];
+   profileUrl: string;
+ }
+ 
+ const langColors: Record<string, string> = {
+   TypeScript: '#3178c6',
+   JavaScript: '#f7df1e',
+   Python: '#3572A5',
+   Dart: '#00B4AB',
+   CSS: '#563d7c',
+   HTML: '#e34c26',
+   Shell: '#89e051',
+ };
+ 
  export default function Journey() {
-   const [githubData, setGithubData] = useState<any>(null);
-   const [repos, setRepos] = useState<any[]>([]);
-   const [languages, setLanguages] = useState<any>({});
+   const [data, setData] = useState<GitHubData | null>(null);
    const [loading, setLoading] = useState(true);
+   const [error, setError] = useState(false);
  
    const coursework = ["Data Structures", "Databases", "Web Development", "Programming Fund."];
    const activities = ["Hackathons", "Technical Events", "Project-based Learn"];
  
    useEffect(() => {
-     async function fetchGithub() {
-       try {
-         const userRes = await fetch('https://api.github.com/users/sahilhode');
-         const userData = await userRes.json();
-         setGithubData(userData);
- 
-         const reposRes = await fetch('https://api.github.com/users/sahilhode/repos?sort=updated&per_page=100');
-         const reposData = await reposRes.json();
-         
-         // Get 3 most recent repos
-         setRepos(reposData.slice(0, 3));
- 
-         // Aggregate languages
-         const langs: any = {};
-         reposData.forEach((repo: any) => {
-           if (repo.language) {
-             langs[repo.language] = (langs[repo.language] || 0) + 1;
-           }
-         });
-         setLanguages(langs);
-       } catch (error) {
-         console.error("Error fetching GitHub data:", error);
-       } finally {
-         setLoading(false);
-       }
-     }
-     fetchGithub();
+     fetch('/api/github')
+       .then(res => res.json())
+       .then(data => {
+         if (data.error) setError(true);
+         else setData(data);
+       })
+       .catch(() => setError(true))
+       .finally(() => setLoading(false));
    }, []);
- 
-   const totalStars = repos.reduce((acc, repo) => acc + (repo.stargazers_count || 0), 0);
-   const totalLangs = Object.keys(languages).length;
-   const topLangs = Object.entries(languages)
-     .sort(([, a]: any, [, b]: any) => b - a)
-     .slice(0, 3);
-   const totalLangCount = Object.values(languages).reduce((a: any, b: any) => a + b, 0) as number;
  
    return (
      <section id="journey" style={{ background: "#060606", color: "#fff", padding: "clamp(80px, 10vw, 120px) 24px", position: "relative", overflow: "hidden" }}>
@@ -168,87 +168,103 @@
            border: "1px solid rgba(255,255,255,0.05)", position: "relative"
          }}>
            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "40px" }}>
-             <h3 style={{ fontSize: "24px", fontWeight: 900, display: "flex", alignItems: "center", gap: "12px" }}>
-               <FaGithub /> GitHub Activity
-             </h3>
-             <a href="https://github.com/Sahil-Hode" target="_blank" rel="noopener noreferrer" style={{ color: "#A3FF12", fontSize: "14px", fontWeight: 700, textDecoration: "none" }}>
-               View Profile →
-             </a>
+             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+               <svg width="20" height="20" viewBox="0 0 24 24" fill="#A3FF12">
+                 <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+               </svg>
+               <h3 style={{ fontSize: "20px", fontWeight: 800, color: "#fff", margin: 0 }}>GitHub Activity</h3>
+             </div>
+             {data && (
+               <a href={data.profileUrl} target="_blank" rel="noopener noreferrer" style={{ color: "#A3FF12", fontSize: "13px", fontWeight: 700, textDecoration: "none" }}>
+                 View Profile →
+               </a>
+             )}
            </div>
  
            {loading ? (
              <div style={{ height: "200px", display: "flex", alignItems: "center", justifyContent: "center", color: "#71717a" }}>
                Loading GitHub Data...
              </div>
+           ) : error || !data ? (
+             <div style={{ height: "200px", display: "flex", alignItems: "center", justifyContent: "center", color: "#f44" }}>
+               Failed to load GitHub data. Please try again later.
+             </div>
            ) : (
              <>
                {/* Stat Cards */}
-               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
                  {[
-                   { label: "Repos", val: `${githubData?.public_repos || 0}+` },
-                   { label: "Followers", val: githubData?.followers || 0 },
-                   { label: "Stars", val: totalStars || 0 },
-                   { label: "Languages", val: totalLangs || 0 }
+                   { label: "Repos", val: `${data.publicRepos}+` },
+                   { label: "Followers", val: data.followers },
+                   { label: "Stars", val: data.totalStars },
+                   { label: "Languages", val: data.languages.length }
                  ].map((stat, i) => (
                    <div key={i} style={{ 
-                     background: "#111", padding: "24px", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.06)",
+                     background: "#111", padding: "20px", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.06)",
                      textAlign: "center"
                    }}>
-                     <p style={{ fontSize: "36px", fontWeight: 900, color: "#A3FF12", margin: "0 0 4px" }}>{stat.val}</p>
-                     <p style={{ fontSize: "11px", color: "#555", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em" }}>{stat.label}</p>
+                     <p style={{ fontSize: "32px", fontWeight: 900, color: "#A3FF12", margin: "0 0 6px", lineHeight: 1 }}>{stat.val}</p>
+                     <p style={{ fontSize: "11px", color: "#555", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em" }}>{stat.label}</p>
                    </div>
                  ))}
                </div>
  
                {/* Languages Bar Section */}
-               <div style={{ marginBottom: "48px" }}>
-                 <p style={{ fontSize: "14px", fontWeight: 800, color: "#fff", marginBottom: "24px", textTransform: "uppercase", letterSpacing: "0.1em" }}>Top Languages</p>
-                 <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-                   {topLangs.map(([lang, count]: any) => {
-                     const percent = Math.round((count / totalLangCount) * 100);
-                     return (
-                       <div key={lang}>
-                         <div style={{ display: "flex", justifyContent: "space-between", fontSize: "13px", fontWeight: 700, marginBottom: "8px" }}>
-                           <span style={{ color: "#fff" }}>{lang}</span>
-                           <span style={{ color: "#555" }}>{percent}%</span>
+               <div style={{ marginBottom: "28px" }}>
+                 <p style={{ fontSize: "13px", fontWeight: 700, color: "#fff", marginBottom: "16px", textTransform: "uppercase", letterSpacing: "0.1em" }}>Top Languages</p>
+                 <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                   {data.languages.map((lang) => (
+                     <div key={lang.name}>
+                       <div style={{ display: "flex", justifyContent: "space-between", fontSize: "13px", fontWeight: 600, marginBottom: "6px" }}>
+                         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                           <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: langColors[lang.name] || '#A3FF12' }} />
+                           <span style={{ color: "#ccc" }}>{lang.name}</span>
                          </div>
-                         <div style={{ width: "100%", height: "4px", background: "rgba(255,255,255,0.06)", borderRadius: "999px" }}>
-                           <div style={{ width: `${percent}%`, height: "100%", background: "#A3FF12", borderRadius: "999px", transition: "width 1s ease" }} />
-                         </div>
+                         <span style={{ color: "#555" }}>{lang.percentage}%</span>
                        </div>
-                     );
-                   })}
+                       <div style={{ width: "100%", height: "4px", background: "rgba(255,255,255,0.06)", borderRadius: "999px", overflow: "hidden" }}>
+                         <div style={{ 
+                           width: `${lang.percentage}%`, 
+                           height: "100%", 
+                           background: langColors[lang.name] || '#A3FF12', 
+                           borderRadius: "999px", 
+                           transition: "width 1s ease" 
+                         }} />
+                       </div>
+                     </div>
+                   ))}
                  </div>
                </div>
  
                {/* Recent Repos */}
                <div>
-                 <p style={{ fontSize: "14px", fontWeight: 800, color: "#fff", marginBottom: "24px", textTransform: "uppercase", letterSpacing: "0.1em" }}>Recent Projects</p>
-                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                   {repos.map((repo: any) => (
-                     <a key={repo.id} href={repo.html_url} target="_blank" rel="noopener noreferrer" style={{ 
-                       background: "#111", padding: "18px", borderRadius: "14px", border: "1px solid rgba(255,255,255,0.06)",
-                       textDecoration: "none", transition: "all 0.3s ease"
-                     }} className="glow-hover">
-                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "12px" }}>
-                         <h4 style={{ color: "#fff", fontSize: "15px", fontWeight: 800, margin: 0, display: "flex", alignItems: "center", gap: "8px" }}>
-                           <TbGitBranch color="#A3FF12" /> {repo.name}
+                 <p style={{ fontSize: "13px", fontWeight: 700, color: "#fff", marginBottom: "16px", textTransform: "uppercase", letterSpacing: "0.1em" }}>Recent Projects</p>
+                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                   {data.recentRepos.map((repo) => (
+                     <a key={repo.name} href={repo.url} target="_blank" rel="noopener noreferrer" style={{ 
+                       background: "#111", padding: "16px", borderRadius: "14px", border: "1px solid rgba(255,255,255,0.06)",
+                       textDecoration: "none", transition: "all 0.3s ease", display: "block"
+                     }} className="hover:border-[#A3FF12]/30 transition-all">
+                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px" }}>
+                         <h4 style={{ color: "#fff", fontSize: "13px", fontWeight: 700, margin: 0 }}>
+                           {repo.name.length > 18 ? repo.name.slice(0, 18) + '...' : repo.name}
                          </h4>
-                         <span style={{ fontSize: "10px", color: "#555", fontWeight: 800, textTransform: "uppercase" }}>{repo.language}</span>
+                         {repo.language && (
+                           <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+                             <div style={{ width: "7px", height: "7px", borderRadius: "50%", background: langColors[repo.language] || '#A3FF12' }} />
+                             <span style={{ fontSize: "10px", color: "#555" }}>{repo.language}</span>
+                           </div>
+                         )}
                        </div>
-                       <p style={{ fontSize: "12px", color: "#71717a", lineHeight: 1.5, marginBottom: "16px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+                       <p style={{ 
+                         fontSize: "12px", color: "#555", lineHeight: 1.5, marginBottom: "10px",
+                         display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" 
+                       }}>
                          {repo.description || "No description provided."}
                        </p>
-                       <div style={{ display: "flex", gap: "16px", color: "#555", fontSize: "11px", fontWeight: 700 }}>
-                         <span style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                           <HiOutlineStar /> {repo.stargazers_count}
-                         </span>
-                         <span style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                           <FaCodeBranch /> {repo.forks_count}
-                         </span>
-                         <span style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: "4px" }}>
-                           <HiOutlineClock /> {new Date(repo.updated_at).toLocaleDateString()}
-                         </span>
+                       <div style={{ display: "flex", gap: "12px", color: "#555", fontSize: "11px" }}>
+                         <span>⭐ {repo.stars}</span>
+                         <span>🔀 {repo.forks}</span>
                        </div>
                      </a>
                    ))}
@@ -256,12 +272,13 @@
                </div>
  
                {/* Final Profile Button */}
-               <div style={{ display: "flex", justifyContent: "center", marginTop: "48px" }}>
-                 <a href="https://github.com/sahilhode" target="_blank" rel="noopener noreferrer" style={{
-                   background: "#A3FF12", color: "#000", padding: "16px 32px", borderRadius: "12px",
-                   fontWeight: 900, fontSize: "15px", textDecoration: "none", display: "flex", alignItems: "center", gap: "10px",
-                   boxShadow: "0 10px 20px rgba(163,255,18,0.15)"
-                 }} className="hover:scale-105 transition-transform">
+               <div style={{ textAlign: 'center', marginTop: '28px' }}>
+                 <a href={data.profileUrl} target="_blank" rel="noopener noreferrer" style={{
+                   display: 'inline-flex', alignItems: 'center', gap: '8px',
+                   background: '#A3FF12', color: '#000', borderRadius: '999px',
+                   padding: '12px 28px', fontSize: '13px', fontWeight: 800,
+                   textDecoration: 'none', letterSpacing: '0.02em'
+                 }}>
                    github.com/sahilhode ↗
                  </a>
                </div>
@@ -270,6 +287,14 @@
          </div>
  
        </div>
+       
+       <style jsx>{`
+         .project-card:hover {
+           transform: translateY(-6px);
+           border-color: rgba(163, 255, 18, 0.3) !important;
+           background: #151515 !important;
+         }
+       `}</style>
      </section>
    );
  }
