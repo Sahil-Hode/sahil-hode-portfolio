@@ -6,7 +6,7 @@ import { MdWavingHand } from "react-icons/md";
 
 export default function Hero() {
   return (
-    <div className="relative min-h-screen bg-[#0A0A0A] text-white overflow-hidden font-sans">
+    <div id="home" className="relative min-h-screen bg-[#0A0A0A] text-white overflow-hidden font-sans">
       <Navbar />
 
       <main className="responsive-grid hero-grid" style={{
@@ -30,16 +30,18 @@ export default function Hero() {
 
           {/* CTAs */}
           <div className="hero-ctas" style={{ display: "flex", gap: "20px", marginBottom: "60px" }}>
-            <button style={{
-              background: "#A3FF12", color: "#000", padding: "16px 32px", borderRadius: "12px",
-              fontWeight: 800, fontSize: "16px", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: "10px",
-              whiteSpace: "nowrap", justifyContent: "center"
-            }}>
-              View My Work
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M7 17l9.2-9.2M17 17V7H7" />
-              </svg>
-            </button>
+            <a href="#projects" style={{ textDecoration: "none" }}>
+              <button style={{
+                background: "#A3FF12", color: "#000", padding: "16px 32px", borderRadius: "12px",
+                fontWeight: 800, fontSize: "16px", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: "10px",
+                whiteSpace: "nowrap", justifyContent: "center"
+              }}>
+                View My Work
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M7 17l9.2-9.2M17 17V7H7" />
+                </svg>
+              </button>
+            </a>
             <a href="/SDE Sahil Hode Resume.pdf" download="Sahil_Hode_Resume.pdf" style={{
               background: "transparent", color: "#fff", padding: "16px 32px", borderRadius: "12px",
               fontWeight: 700, fontSize: "16px", border: "2px solid rgba(255,255,255,0.1)", cursor: "pointer", display: "flex", alignItems: "center", gap: "10px",

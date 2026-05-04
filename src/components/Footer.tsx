@@ -67,9 +67,19 @@ export default function Footer() {
             <h4 style={{ fontSize: "16px", fontWeight: 700, marginBottom: "24px" }}>Quick Links</h4>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
               {quickLinks.map((link, i) => (
-                <li key={i} style={{ display: "flex", alignItems: "center", gap: "8px", color: "#a1a1aa", fontSize: "14px", cursor: "pointer" }}>
-                  <HiChevronRight color="#A3FF12" size={16} />
-                  {link}
+                <li key={i}>
+                  <a 
+                    href={`#${link.toLowerCase().replace(" me", "")}`} 
+                    style={{ 
+                      display: "flex", alignItems: "center", gap: "8px", color: "#a1a1aa", 
+                      fontSize: "14px", cursor: "pointer", textDecoration: "none", transition: "color 0.3s ease" 
+                    }}
+                    onMouseOver={(e) => e.currentTarget.style.color = "#A3FF12"}
+                    onMouseOut={(e) => e.currentTarget.style.color = "#a1a1aa"}
+                  >
+                    <HiChevronRight color="#A3FF12" size={16} />
+                    {link}
+                  </a>
                 </li>
               ))}
             </ul>

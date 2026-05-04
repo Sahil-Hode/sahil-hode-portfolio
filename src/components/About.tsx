@@ -41,13 +41,15 @@ export default function About() {
               </div>
             </div>
 
-            <button style={{
-              background: "transparent", color: "#fff", padding: "14px 28px", borderRadius: "12px",
-              fontWeight: 700, fontSize: "14px", border: "1px solid rgba(255,255,255,0.1)", cursor: "pointer", display: "flex", alignItems: "center", gap: "10px"
-            }}>
-              More About My Journey
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A3FF12" strokeWidth="3"><path d="M7 17l9.2-9.2M17 17V7H7" /></svg>
-            </button>
+            <a href="#experience" style={{ textDecoration: "none" }}>
+              <button style={{
+                background: "transparent", color: "#fff", padding: "14px 28px", borderRadius: "12px",
+                fontWeight: 700, fontSize: "14px", border: "1px solid rgba(255,255,255,0.1)", cursor: "pointer", display: "flex", alignItems: "center", gap: "10px"
+              }}>
+                More About My Journey
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A3FF12" strokeWidth="3"><path d="M7 17l9.2-9.2M17 17V7H7" /></svg>
+              </button>
+            </a>
           </div>
 
           {/* Column 2 — Stats List */}

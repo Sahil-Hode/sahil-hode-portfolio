@@ -11,7 +11,7 @@ export default function Navbar() {
       padding: "20px 32px", position: "relative", zIndex: 100, maxWidth: "1400px", margin: "0 auto", width: "100%"
     }}>
       {/* Brand */}
-      <div style={{ display: "flex", alignItems: "center", gap: "16px", flexShrink: 0 }}>
+      <a href="#home" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "16px", flexShrink: 0 }}>
         <div style={{ 
           width: "48px", height: "48px", background: "#A3FF12", borderRadius: "10px",
           display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 900, color: "#000", fontSize: "22px",
@@ -21,7 +21,7 @@ export default function Navbar() {
           <h1 style={{ fontSize: "18px", fontWeight: 900, margin: 0, letterSpacing: "0.02em", color: "#fff" }}>SAHIL HODE</h1>
           <p style={{ fontSize: "11px", color: "#71717a", margin: 0, fontWeight: 600, letterSpacing: "0.05em" }}>SDE & Full Stack Developer, Agentic AI Developer</p>
         </div>
-      </div>
+      </a>
 
       {/* Hamburger (mobile only) */}
       <button 
@@ -99,16 +99,18 @@ export default function Navbar() {
 
       {/* Actions */}
       <div className="nav-actions" style={{ display: "flex", alignItems: "center", gap: "16px", flexShrink: 0 }}>
-        <button style={{
-          background: "#A3FF12", color: "#000", padding: "12px 28px", borderRadius: "999px",
-          fontWeight: 800, fontSize: "14px", border: "none", cursor: "pointer", 
-          display: "flex", alignItems: "center", gap: "8px", transition: "transform 0.2s"
-        }}>
-          Let&apos;s Talk
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M7 17l9.2-9.2M17 17V7H7" />
-          </svg>
-        </button>
+        <a href="#contact" style={{ textDecoration: "none" }}>
+          <button style={{
+            background: "#A3FF12", color: "#000", padding: "12px 28px", borderRadius: "999px",
+            fontWeight: 800, fontSize: "14px", border: "none", cursor: "pointer", 
+            display: "flex", alignItems: "center", gap: "8px", transition: "transform 0.2s"
+          }}>
+            Let&apos;s Talk
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M7 17l9.2-9.2M17 17V7H7" />
+            </svg>
+          </button>
+        </a>
         <div style={{ 
           width: "40px", height: "40px", borderRadius: "50%", border: "1px solid rgba(255,255,255,0.1)",
           display: "flex", alignItems: "center", justifyContent: "center", color: "#a1a1aa", cursor: "pointer" 

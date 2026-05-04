@@ -130,15 +130,17 @@ export default function Skills() {
             <h3 style={{ fontSize: "clamp(24px, 5vw, 28px)", fontWeight: 900, marginBottom: "8px" }}>Let&apos;s build something amazing together!</h3>
             <p style={{ color: "#71717a", fontSize: "16px", margin: 0 }}>I&apos;m always open to discussing new opportunities and exciting projects.</p>
           </div>
-          <button style={{
-            background: "#A3FF12", color: "#000", padding: "18px 40px", borderRadius: "16px",
-            fontWeight: 800, fontSize: "16px", border: "none", cursor: "pointer", 
-            display: "flex", alignItems: "center", gap: "12px", zIndex: 2,
-            boxShadow: "0 10px 30px rgba(217,255,0,0.2)", width: "100%", maxWidth: "300px", justifyContent: "center"
-          }}>
-            Let&apos;s Connect
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M7 17l9.2-9.2M17 17V7H7" /></svg>
-          </button>
+          <a href="#contact" style={{ textDecoration: "none", width: "100%", maxWidth: "300px" }}>
+            <button style={{
+              background: "#A3FF12", color: "#000", padding: "18px 40px", borderRadius: "16px",
+              fontWeight: 800, fontSize: "16px", border: "none", cursor: "pointer", 
+              display: "flex", alignItems: "center", gap: "12px", zIndex: 2,
+              boxShadow: "0 10px 30px rgba(217,255,0,0.2)", width: "100%", justifyContent: "center"
+            }}>
+              Let&apos;s Connect
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M7 17l9.2-9.2M17 17V7H7" /></svg>
+            </button>
+          </a>
           
           {/* Decorative Rocket Icon */}
           <div style={{ 
