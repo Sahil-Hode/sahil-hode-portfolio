@@ -3,7 +3,8 @@
 import Image from "next/image";
 import Navbar from "./Navbar";
 import { MdWavingHand } from "react-icons/md";
-import { FaLinkedinIn, FaGithub, FaBehance, FaDribbble } from "react-icons/fa";
+import { FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa";
+import { HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
 
 export default function Hero() {
   return (
@@ -62,8 +63,9 @@ export default function Hero() {
               {[
                 { icon: <FaLinkedinIn />, href: "https://www.linkedin.com/in/sahil-hode" },
                 { icon: <FaGithub />, href: "https://github.com/Sahil-Hode" },
-                { icon: <FaBehance />, href: "#" },
-                { icon: <FaDribbble />, href: "#" }
+                { icon: <FaWhatsapp />, href: "https://wa.me/918652601566" },
+                { icon: <HiOutlineMail />, href: "mailto:sahilhode67@gmail.com" },
+                { icon: <HiOutlinePhone />, href: "tel:+918652601566" },
               ].map((social, i) => (
                 <a 
                   key={i} 
