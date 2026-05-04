@@ -122,24 +122,26 @@
  
            {/* Column 2 — Profile Photo & Stats (Center) */}
            <div className="lg:col-span-4 flex flex-col items-center justify-center relative">
-             {/* Achievement Badge (Floating) */}
-             <div style={{ 
-               position: "absolute", top: "10%", right: "-5%", zIndex: 10,
-               background: "rgba(18,18,18,0.9)", backdropFilter: "blur(12px)",
-               padding: "16px", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.1)",
-               display: "flex", alignItems: "center", gap: "12px", boxShadow: "0 20px 40px rgba(0,0,0,0.4)"
-             }} className="hidden xl:flex">
-               <div style={{ width: "40px", height: "40px", background: "rgba(163,255,18,0.1)", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", color: "#A3FF12" }}>
-                 <FaTrophy size={20} />
-               </div>
-               <div>
-                 <p style={{ fontSize: "10px", color: "#A3FF12", fontWeight: 800, margin: 0, textTransform: "uppercase" }}>Hackathon Winner</p>
-                 <p style={{ fontSize: "13px", fontWeight: 800, margin: 0 }}>National Finalist</p>
-               </div>
-             </div>
- 
+             
              {/* Profile Photo with Glow Circle */}
              <div style={{ position: "relative", width: "100%", maxWidth: "340px", aspectRatio: "1/1", marginBottom: "48px" }}>
+               {/* Achievement Badge (Floating) */}
+               <div style={{ 
+                 position: "absolute", bottom: "10%", right: "-40px", zIndex: 10,
+                 background: "rgba(18,18,18,0.9)", backdropFilter: "blur(12px)",
+                 padding: "12px 16px", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.1)",
+                 display: "flex", alignItems: "center", gap: "12px", boxShadow: "0 20px 40px rgba(0,0,0,0.4)",
+                 whiteSpace: "nowrap"
+               }} className="hidden md:flex">
+                 <div style={{ width: "36px", height: "36px", background: "rgba(163,255,18,0.1)", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", color: "#A3FF12" }}>
+                   <FaTrophy size={18} />
+                 </div>
+                 <div>
+                   <p style={{ fontSize: "9px", color: "#A3FF12", fontWeight: 800, margin: 0, textTransform: "uppercase" }}>Hackathon Winner</p>
+                   <p style={{ fontSize: "12px", fontWeight: 800, margin: 0 }}>National Finalist</p>
+                 </div>
+               </div>
+ 
                <div style={{ 
                  position: "absolute", inset: "-20px", borderRadius: "50%", 
                  border: "2px dashed rgba(163,255,18,0.3)", animation: "spin 20s linear infinite"
@@ -178,7 +180,7 @@
  
            {/* Column 3 — Specialties Grid (Right) */}
            <div className="lg:col-span-4">
-             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", justifyContent: "center", lg: { justifyContent: "flex-start" } }} className="justify-center lg:justify-start">
+             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", justifyContent: "center" }} className="justify-center lg:justify-start">
                <div className="hidden lg:block" style={{ width: "40px", height: "2px", background: "#A3FF12" }} />
                <h3 style={{ fontSize: "24px", fontWeight: 800 }}>What I Do Best</h3>
                <div className="lg:hidden" style={{ width: "40px", height: "2px", background: "#A3FF12" }} />
