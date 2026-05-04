@@ -98,6 +98,21 @@ body {
   color: #A3FF12 !important;
 }
 
+@keyframes pulse-green {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(163, 255, 18, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(163, 255, 18, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(163, 255, 18, 0); }
+}
+
+.animate-pulse-green {
+  animation: pulse-green 2s infinite;
+}
+
+.input-focus-glow:focus {
+  border-color: #A3FF12 !important;
+  box-shadow: 0 0 15px rgba(163, 255, 18, 0.1);
+}
+
 /* ==============================================
    TABLET BREAKPOINT (max-width: 1024px)
    ============================================== */
