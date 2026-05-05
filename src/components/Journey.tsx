@@ -261,11 +261,11 @@ export default function Journey() {
             {/* Progress */}
             <div style={{ marginBottom: "24px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", fontSize: "12px", fontWeight: 800, color: "#a1a1aa", marginBottom: "8px" }}>
-                <span>Year 1 of 3</span>
-                <span style={{ color: "#A3FF12" }}>33%</span>
+                <span>Year 2 of 3</span>
+                <span style={{ color: "#A3FF12" }}>66%</span>
               </div>
               <div style={{ width: "100%", height: "6px", background: "rgba(255,255,255,0.05)", borderRadius: "999px", overflow: "hidden" }}>
-                <div style={{ width: "33%", height: "100%", background: "#A3FF12", borderRadius: "999px" }} />
+                <div style={{ width: "66%", height: "100%", background: "#A3FF12", borderRadius: "999px" }} />
               </div>
             </div>
 
