@@ -15,7 +15,7 @@ export default function ExperiencePage() {
   const handleSave = async (updated: any[]) => {
     setSaving(true);
     try {
-      const res = await fetch('/api/cms/experiences', {
+      const res = await fetch('/api/cms/experience', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updated),
