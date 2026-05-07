@@ -1,10 +1,26 @@
 "use client";
  
 import React, { useState } from "react";
-import { HiLightningBolt, HiOutlineExternalLink, HiOutlineCode } from "react-icons/hi";
+import { HiLightningBolt, HiOutlineExternalLink, HiOutlineCode, HiOutlineShoppingCart, HiOutlineHome, HiOutlineScissors, HiOutlineClock, HiOutlineHeart, HiOutlineSparkles } from "react-icons/hi";
 import { FaGithub, FaStar } from "react-icons/fa";
-import { usePortfolio } from "@/hooks/usePortfolio";
+import { usePortfolio } from "@/hooks/usePortfolioCMS";
 import { iconMap } from "@/lib/iconMap";
+
+const categoryIconMap: Record<string, React.ReactNode> = {
+  "AI · EDTECH": <HiOutlineSparkles />,
+  "AI TOOL": <HiOutlineCode />,
+  "AI · SAAS": <HiOutlineSparkles />,
+  "AI · HEALTH": <HiOutlineHeart />,
+  "E-COMMERCE": <HiOutlineShoppingCart />,
+  "WEB APP": <HiOutlineHome />,
+  "SAAS": <HiOutlineClock />,
+};
+
+// Specialized mapping for specific projects if needed
+const projectIconOverride: Record<string, React.ReactNode> = {
+  "07": <HiOutlineClock />,
+  "08": <HiOutlineScissors />,
+};
 
 export default function Projects() {
   const { data, loading } = usePortfolio();
@@ -69,10 +85,20 @@ export default function Projects() {
                 flexDirection: "column",
                 display: "flex",
                 height: "100%",
-                minHeight: "360px",
-                zIndex: 1
+                minHeight: "420px",
+                zIndex: 1,
+                overflow: "hidden"
               }}
             >
+              {/* Background Number */}
+              <div style={{ 
+                position: "absolute", top: "20px", right: "20px", 
+                fontSize: "80px", fontWeight: 900, color: "rgba(255,255,255,0.03)", 
+                lineHeight: 1, pointerEvents: "none", zIndex: 0 
+              }}>
+                {project.id}
+              </div>
+
               {project.featured && (
                 <div style={{ 
                   position: "absolute", top: "28px", right: "28px", zIndex: 10,
@@ -88,31 +114,31 @@ export default function Projects() {
                 background: "rgba(163, 255, 18, 0.08)", border: "1px solid rgba(163, 255, 18, 0.12)",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 fontSize: "22px", color: "#A3FF12", marginBottom: "24px",
-                transition: "transform 0.4s ease"
+                transition: "transform 0.4s ease", position: "relative", zIndex: 1
               }}>
-                {/* For projects, we might use a thumbnail or an icon. The user requirement says "dynamic project cards" */}
-                {iconMap[project.tech[0]] || <HiOutlineCode />}
+                {projectIconOverride[project.id] || categoryIconMap[project.category] || <HiOutlineCode />}
               </div>
 
               <div style={{ 
                 display: "inline-flex", alignItems: "center", gap: "6px", marginBottom: "12px",
                 padding: "4px 10px", background: "rgba(163, 255, 18, 0.08)", borderRadius: "999px",
-                border: "1px solid rgba(163, 255, 18, 0.15)", width: "fit-content"
+                border: "1px solid rgba(163, 255, 18, 0.15)", width: "fit-content", position: "relative", zIndex: 1
               }}>
                 <HiLightningBolt size={12} color="#A3FF12" />
                 <span style={{ fontSize: "10px", color: "#A3FF12", fontWeight: 800 }}>{project.category}</span>
               </div>
 
-              <h3 style={{ fontSize: "20px", fontWeight: 800, marginBottom: "10px", color: "#fff" }}>{project.title}</h3>
+              <h3 style={{ fontSize: "24px", fontWeight: 900, marginBottom: "12px", color: "#fff", position: "relative", zIndex: 1 }}>{project.title}</h3>
 
               <p style={{ 
-                color: "#666", fontSize: "13px", lineHeight: 1.6, marginBottom: "20px",
-                display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden"
+                color: "#71717a", fontSize: "14px", lineHeight: 1.6, marginBottom: "24px",
+                display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden",
+                position: "relative", zIndex: 1
               }}>
                 {project.desc}
               </p>
               
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginTop: "auto", marginBottom: "24px" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginTop: "auto", marginBottom: "28px", position: "relative", zIndex: 1 }}>
                 {project.tech.map((t, j) => (
                   <span key={j} style={{ 
                     fontSize: "12px", fontWeight: 700, color: "#555", display: "flex", alignItems: "center", gap: "6px"
@@ -124,14 +150,15 @@ export default function Projects() {
               </div>
 
               <div style={{ 
-                paddingTop: "16px", borderTop: "1px solid rgba(255,255,255,0.05)",
-                display: "flex", justifyContent: "space-between", alignItems: "center"
+                paddingTop: "20px", borderTop: "1px solid rgba(255,255,255,0.05)",
+                display: "flex", justifyContent: "space-between", alignItems: "center",
+                position: "relative", zIndex: 1
               }}>
                 <a href={project.live} target="_blank" rel="noopener noreferrer" style={{ color: "#A3FF12", fontSize: "14px", fontWeight: 700, textDecoration: "none", display: "flex", alignItems: "center", gap: "6px" }}>
                   Live Demo <HiOutlineExternalLink />
                 </a>
                 <a href={project.github} target="_blank" rel="noopener noreferrer" style={{ color: "#555", transition: "all 0.3s ease" }} className="hover:text-white">
-                  <FaGithub size={18} />
+                  <FaGithub size={20} />
                 </a>
               </div>
             </div>

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { HiOutlineLocationMarker, HiOutlineCalendar } from "react-icons/hi";
 import { FaGithub, FaLinkedin, FaTrophy } from "react-icons/fa";
 import { TbBrain, TbCode, TbCloudCode, TbDeviceMobile, TbDatabase, TbRocket } from "react-icons/tb";
-import { usePortfolio } from "@/hooks/usePortfolio";
+import { usePortfolio } from "@/hooks/usePortfolioCMS";
 import { iconMap } from "@/lib/iconMap";
 
 export default function About() {

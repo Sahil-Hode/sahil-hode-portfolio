@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { usePortfolio } from '@/hooks/usePortfolio';
+import { usePortfolio } from '@/hooks/usePortfolioCMS';
 import { 
   HiOutlineFolder, HiOutlineBriefcase, HiOutlineLightningBolt, 
   HiOutlineAcademicCap, HiOutlineArrowSmRight 

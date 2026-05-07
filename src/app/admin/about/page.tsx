@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { usePortfolio } from '@/hooks/usePortfolio';
+import { usePortfolio } from '@/hooks/usePortfolioCMS';
 import { HiOutlineSave, HiOutlineCloudUpload } from 'react-icons/hi';
 
 export default function AboutEditor() {

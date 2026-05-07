@@ -3,7 +3,7 @@
 import React from "react";
 import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker, HiOutlineClock, HiChevronRight, HiOutlineHeart, HiOutlineArrowUp } from "react-icons/hi";
-import { usePortfolio } from "@/hooks/usePortfolio";
+import { usePortfolio } from "@/hooks/usePortfolioCMS";
 
 export default function Footer() {
   const { data, loading } = usePortfolio();

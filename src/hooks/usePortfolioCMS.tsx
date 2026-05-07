@@ -1,16 +1,17 @@
 'use client';
+// Refreshed hook to resolve stale type errors
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { PortfolioData } from '@/types/portfolio';
+import { PortfolioCMSData } from '@/types/portfolio';
 
 const PortfolioContext = createContext<{
-  data: PortfolioData | null;
+  data: PortfolioCMSData | null;
   loading: boolean;
   refresh: () => Promise<void>;
 } | null>(null);
 
 export function PortfolioProvider({ children }: { children: React.ReactNode }) {
-  const [data, setData] = useState<PortfolioData | null>(null);
+  const [data, setData] = useState<PortfolioCMSData | null>(null);
   const [loading, setLoading] = useState(true);
 
   const fetchAll = async () => {
@@ -45,7 +46,7 @@ export function PortfolioProvider({ children }: { children: React.ReactNode }) {
 
       // Only set data if we got at least the core sections
       if (portfolioData.about) {
-        setData(portfolioData as PortfolioData);
+        setData(portfolioData as PortfolioCMSData);
       } else {
         console.error('Critical portfolio data missing (about).');
       }

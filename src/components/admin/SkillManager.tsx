@@ -2,28 +2,41 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { usePortfolio } from '@/hooks/usePortfolio';
+import { usePortfolio } from '@/hooks/usePortfolioCMS';
 
 export default function SkillManager() {
-  const { data, updateData } = usePortfolio();
+  const { data, loading, refresh } = usePortfolio();
   const [newSkill, setNewSkill] = useState({ name: '', category: 'Frontend' });
+  const [saving, setSaving] = useState(false);
+
+  if (loading || !data) return <div className="animate-pulse h-64 bg-white/5 rounded-2xl" />;
+
+  const handleUpdate = async (updatedSkills: any[]) => {
+    setSaving(true);
+    try {
+      const res = await fetch('/api/cms/skills', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedSkills),
+      });
+      if (res.ok) await refresh();
+    } catch (error) {
+      alert('Update failed');
+    } finally {
+      setSaving(false);
+    }
+  };
 
   const addSkill = (e: React.FormEvent) => {
     e.preventDefault();
     if (!newSkill.name) return;
-
-    updateData({
-      ...data,
-      skills: [...data.skills, { ...newSkill }]
-    });
+    const icon = newSkill.name.toLowerCase().replace('.', '');
+    handleUpdate([...data.skills, { ...newSkill, id: Math.random().toString(36).substr(2, 9), icon }]);
     setNewSkill({ ...newSkill, name: '' });
   };
 
   const removeSkill = (name: string) => {
-    updateData({
-      ...data,
-      skills: data.skills.filter(s => s.name !== name)
-    });
+    handleUpdate(data.skills.filter(s => s.name !== name));
   };
 
   const categories = ['Frontend', 'Backend', 'Language', 'Tools', 'Design'];

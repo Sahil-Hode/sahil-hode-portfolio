@@ -4,11 +4,16 @@ import {
   SiVercel, SiPython, SiPostgresql, SiFlutter, 
   SiRailway, SiGitlab, SiBun, SiNestjs, 
   SiExpress, SiMysql, SiNetlify,
-  SiFramer, SiJavascript, SiHtml5, SiCss
+  SiFramer, SiJavascript, SiHtml5, SiCss,
+  SiGooglecloud, SiFirebase, SiSupabase, SiRedux, SiStripe, SiRazorpay
 } from "react-icons/si";
-import { FaAws } from "react-icons/fa";
-import { TbBrain, TbCloudCode, TbInfinity, TbRoute, TbDeviceMobile, TbDatabase, TbRocket } from "react-icons/tb";
-import { HiOutlineLightningBolt, HiOutlineServer, HiOutlineCog, HiOutlineSparkles } from "react-icons/hi";
+import { FaAws, FaGithub, FaStar } from "react-icons/fa";
+import { TbBrain, TbCloudCode, TbInfinity, TbRoute, TbDeviceMobile, TbDatabase, TbRocket, TbBolt } from "react-icons/tb";
+import { 
+  HiOutlineLightningBolt, HiOutlineServer, HiOutlineCog, HiOutlineSparkles, 
+  HiOutlineCube, HiOutlineBookOpen, HiOutlineGlobeAlt, HiOutlineHome, 
+  HiOutlineScissors, HiOutlineClock 
+} from "react-icons/hi";
 
 export const iconMap: Record<string, React.ReactNode> = {
   react: <SiReact />,
@@ -46,4 +51,20 @@ export const iconMap: Record<string, React.ReactNode> = {
   server: <HiOutlineServer />,
   cog: <HiOutlineCog />,
   sparkles: <HiOutlineSparkles />,
+  langchain: <HiOutlineSparkles color="#A3FF12" />, // Fallback for SiLangchain
+  firebase: <SiFirebase />,
+  supabase: <SiSupabase />,
+  redux: <SiRedux />,
+  stripe: <SiStripe />,
+  razorpay: <SiRazorpay />,
+  gcp: <SiGooglecloud />,
+  cube: <HiOutlineCube />,
+  book: <HiOutlineBookOpen />,
+  globe: <HiOutlineGlobeAlt />,
+  home: <HiOutlineHome />,
+  scissors: <HiOutlineScissors />,
+  bolt: <TbBolt />,
+  clock: <HiOutlineClock />,
+  github: <FaGithub />,
+  star: <FaStar />,
 };

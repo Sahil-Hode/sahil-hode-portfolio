@@ -1,32 +1,54 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { usePortfolio } from '@/hooks/usePortfolio';
+import { usePortfolio } from '@/hooks/usePortfolioCMS';
+import { HiOutlineSave, HiOutlineCloudUpload, HiOutlineCheckCircle } from 'react-icons/hi';
 
 export default function DetailEditor() {
-  const { data, updateData } = usePortfolio();
-  const [isSaving, setIsSaving] = React.useState(false);
-  const [showSuccess, setShowSuccess] = React.useState(false);
+  const { data, loading, refresh } = usePortfolio();
+  const [about, setAbout] = useState<any>(null);
+  const [socials, setSocials] = useState<any>(null);
+  const [isSaving, setIsSaving] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
-  const handleChange = (section: 'hero' | 'socials', field: string, value: string) => {
-    updateData({
-      ...data,
-      [section]: {
-        ...(data as any)[section],
-        [field]: value
-      }
-    });
-  };
+  useEffect(() => {
+    if (data) {
+      setAbout(data.about);
+      setSocials(data.socials);
+    }
+  }, [data]);
 
-  const handleSave = (e: React.FormEvent) => {
+  if (loading || !about || !socials) return <div className="animate-pulse space-y-8"><div className="h-64 bg-white/5 rounded-3xl" /><div className="h-64 bg-white/5 rounded-3xl" /></div>;
+
+  const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSaving(true);
-    setTimeout(() => {
+    try {
+      // Save About
+      const resAbout = await fetch('/api/cms/about', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(about),
+      });
+
+      // Save Socials
+      const resSocials = await fetch('/api/cms/socials', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(socials),
+      });
+
+      if (resAbout.ok && resSocials.ok) {
+        await refresh();
+        setShowSuccess(true);
+        setTimeout(() => setShowSuccess(false), 3000);
+      }
+    } catch (error) {
+      alert('Save failed');
+    } finally {
       setIsSaving(false);
-      setShowSuccess(true);
-      setTimeout(() => setShowSuccess(false), 3000);
-    }, 800);
+    }
   };
 
   return (
@@ -46,8 +68,8 @@ export default function DetailEditor() {
               <label className="text-xs font-bold text-gray-500 uppercase">First Name</label>
               <input
                 type="text"
-                value={data.hero.name}
-                onChange={(e) => handleChange('hero', 'name', e.target.value)}
+                value={about.name}
+                onChange={(e) => setAbout({ ...about, name: e.target.value })}
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-[#A3FF12] transition-colors text-white"
               />
             </div>
@@ -55,8 +77,8 @@ export default function DetailEditor() {
               <label className="text-xs font-bold text-gray-500 uppercase">Professional Role</label>
               <input
                 type="text"
-                value={data.hero.role}
-                onChange={(e) => handleChange('hero', 'role', e.target.value)}
+                value={about.role}
+                onChange={(e) => setAbout({ ...about, role: e.target.value })}
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-[#A3FF12] transition-colors text-white"
               />
             </div>
@@ -66,8 +88,8 @@ export default function DetailEditor() {
             <label className="text-xs font-bold text-gray-500 uppercase">Role Highlight (Green Text)</label>
             <input
               type="text"
-              value={data.hero.highlight}
-              onChange={(e) => handleChange('hero', 'highlight', e.target.value)}
+              value={about.highlight}
+              onChange={(e) => setAbout({ ...about, highlight: e.target.value })}
               className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-[#A3FF12] transition-colors text-white"
             />
           </div>
@@ -76,19 +98,9 @@ export default function DetailEditor() {
             <label className="text-xs font-bold text-gray-500 uppercase">Hero Description</label>
             <textarea
               rows={4}
-              value={data.hero.description}
-              onChange={(e) => handleChange('hero', 'description', e.target.value)}
+              value={about.bio}
+              onChange={(e) => setAbout({ ...about, bio: e.target.value })}
               className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-[#A3FF12] transition-colors text-white resize-none"
-            />
-          </div>
-
-          <div className="space-y-2">
-            <label className="text-xs font-bold text-gray-500 uppercase">Profile Image URL</label>
-            <input
-              type="text"
-              value={data.hero.profileImage}
-              onChange={(e) => handleChange('hero', 'profileImage', e.target.value)}
-              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-[#A3FF12] transition-colors text-white"
             />
           </div>
         </div>
@@ -102,8 +114,8 @@ export default function DetailEditor() {
               <label className="text-xs font-bold text-gray-500 uppercase">GitHub Profile</label>
               <input
                 type="text"
-                value={data.socials.github}
-                onChange={(e) => handleChange('socials', 'github', e.target.value)}
+                value={socials.github}
+                onChange={(e) => setSocials({ ...socials, github: e.target.value })}
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-[#A3FF12] transition-colors text-white"
               />
             </div>
@@ -111,8 +123,8 @@ export default function DetailEditor() {
               <label className="text-xs font-bold text-gray-500 uppercase">LinkedIn Profile</label>
               <input
                 type="text"
-                value={data.socials.linkedin}
-                onChange={(e) => handleChange('socials', 'linkedin', e.target.value)}
+                value={socials.linkedin}
+                onChange={(e) => setSocials({ ...socials, linkedin: e.target.value })}
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-[#A3FF12] transition-colors text-white"
               />
             </div>
@@ -120,8 +132,8 @@ export default function DetailEditor() {
               <label className="text-xs font-bold text-gray-500 uppercase">WhatsApp Link</label>
               <input
                 type="text"
-                value={data.socials.whatsapp}
-                onChange={(e) => handleChange('socials', 'whatsapp', e.target.value)}
+                value={socials.whatsapp}
+                onChange={(e) => setSocials({ ...socials, whatsapp: e.target.value })}
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-[#A3FF12] transition-colors text-white"
               />
             </div>
@@ -129,8 +141,8 @@ export default function DetailEditor() {
               <label className="text-xs font-bold text-gray-500 uppercase">Public Email</label>
               <input
                 type="text"
-                value={data.socials.email}
-                onChange={(e) => handleChange('socials', 'email', e.target.value)}
+                value={socials.email}
+                onChange={(e) => setSocials({ ...socials, email: e.target.value })}
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-[#A3FF12] transition-colors text-white"
               />
             </div>
@@ -143,7 +155,7 @@ export default function DetailEditor() {
             disabled={isSaving}
             className="bg-[#A3FF12] text-black font-bold px-10 py-4 rounded-xl hover:bg-[#8edb10] transition-all duration-300 disabled:opacity-50 flex items-center gap-2"
           >
-            {isSaving ? 'Updating...' : 'Save All Changes'}
+            {isSaving ? 'Updating GitHub...' : <><HiOutlineSave /> Save All Changes</>}
           </button>
 
           {showSuccess && (
@@ -152,7 +164,7 @@ export default function DetailEditor() {
               animate={{ opacity: 1, x: 0 }}
               className="text-[#A3FF12] font-bold flex items-center gap-2"
             >
-              Portfolio updated successfully!
+              <HiOutlineCheckCircle /> Portfolio updated successfully!
             </motion.p>
           )}
         </div>

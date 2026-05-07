@@ -1,4 +1,4 @@
-export const initialPortfolioData = {
+export const initialPortfolioCMSData = {
   hero: {
     name: "Sahil",
     role: "SDE & Full Stack Developer",

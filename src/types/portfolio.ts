@@ -64,7 +64,7 @@ export interface ContactInfo {
   availability: string;
 }
 
-export interface PortfolioData {
+export interface PortfolioCMSData {
   about: AboutData;
   projects: Project[];
   experiences: Experience[];

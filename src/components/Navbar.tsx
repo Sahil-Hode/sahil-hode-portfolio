@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { usePortfolio } from "@/hooks/usePortfolio";
+import { usePortfolio } from "@/hooks/usePortfolioCMS";
 
 const NAV_ITEMS = ["Home", "About", "Skills", "Projects", "Experience", "Contact"];
 
@@ -66,7 +66,7 @@ export default function Navbar() {
       <div className={`nb-wrapper${scrolled ? " scrolled" : ""}`}>
         <div className={`nb-bar${scrolled ? " scrolled" : ""}`}>
           <a href="#home" className="nb-brand" onClick={() => setActive("Home")}>
-            <div className="nb-logo">{about.name.split(' ').map(n => n[0]).join('')}</div>
+            <div className="nb-logo">{about.name.split(' ').map((n: string) => n[0]).join('')}</div>
             <div className="nb-brand-text">
               <p className="nb-name">{about.name.toUpperCase()}</p>
               <p className="nb-subtitle">{about.role}</p>

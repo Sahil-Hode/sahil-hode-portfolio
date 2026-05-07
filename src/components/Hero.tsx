@@ -4,7 +4,7 @@ import Image from "next/image";
 import Navbar from "./Navbar";
 import { MdWavingHand } from "react-icons/md";
 import { FaLinkedinIn, FaGithub, FaWhatsapp, FaTwitter } from "react-icons/fa";
-import { usePortfolio } from "@/hooks/usePortfolio";
+import { usePortfolio } from "@/hooks/usePortfolioCMS";
 
 export default function Hero() {
   const { data, loading } = usePortfolio();

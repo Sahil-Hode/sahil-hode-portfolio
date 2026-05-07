@@ -8,15 +8,15 @@
   { "id": "s7", "name": "Bun / Express", "category": "Backend", "icon": "express" },
   { "id": "s8", "name": "MongoDB", "category": "Backend", "icon": "mongodb" },
   { "id": "s9", "name": "Postgres / MySQL", "category": "Backend", "icon": "postgresql" },
-  { "id": "s10", "name": "REST APIs", "category": "Backend", "icon": "nodejs" },
+  { "id": "s10", "name": "REST APIs", "category": "Backend", "icon": "server" },
   { "id": "s11", "name": "Docker & Git", "category": "Tools", "icon": "docker" },
-  { "id": "s12", "name": "GitHub / GitLab", "category": "Tools", "icon": "github" },
+  { "id": "s12", "name": "GitHub / GitLab", "category": "Tools", "icon": "gitlab" },
   { "id": "s13", "name": "Vercel / Netlify", "category": "Tools", "icon": "vercel" },
   { "id": "s14", "name": "AWS / Railway", "category": "Tools", "icon": "aws" },
-  { "id": "s15", "name": "CI / CD", "category": "Tools", "icon": "github" },
+  { "id": "s15", "name": "CI / CD", "category": "Tools", "icon": "infinity" },
   { "id": "s16", "name": "Python", "category": "Language", "icon": "python" },
-  { "id": "s17", "name": "LangChain & LangGraph", "category": "Language", "icon": "sparkles" },
+  { "id": "s17", "name": "LangChain & LangGraph", "category": "Language", "icon": "langchain" },
   { "id": "s18", "name": "RAG Systems", "category": "Language", "icon": "brain" },
   { "id": "s19", "name": "Gemini / OpenAI", "category": "Language", "icon": "openai" },
-  { "id": "s20", "name": "Automation", "category": "Language", "icon": "sparkles" }
+  { "id": "s20", "name": "Automation", "category": "Language", "icon": "bolt" }
 ]

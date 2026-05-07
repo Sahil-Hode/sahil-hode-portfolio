@@ -42,7 +42,7 @@ export const viewport = {
 };
 
 import CustomCursor from "@/components/CustomCursor";
-import { PortfolioProvider } from "@/hooks/usePortfolio";
+import { PortfolioProvider } from "@/hooks/usePortfolioCMS";
 
 export default function RootLayout({
   children,

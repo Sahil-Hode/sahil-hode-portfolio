@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { usePortfolio } from '@/hooks/usePortfolio';
+import { usePortfolio } from '@/hooks/usePortfolioCMS';
 import { HiOutlinePlus, HiOutlineTrash, HiOutlinePencil, HiOutlineSave, HiOutlineCloudUpload, HiOutlineEye, HiOutlineEyeOff } from 'react-icons/hi';
 import { Project } from '@/types/portfolio';
 
