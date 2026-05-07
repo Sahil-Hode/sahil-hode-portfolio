@@ -23,10 +23,10 @@ export default function Dashboard() {
   }
 
   const stats = [
-    { name: 'Projects', value: data.projects?.length || 0, icon: <HiOutlineFolder />, color: '#A3FF12', href: '/admin/projects' },
-    { name: 'Experiences', value: data.experiences?.length || 0, icon: <HiOutlineBriefcase />, color: '#3178C6', href: '/admin/experience' },
-    { name: 'Skills', value: data.skills?.length || 0, icon: <HiOutlineLightningBolt />, color: '#F59E0B', href: '/admin/skills' },
-    { name: 'Education', value: data.education?.length || 0, icon: <HiOutlineAcademicCap />, color: '#10B981', href: '/admin/education' },
+    { name: 'Projects', value: data.projects?.length || 0, icon: <HiOutlineFolder />, color: '#A3FF12', href: '/sahil/admin/projects' },
+    { name: 'Experiences', value: data.experiences?.length || 0, icon: <HiOutlineBriefcase />, color: '#3178C6', href: '/sahil/admin/experience' },
+    { name: 'Skills', value: data.skills?.length || 0, icon: <HiOutlineLightningBolt />, color: '#F59E0B', href: '/sahil/admin/skills' },
+    { name: 'Education', value: data.education?.length || 0, icon: <HiOutlineAcademicCap />, color: '#10B981', href: '/sahil/admin/education' },
   ];
 
   return (
@@ -59,16 +59,16 @@ export default function Dashboard() {
         <div className="bg-[#111] p-8 rounded-[32px] border border-white/5">
           <h3 className="text-xl font-bold mb-6">Quick Actions</h3>
           <div className="grid grid-cols-2 gap-4">
-            <Link href="/admin/projects" className="p-4 bg-white/5 rounded-2xl hover:bg-[#A3FF12] hover:text-black transition-all text-sm font-bold text-center">
+            <Link href="/sahil/admin/projects" className="p-4 bg-white/5 rounded-2xl hover:bg-[#A3FF12] hover:text-black transition-all text-sm font-bold text-center">
               Add New Project
             </Link>
-            <Link href="/admin/about" className="p-4 bg-white/5 rounded-2xl hover:bg-[#A3FF12] hover:text-black transition-all text-sm font-bold text-center">
+            <Link href="/sahil/admin/about" className="p-4 bg-white/5 rounded-2xl hover:bg-[#A3FF12] hover:text-black transition-all text-sm font-bold text-center">
               Edit Hero Bio
             </Link>
-            <Link href="/admin/skills" className="p-4 bg-white/5 rounded-2xl hover:bg-[#A3FF12] hover:text-black transition-all text-sm font-bold text-center">
+            <Link href="/sahil/admin/skills" className="p-4 bg-white/5 rounded-2xl hover:bg-[#A3FF12] hover:text-black transition-all text-sm font-bold text-center">
               Update Skills
             </Link>
-            <Link href="/admin/contact" className="p-4 bg-white/5 rounded-2xl hover:bg-[#A3FF12] hover:text-black transition-all text-sm font-bold text-center">
+            <Link href="/sahil/admin/contact" className="p-4 bg-white/5 rounded-2xl hover:bg-[#A3FF12] hover:text-black transition-all text-sm font-bold text-center">
               Update Contact
             </Link>
           </div>

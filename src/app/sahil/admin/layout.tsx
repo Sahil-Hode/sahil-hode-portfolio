@@ -12,15 +12,15 @@ import {
 } from 'react-icons/hi';
 
 const menuItems = [
-  { name: 'Dashboard', icon: <HiOutlineViewGrid />, href: '/admin' },
-  { name: 'About', icon: <HiOutlineUser />, href: '/admin/about' },
-  { name: 'Projects', icon: <HiOutlineFolder />, href: '/admin/projects' },
-  { name: 'Experience', icon: <HiOutlineBriefcase />, href: '/admin/experience' },
-  { name: 'Education', icon: <HiOutlineAcademicCap />, href: '/admin/education' },
-  { name: 'Skills', icon: <HiOutlineLightningBolt />, href: '/admin/skills' },
-  { name: 'Social Links', icon: <HiOutlineShare />, href: '/admin/socials' },
-  { name: 'Contact', icon: <HiOutlineMail />, href: '/admin/contact' },
-  { name: 'Settings', icon: <HiOutlineCog />, href: '/admin/settings' },
+  { name: 'Dashboard', icon: <HiOutlineViewGrid />, href: '/sahil/admin' },
+  { name: 'About', icon: <HiOutlineUser />, href: '/sahil/admin/about' },
+  { name: 'Projects', icon: <HiOutlineFolder />, href: '/sahil/admin/projects' },
+  { name: 'Experience', icon: <HiOutlineBriefcase />, href: '/sahil/admin/experience' },
+  { name: 'Education', icon: <HiOutlineAcademicCap />, href: '/sahil/admin/education' },
+  { name: 'Skills', icon: <HiOutlineLightningBolt />, href: '/sahil/admin/skills' },
+  { name: 'Social Links', icon: <HiOutlineShare />, href: '/sahil/admin/socials' },
+  { name: 'Contact', icon: <HiOutlineMail />, href: '/sahil/admin/contact' },
+  { name: 'Settings', icon: <HiOutlineCog />, href: '/sahil/admin/settings' },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -39,7 +39,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const handleLogout = async () => {
     // Clear cookie (simplified)
     document.cookie = "admin_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    router.push('/admin/login');
+    router.push('/sahil/admin/login');
   };
 
   return (
