@@ -19,7 +19,7 @@ export default function DetailEditor() {
     }
   }, [data]);
 
-  if (loading || !about || !socials) return <div className="animate-pulse space-y-8"><div className="h-64 bg-white/5 rounded-3xl" /><div className="h-64 bg-white/5 rounded-3xl" /></div>;
+  if (loading || !data || !about || !socials) return <div className="animate-pulse space-y-8"><div className="h-64 bg-white/5 rounded-3xl" /><div className="h-64 bg-white/5 rounded-3xl" /></div>;
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -158,8 +158,9 @@ export default function DetailEditor() {
               <label className="text-xs font-bold text-gray-500 uppercase">Office Location</label>
               <input
                 type="text"
-                value={data.contact?.location || ''}
+                value={data?.contact?.location || ''}
                 onChange={async (e) => {
+                   if (!data) return;
                    const updated = { ...data.contact, location: e.target.value };
                    await fetch('/api/cms/contact', {
                      method: 'POST',
@@ -174,8 +175,9 @@ export default function DetailEditor() {
               <label className="text-xs font-bold text-gray-500 uppercase">Availability Status</label>
               <input
                 type="text"
-                value={data.contact?.availability || ''}
+                value={data?.contact?.availability || ''}
                 onChange={async (e) => {
+                   if (!data) return;
                    const updated = { ...data.contact, availability: e.target.value };
                    await fetch('/api/cms/contact', {
                      method: 'POST',
