@@ -42,6 +42,7 @@ export const viewport = {
 };
 
 import CustomCursor from "@/components/CustomCursor";
+import { PortfolioProvider } from "@/hooks/usePortfolio";
 
 export default function RootLayout({
   children,
@@ -59,8 +60,10 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
       </head>
       <body className="min-h-full flex flex-col">
-        <CustomCursor />
-        {children}
+        <PortfolioProvider>
+          <CustomCursor />
+          {children}
+        </PortfolioProvider>
       </body>
     </html>
   );

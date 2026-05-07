@@ -3,12 +3,19 @@
 import Image from "next/image";
 import Navbar from "./Navbar";
 import { MdWavingHand } from "react-icons/md";
-import { FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa";
+import { FaLinkedinIn, FaGithub, FaWhatsapp, FaTwitter } from "react-icons/fa";
 import { usePortfolio } from "@/hooks/usePortfolio";
 
 export default function Hero() {
-  const { data } = usePortfolio();
-  const { hero, socials } = data;
+  const { data, loading } = usePortfolio();
+  
+  if (loading || !data) return (
+    <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center">
+      <div className="w-8 h-8 border-4 border-[#A3FF12]/20 border-t-[#A3FF12] rounded-full animate-spin" />
+    </div>
+  );
+
+  const { about, socials } = data;
 
   return (
     <div id="home" className="relative min-h-screen bg-[#0A0A0A] text-white overflow-hidden font-sans">
@@ -23,14 +30,14 @@ export default function Hero() {
         {/* Left Column */}
         <div style={{ zIndex: 10 }}>
           <p style={{ color: "#A3FF12", fontSize: "16px", fontWeight: 600, marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
-            Hello, I&apos;m {hero.name} <MdWavingHand />
+            Hello, I&apos;m {about.name} <MdWavingHand />
           </p>
           <h1 style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 900, lineHeight: 1.1, letterSpacing: "-0.03em", marginBottom: "24px" }}>
-            {hero.role.split(',')[0]}, <br />
-            <span style={{ color: "#A3FF12" }}>{hero.highlight}</span>
+            {about.role.split(',')[0]}, <br />
+            <span style={{ color: "#A3FF12" }}>{about.highlight}</span>
           </h1>
           <p style={{ color: "#a1a1aa", fontSize: "18px", lineHeight: 1.6, maxWidth: "540px", marginBottom: "40px" }}>
-            {hero.description}
+            {about.bio}
           </p>
 
           {/* CTAs */}
@@ -47,7 +54,7 @@ export default function Hero() {
                 </svg>
               </button>
             </a>
-            <a href={hero.resumeLink} download="Sahil_Hode_Resume.pdf" style={{
+            <a href={about.resumeLink} download style={{
               background: "transparent", color: "#fff", padding: "16px 32px", borderRadius: "12px",
               fontWeight: 700, fontSize: "16px", border: "2px solid rgba(255,255,255,0.1)", cursor: "pointer", display: "flex", alignItems: "center", gap: "10px",
               whiteSpace: "nowrap", justifyContent: "center", textDecoration: "none"
@@ -67,7 +74,8 @@ export default function Hero() {
                 { icon: <FaLinkedinIn />, href: socials.linkedin },
                 { icon: <FaGithub />, href: socials.github },
                 { icon: <FaWhatsapp />, href: socials.whatsapp },
-              ].map((social, i) => (
+                { icon: <FaTwitter />, href: socials.twitter },
+              ].filter(s => s.href).map((social, i) => (
                 <a 
                   key={i} 
                   href={social.href} 
@@ -104,15 +112,11 @@ export default function Hero() {
           {/* Image */}
           <div style={{ position: "relative", zIndex: 5, width: "100%", height: "100%", display: "flex", justifyContent: "center" }}>
             <Image 
-              src={hero.profileImage} 
-              alt={hero.name} 
+              src={about.profileImage} 
+              alt={about.name} 
               width={450} 
               height={550} 
               priority={true}
-              loading="eager"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              placeholder="blur"
-              blurDataURL="data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAACwAQCdASoIAAkAAQAkJZwCBNgAAud0LwAA/v5YIf5wM8kZzH+2d77vNnAAAAA="
               style={{ objectFit: "contain", position: "relative", zIndex: 10, willChange: "transform" }}
             />
           </div>
@@ -135,13 +139,6 @@ export default function Hero() {
           </div>
         </div>
       </main>
-
-      {/* Decorative Dots */}
-      <div style={{ position: "absolute", top: "20%", right: "5%", opacity: 0.1, zIndex: 0 }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "12px" }}>
-          {[...Array(25)].map((_, i) => <div key={i} style={{ width: "4px", height: "4px", background: "#fff", borderRadius: "50%" }} />)}
-        </div>
-      </div>
     </div>
   );
 }

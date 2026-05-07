@@ -3,24 +3,30 @@
 import React from "react";
 import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker, HiOutlineClock, HiChevronRight, HiOutlineHeart, HiOutlineArrowUp } from "react-icons/hi";
+import { usePortfolio } from "@/hooks/usePortfolio";
 
 export default function Footer() {
+  const { data, loading } = usePortfolio();
+  
+  if (loading || !data) return null;
+
+  const { about, socials, contact } = data;
+
   const quickLinks = ["About Me", "Skills", "Projects", "Experience", "Contact"];
-  const services = ["Web Development", "UI/UX Design", "Full Stack Development", "API Development", "Consulting"];
-  const tech = ["React", "Next.js", "Node.js", "TypeScript", "MongoDB", "Tailwind CSS", "Express.js"];
+  const tech = ["React", "Next.js", "Node.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Cloudinary"];
   
   const connect = [
-    { label: "Email", value: "sahilhode67@gmail.com", icon: <HiOutlineMail /> },
-    { label: "Phone", value: "+91 8652601566", icon: <HiOutlinePhone /> },
-    { label: "Location", value: "Thane, Mumbai, Maharashtra", icon: <HiOutlineLocationMarker /> },
-    { label: "Availability", value: "Open for Freelance & Full-time", icon: <HiOutlineClock /> }
+    { label: "Email", value: contact.email, icon: <HiOutlineMail /> },
+    { label: "Phone", value: contact.phone, icon: <HiOutlinePhone /> },
+    { label: "Location", value: contact.location, icon: <HiOutlineLocationMarker /> },
+    { label: "Availability", value: contact.availability, icon: <HiOutlineClock /> }
   ];
 
-  const socials = [
-    { icon: <FaLinkedin />, link: "https://www.linkedin.com/in/sahil-hode" },
-    { icon: <FaGithub />, link: "https://github.com/Sahil-Hode" },
-    { icon: <FaWhatsapp />, link: "https://wa.me/918652601566" }
-  ];
+  const socialLinks = [
+    { icon: <FaLinkedin />, link: socials.linkedin },
+    { icon: <FaGithub />, link: socials.github },
+    { icon: <FaWhatsapp />, link: socials.whatsapp }
+  ].filter(s => s.link);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -36,26 +42,25 @@ export default function Footer() {
           {/* Col 1: Brand */}
           <div className="md:col-span-2 lg:col-span-1">
             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "24px" }}>
-              {/* Logo icon */}
               <div style={{ color: "#A3FF12", fontSize: "40px", fontWeight: 900, lineHeight: 1, letterSpacing: "-2px" }}>
-                SH
+                {about.name.split(' ').map(n => n[0]).join('')}
               </div>
               <div>
-                <div style={{ fontSize: "20px", fontWeight: 800, letterSpacing: "-0.02em" }}>SAHIL HODE</div>
-                <div style={{ fontSize: "11px", color: "#a1a1aa" }}>SDE & Full Stack Developer, Agentic AI Developer</div>
+                <div style={{ fontSize: "20px", fontWeight: 800, letterSpacing: "-0.02em" }}>{about.name.toUpperCase()}</div>
+                <div style={{ fontSize: "11px", color: "#a1a1aa" }}>{about.role}</div>
               </div>
             </div>
             <p style={{ color: "#a1a1aa", fontSize: "14px", lineHeight: 1.6, marginBottom: "24px", maxWidth: "260px" }}>
-              I build high-performance web applications that are fast, scalable and create real impact.
+              {about.bio.slice(0, 100)}...
             </p>
             <div style={{ width: "40px", height: "2px", background: "#A3FF12", marginBottom: "24px" }} />
             <div style={{ display: "flex", gap: "12px" }}>
-              {socials.map((social, i) => (
+              {socialLinks.map((social, i) => (
                 <a key={i} href={social.link} target="_blank" rel="noopener noreferrer" style={{ 
                   width: "44px", height: "44px", background: "rgba(255,255,255,0.02)", borderRadius: "10px",
                   display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: "18px",
                   border: "1px solid rgba(255,255,255,0.05)", transition: "all 0.3s ease"
-                }} onMouseOver={(e) => e.currentTarget.style.background = "rgba(255,255,255,0.08)"} onMouseOut={(e) => e.currentTarget.style.background = "rgba(255,255,255,0.02)"}>
+                }}>
                   {social.icon}
                 </a>
               ))}
@@ -68,15 +73,7 @@ export default function Footer() {
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
               {quickLinks.map((link, i) => (
                 <li key={i}>
-                  <a 
-                    href={`#${link.toLowerCase().replace(" me", "")}`} 
-                    style={{ 
-                      display: "flex", alignItems: "center", gap: "8px", color: "#a1a1aa", 
-                      fontSize: "14px", cursor: "pointer", textDecoration: "none", transition: "color 0.3s ease" 
-                    }}
-                    onMouseOver={(e) => e.currentTarget.style.color = "#A3FF12"}
-                    onMouseOut={(e) => e.currentTarget.style.color = "#a1a1aa"}
-                  >
+                  <a href={`#${link.toLowerCase().replace(" me", "")}`} style={{ display: "flex", alignItems: "center", gap: "8px", color: "#a1a1aa", fontSize: "14px", textDecoration: "none" }}>
                     <HiChevronRight color="#A3FF12" size={16} />
                     {link}
                   </a>
@@ -85,25 +82,12 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 3: Services */}
-          <div>
-            <h4 style={{ fontSize: "16px", fontWeight: 700, marginBottom: "24px" }}>Services</h4>
-            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
-              {services.map((service, i) => (
-                <li key={i} style={{ display: "flex", alignItems: "center", gap: "8px", color: "#a1a1aa", fontSize: "14px", cursor: "pointer" }}>
-                  <HiChevronRight color="#A3FF12" size={16} />
-                  {service}
-                </li>
-              ))}
-            </ul>
-          </div>
-
           {/* Col 4: Technologies */}
           <div>
-            <h4 style={{ fontSize: "16px", fontWeight: 700, marginBottom: "24px" }}>Technologies</h4>
+            <h4 style={{ fontSize: "16px", fontWeight: 700, marginBottom: "24px" }}>Stack</h4>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
               {tech.map((item, i) => (
-                <li key={i} style={{ display: "flex", alignItems: "center", gap: "10px", color: "#a1a1aa", fontSize: "14px", cursor: "pointer" }}>
+                <li key={i} style={{ display: "flex", alignItems: "center", gap: "10px", color: "#a1a1aa", fontSize: "14px" }}>
                   <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#A3FF12" }} />
                   {item}
                 </li>
@@ -112,7 +96,7 @@ export default function Footer() {
           </div>
 
           {/* Col 5: Let's Connect */}
-          <div>
+          <div className="md:col-span-2">
             <h4 style={{ fontSize: "16px", fontWeight: 700, marginBottom: "24px" }}>Let&apos;s Connect</h4>
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
               {connect.map((info, i) => (
@@ -134,30 +118,18 @@ export default function Footer() {
 
         </div>
 
-
-
         {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center py-8 gap-6 border-t border-white/5 text-[13px] color-[#71717a]">
-          <div>© 2026 Sahil Hode. All rights reserved.</div>
+        <div className="flex flex-col md:flex-row justify-between items-center py-8 gap-6 border-t border-white/5 text-[13px]">
+          <div className="text-[#a1a1aa]">© 2026 {about.name}. All rights reserved.</div>
           
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 text-[#a1a1aa]">
             <HiOutlineHeart color="#A3FF12" size={16} />
-            Made with ❤️ by Sahil Hode
+            Made with ❤️ by {about.name}
           </div>
 
-          <div className="flex items-center gap-6">
-            <div>Privacy Policy &nbsp;|&nbsp; Terms of Use</div>
-            <button 
-              onClick={scrollToTop}
-              style={{ 
-                width: "36px", height: "36px", borderRadius: "8px", border: "1px solid rgba(255,255,255,0.1)",
-                background: "transparent", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center",
-                cursor: "pointer", transition: "all 0.3s ease"
-              }}
-            >
-              <HiOutlineArrowUp size={18} />
-            </button>
-          </div>
+          <button onClick={scrollToTop} style={{ width: "36px", height: "36px", borderRadius: "8px", border: "1px solid rgba(255,255,255,0.1)", background: "transparent", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <HiOutlineArrowUp size={18} />
+          </button>
         </div>
 
       </div>

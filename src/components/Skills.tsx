@@ -1,50 +1,15 @@
 "use client";
 
 import React from "react";
-import { 
-  SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, 
-  SiNodedotjs, SiMongodb, SiOpenai,
-  SiDocker, SiVercel, SiPython,
-  SiPostgresql, SiFlutter, SiRailway,
-  SiGitlab, SiBun, SiNestjs, SiExpress, SiMysql, SiAmazonwebservices, SiNetlify
-} from "react-icons/si";
 import { HiOutlineLightningBolt, HiOutlineServer, HiOutlineCog, HiOutlineSparkles } from "react-icons/hi";
-import { TbCloudCode, TbInfinity, TbRoute, TbBrain } from "react-icons/tb";
-import { FaRocket } from "react-icons/fa";
 import { usePortfolio } from "@/hooks/usePortfolio";
-
-const skillIcons: Record<string, React.ReactNode> = {
-  // Frontend
-  "Next.js": <SiNextdotjs color="#fff" />,
-  "React / Native": <SiReact color="#61DAFB" />,
-  "TypeScript": <SiTypescript color="#3178C6" />,
-  "Flutter & Dart": <SiFlutter color="#02569B" />,
-  "Tailwind CSS": <SiTailwindcss color="#06B6D4" />,
-  
-  // Backend
-  "Node / NestJS": <SiNestjs color="#E0234E" />,
-  "Bun / Express": <SiExpress color="#fff" />,
-  "MongoDB": <SiMongodb color="#47A248" />,
-  "Postgres / MySQL": <SiPostgresql color="#4169E1" />,
-  "REST APIs": <TbCloudCode color="#A3FF12" />,
-  
-  // Tools
-  "Docker & Git": <SiDocker color="#2496ED" />,
-  "GitHub / GitLab": <SiGitlab color="#FC6D26" />,
-  "Vercel / Netlify": <SiVercel color="#fff" />,
-  "AWS / Railway": <SiRailway color="#fff" />,
-  "CI / CD": <TbInfinity color="#A3FF12" />,
-  
-  // Language / AI
-  "Python": <SiPython color="#3776AB" />,
-  "LangChain & LangGraph": <TbRoute color="#A3FF12" />,
-  "RAG Systems": <TbBrain color="#A3FF12" />,
-  "Gemini / OpenAI": <SiOpenai color="#412991" />,
-  "Automation": <HiOutlineLightningBolt color="#A3FF12" />,
-};
+import { iconMap } from "@/lib/iconMap";
 
 export default function Skills() {
-  const { data } = usePortfolio();
+  const { data, loading } = usePortfolio();
+  
+  if (loading || !data) return null;
+
   const { skills } = data;
 
   const categories = [
@@ -93,13 +58,6 @@ export default function Skills() {
               I combine creativity with technology to build fast, scalable, and user-focused digital products.
             </p>
           </div>
-          <div style={{ 
-            background: "rgba(255,255,255,0.03)", padding: "10px 24px", borderRadius: "999px", border: "1px solid rgba(255,255,255,0.08)",
-            display: "flex", alignItems: "center", gap: "10px", color: "#a1a1aa", fontSize: "13px", fontWeight: 600
-          }}>
-            <div style={{ width: "8px", height: "8px", background: "#A3FF12", borderRadius: "50%", boxShadow: "0 0 10px #A3FF12" }} />
-            Always learning new technologies
-          </div>
         </div>
 
         {/* Categories Grid */}
@@ -124,7 +82,7 @@ export default function Skills() {
                 {skills.filter(s => s.category === cat.filter).map((skill, j) => (
                   <div key={j} style={{ display: "flex", alignItems: "center", gap: "16px" }}>
                     <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(255,255,255,0.03)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "18px" }}>
-                      {skillIcons[skill.name] || <FaRocket color="#A3FF12" />}
+                      {iconMap[skill.icon] || <HiOutlineSparkles color="#A3FF12" />}
                     </div>
                     <span style={{ fontSize: "16px", fontWeight: 600, color: "#a1a1aa" }}>{skill.name}</span>
                   </div>
@@ -133,33 +91,6 @@ export default function Skills() {
             </div>
           ))}
         </div>
-
-        {/* Footer CTA */}
-        <div className="flex flex-col lg:flex-row justify-between items-center bg-white/[0.03] border border-white/[0.08] rounded-[32px] p-8 md:p-12 lg:p-16 relative overflow-hidden gap-10">
-          <div style={{ position: "relative", zIndex: 2, textAlign: "center" }} className="lg:text-left">
-            <h3 style={{ fontSize: "clamp(24px, 5vw, 28px)", fontWeight: 900, marginBottom: "8px" }}>Let&apos;s build something amazing together!</h3>
-            <p style={{ color: "#71717a", fontSize: "16px", margin: 0 }}>I&apos;m always open to discussing new opportunities and exciting projects.</p>
-          </div>
-          <a href="#contact" style={{ textDecoration: "none", width: "100%", maxWidth: "300px" }}>
-            <button style={{
-              background: "#A3FF12", color: "#000", padding: "18px 40px", borderRadius: "16px",
-              fontWeight: 800, fontSize: "16px", border: "none", cursor: "pointer", 
-              display: "flex", alignItems: "center", gap: "12px", zIndex: 2,
-              boxShadow: "0 10px 30px rgba(217,255,0,0.2)", width: "100%", justifyContent: "center"
-            }}>
-              Let&apos;s Connect
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M7 17l9.2-9.2M17 17V7H7" /></svg>
-            </button>
-          </a>
-          
-          <div style={{ 
-            position: "absolute", left: "20px", top: "50%", transform: "translateY(-50%)", 
-            opacity: 0.05, fontSize: "80px", pointerEvents: "none" 
-          }}>
-            <FaRocket />
-          </div>
-        </div>
-
       </div>
     </section>
   );

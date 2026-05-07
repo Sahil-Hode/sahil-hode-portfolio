@@ -1,0 +1,13 @@
+[
+  {
+    "id": "e1",
+    "company": "Tech Solutions",
+    "role": "Full Stack Intern",
+    "duration": "Jan 2024 - Present",
+    "desc": [
+      "Developed responsive web applications using Next.js and Tailwind CSS.",
+      "Integrated AI features using OpenAI API."
+    ],
+    "tech": ["nextjs", "tailwind", "openai"]
+  }
+]

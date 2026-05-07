@@ -1,0 +1,15 @@
+[
+  {
+    "id": "01",
+    "title": "Campus++",
+    "category": "AI · EDTECH",
+    "type": "AI Projects",
+    "desc": "AI-powered performance analytics dashboard with 3D mentor and AR/VR integration for live educational insights and smart recommendations.",
+    "thumbnail": "https://res.cloudinary.com/dvyxf0plo/image/upload/v1/portfolio/projects/campus_plus_plus",
+    "tech": ["react", "nodejs"],
+    "featured": true,
+    "github": "https://github.com/Sahil-Hode",
+    "live": "#",
+    "order": 1
+  }
+]

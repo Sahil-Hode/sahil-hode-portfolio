@@ -1,0 +1,20 @@
+{
+  "name": "Sahil",
+  "role": "SDE & Full Stack Developer",
+  "highlight": "Agentic AI Developer.",
+  "bio": "Expert in complete Agentic AI Development and full-stack Software Engineering (SDE), with strong foundational skills in DevOps. Building scalable applications and intelligent agent workflows.",
+  "profileImage": "https://res.cloudinary.com/dvyxf0plo/image/upload/v1777808344/mine_qsf9ji.png",
+  "resumeLink": "/SDE Sahil Hode Resume.pdf",
+  "location": "Thane, Mumbai, Maharashtra",
+  "education": "BCA 2024-2027",
+  "stats": [
+    { "val": "2+", "label": "Internships" },
+    { "val": "10+", "label": "Live Projects" },
+    { "val": "5+", "label": "AI Tools" },
+    { "val": "100%", "label": "Dedication" }
+  ],
+  "awards": [
+    "1 Hackathon Winner",
+    "National Level Hackathon Finalist"
+  ]
+}

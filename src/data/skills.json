@@ -1,0 +1,7 @@
+[
+  { "id": "s1", "name": "Next.js", "category": "Frontend", "icon": "nextjs" },
+  { "id": "s2", "name": "React", "category": "Frontend", "icon": "react" },
+  { "id": "s3", "name": "TypeScript", "category": "Frontend", "icon": "typescript" },
+  { "id": "s4", "name": "Node.js", "category": "Backend", "icon": "nodejs" },
+  { "id": "s5", "name": "Python", "category": "Language", "icon": "python" }
+]

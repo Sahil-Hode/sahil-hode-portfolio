@@ -1,63 +1,22 @@
 "use client";
 
 import React from "react";
-import { 
-  SiNextdotjs, SiReact, SiNodedotjs, SiMongodb, 
-  SiPython, SiNestjs, SiExpress
-} from "react-icons/si";
 import { HiOutlineBriefcase, HiOutlineCode, HiCheckCircle, HiOutlineLocationMarker, HiOutlineServer } from "react-icons/hi";
-import { TbTrophy, TbRoute } from "react-icons/tb";
+import { TbTrophy } from "react-icons/tb";
+import { usePortfolio } from "@/hooks/usePortfolio";
+import { iconMap } from "@/lib/iconMap";
 
 export default function Experience() {
-  const stats = [
-    { label: "Live Projects", value: "10+", icon: <HiOutlineCode /> },
-    { label: "Work Experiences", value: "2", icon: <HiOutlineBriefcase /> },
-    { label: "AI Tools Built", value: "5+", icon: <HiOutlineServer /> },
-    { label: "Tech Stack", value: "15+", icon: <TbTrophy /> }
-  ];
+  const { data, loading } = usePortfolio();
+  
+  if (loading || !data) return null;
 
-  const experiences = [
-    {
-      date: "Jan 2026 – Apr 2026",
-      duration: "4 Months",
-      role: "Software Developer & LLM Apps",
-      company: "Yours Faithfully Advisors LLP",
-      location: "Ghansoli, Navi Mumbai (On-site)",
-      icon: <HiOutlineBriefcase />,
-      desc: "Developing and optimizing LLM-based applications and software solutions for complex business workflows.",
-      achievements: [
-        "Architecting AI-driven automation systems",
-        "Building scalable enterprise-grade software",
-        "Collaborating on-site with core development teams"
-      ],
-      tech: [
-        { name: "Python", icon: <SiPython /> },
-        { name: "LangChain", icon: <TbRoute /> },
-        { name: "Next.js", icon: <SiNextdotjs /> },
-        { name: "NestJS", icon: <SiNestjs /> }
-      ]
-    },
-    {
-      date: "Aug 2025 – Jan 2026",
-      duration: "6 Months",
-      role: "Full Stack Developer Intern",
-      company: "Gristip Software Private Limited",
-      location: "Thane (Remote)",
-      icon: <HiOutlineCode />,
-      desc: "Engineered and deployed user analytics dashboards and refactored API integration points for live web and mobile projects.",
-      achievements: [
-        "10% increase in user engagement tracking via MERN dashboards",
-        "Reduced data load times by 30% through API refactoring",
-        "Automated deployment with CI/CD (GitHub Actions/AWS)"
-      ],
-      tech: [
-        { name: "MongoDB", icon: <SiMongodb /> },
-        { name: "Express.js", icon: <SiExpress /> },
-        { name: "React", icon: <SiReact /> },
-        { name: "Node.js", icon: <SiNodedotjs /> },
-        { name: "AWS", icon: <HiOutlineServer /> }
-      ]
-    }
+  const { experiences, about } = data;
+  const stats = [
+    { label: "Live Projects", value: about.stats?.find(s => s.label.includes("Live"))?.val || "10+", icon: <HiOutlineCode /> },
+    { label: "Work Experiences", value: experiences.length.toString(), icon: <HiOutlineBriefcase /> },
+    { label: "AI Tools Built", value: about.stats?.find(s => s.label.includes("AI"))?.val || "5+", icon: <HiOutlineServer /> },
+    { label: "Dedication", value: "100%", icon: <TbTrophy /> }
   ];
 
   return (
@@ -102,8 +61,7 @@ export default function Experience() {
               
               {/* Date Column */}
               <div className="lg:w-[160px] text-left pt-3 shrink-0">
-                <div style={{ fontSize: "16px", fontWeight: 800, color: "#A3FF12", marginBottom: "4px" }}>{exp.date}</div>
-                <div style={{ fontSize: "13px", color: "#a1a1aa", fontWeight: 600 }}>{exp.duration}</div>
+                <div style={{ fontSize: "16px", fontWeight: 800, color: "#A3FF12", marginBottom: "4px" }}>{exp.duration}</div>
               </div>
 
               {/* Glowing Dot Wrapper - Hidden on small screens */}
@@ -129,44 +87,32 @@ export default function Experience() {
                       width: "60px", height: "60px", background: "rgba(217,255,0,0.05)", borderRadius: "16px",
                       display: "flex", alignItems: "center", justifyContent: "center", color: "#A3FF12", fontSize: "28px", flexShrink: 0
                     }}>
-                      {exp.icon}
+                      <HiOutlineBriefcase />
                     </div>
                     <div>
                       <h3 style={{ fontSize: "clamp(22px, 4vw, 26px)", fontWeight: 800, marginBottom: "4px" }}>{exp.role}</h3>
                       <p style={{ color: "#A3FF12", fontSize: "16px", fontWeight: 700 }}>{exp.company}</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 text-[#71717a] text-sm font-semibold">
-                    <HiOutlineLocationMarker />
-                    {exp.location}
-                  </div>
                 </div>
 
-                <p style={{ color: "#a1a1aa", fontSize: "15px", lineHeight: 1.7, marginBottom: "24px" }}>
-                  {exp.desc}
-                </p>
-
-                <div style={{ marginBottom: "32px" }}>
-                  <p style={{ color: "#A3FF12", fontSize: "14px", fontWeight: 800, marginBottom: "16px" }}>Key Achievements:</p>
-                  <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                    {exp.achievements.map((ach, j) => (
-                      <div key={j} style={{ display: "flex", alignItems: "center", gap: "12px", color: "#fff", fontSize: "14px", fontWeight: 500 }}>
-                        <HiCheckCircle color="#A3FF12" fontSize="18px" />
-                        {ach}
-                      </div>
-                    ))}
-                  </div>
+                <div className="space-y-4">
+                  {exp.desc.map((d, idx) => (
+                    <p key={idx} style={{ color: "#a1a1aa", fontSize: "15px", lineHeight: 1.7 }}>
+                      {d}
+                    </p>
+                  ))}
                 </div>
 
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-3 mt-8">
                   {exp.tech.map((t, j) => (
                     <div key={j} style={{ 
                       display: "flex", alignItems: "center", gap: "10px",
                       fontSize: "13px", fontWeight: 700, padding: "8px 18px", borderRadius: "12px",
                       background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.05)", color: "#fff"
                     }}>
-                      <span style={{ color: "#A3FF12" }}>{t.icon}</span>
-                      {t.name}
+                      <span style={{ color: "#A3FF12" }}>{iconMap[t] || <HiOutlineCode />}</span>
+                      {t}
                     </div>
                   ))}
                 </div>

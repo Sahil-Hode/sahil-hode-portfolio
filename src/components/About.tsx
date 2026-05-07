@@ -3,34 +3,18 @@
 import React from "react";
 import Image from "next/image";
 import { HiOutlineLocationMarker, HiOutlineCalendar } from "react-icons/hi";
-import { FaGithub, FaLinkedin, FaTrophy, FaAws } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTrophy } from "react-icons/fa";
 import { TbBrain, TbCode, TbCloudCode, TbDeviceMobile, TbDatabase, TbRocket } from "react-icons/tb";
-import { SiNextdotjs, SiReact, SiNodedotjs, SiPython, SiDocker, SiFlutter } from "react-icons/si";
 import { usePortfolio } from "@/hooks/usePortfolio";
-
-const specialtyIcons: Record<string, React.ReactNode> = {
-  "AI Agent Development": <TbBrain />,
-  "Full Stack Engineering": <TbCode />,
-  "Cloud & DevOps": <TbCloudCode />,
-  "Mobile Development": <TbDeviceMobile />,
-  "Database Engineering": <TbDatabase />,
-  "Performance Optimization": <TbRocket />,
-};
-
-const techIcons: Record<string, React.ReactNode> = {
-  "Next.js": <SiNextdotjs />,
-  "React": <SiReact />,
-  "Node.js": <SiNodedotjs />,
-  "Python": <SiPython />,
-  "AWS": <FaAws />,
-  "Docker": <SiDocker />,
-  "Flutter": <SiFlutter />,
-  "LangChain": <TbBrain />,
-};
+import { iconMap } from "@/lib/iconMap";
 
 export default function About() {
-  const { data } = usePortfolio();
-  const { hero, socials, stats } = data;
+  const { data, loading } = usePortfolio();
+  
+  if (loading || !data) return null;
+
+  const { about, socials } = data;
+  const stats = about.stats || [];
 
   const specialties = [
     { title: "AI Agent Development", desc: "LangChain, RAG pipelines, n8n workflow automation.", icon: <TbBrain /> },
@@ -42,14 +26,14 @@ export default function About() {
   ];
 
   const techStack = [
-    { name: "Next.js", icon: <SiNextdotjs /> },
-    { name: "React", icon: <SiReact /> },
-    { name: "Node.js", icon: <SiNodedotjs /> },
-    { name: "Python", icon: <SiPython /> },
-    { name: "AWS", icon: <FaAws /> },
-    { name: "Docker", icon: <SiDocker /> },
-    { name: "Flutter", icon: <SiFlutter /> },
-    { name: "LangChain", icon: <TbBrain /> }
+    { name: "Next.js", icon: "nextjs" },
+    { name: "React", icon: "react" },
+    { name: "Node.js", icon: "nodejs" },
+    { name: "Python", icon: "python" },
+    { name: "AWS", icon: "aws" },
+    { name: "Docker", icon: "docker" },
+    { name: "Flutter", icon: "flutter" },
+    { name: "LangChain", icon: "brain" }
   ];
 
   return (
@@ -68,7 +52,7 @@ export default function About() {
             <div style={{ width: "120px", height: "5px", background: "#A3FF12", borderRadius: "2px", marginBottom: "32px" }} />
             
             <p style={{ color: "#a1a1aa", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>
-              {hero.description}
+              {about.bio}
             </p>
 
             <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "32px" }}>
@@ -76,30 +60,34 @@ export default function About() {
                 background: "rgba(255,255,255,0.03)", padding: "14px 20px", borderRadius: "14px", border: "1px solid rgba(255,255,255,0.05)",
                 display: "flex", alignItems: "center", gap: "12px", fontSize: "14px", fontWeight: 600, color: "#e4e4e7"
               }}>
-                <HiOutlineLocationMarker size={18} color="#A3FF12" /> {hero.location}
+                <HiOutlineLocationMarker size={18} color="#A3FF12" /> {about.location}
               </div>
               <div style={{ 
                 background: "rgba(255,255,255,0.03)", padding: "14px 20px", borderRadius: "14px", border: "1px solid rgba(255,255,255,0.05)",
                 display: "flex", alignItems: "center", gap: "12px", fontSize: "14px", fontWeight: 600, color: "#e4e4e7"
               }}>
-                <HiOutlineCalendar size={18} color="#A3FF12" /> {hero.education}
+                <HiOutlineCalendar size={18} color="#A3FF12" /> {about.education}
               </div>
             </div>
 
             {/* Social Icon Buttons */}
             <div style={{ display: "flex", gap: "12px", marginBottom: "40px" }}>
-              <a href={socials.github} target="_blank" rel="noopener noreferrer" style={{
-                width: "48px", height: "48px", borderRadius: "12px", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)",
-                display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: "20px", transition: "all 0.3s ease"
-              }} className="glow-hover">
-                <FaGithub />
-              </a>
-              <a href={socials.linkedin} target="_blank" rel="noopener noreferrer" style={{
-                width: "48px", height: "48px", borderRadius: "12px", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)",
-                display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: "20px", transition: "all 0.3s ease"
-              }} className="glow-hover">
-                <FaLinkedin />
-              </a>
+              {socials.github && (
+                <a href={socials.github} target="_blank" rel="noopener noreferrer" style={{
+                  width: "48px", height: "48px", borderRadius: "12px", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)",
+                  display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: "20px", transition: "all 0.3s ease"
+                }} className="glow-hover">
+                  <FaGithub />
+                </a>
+              )}
+              {socials.linkedin && (
+                <a href={socials.linkedin} target="_blank" rel="noopener noreferrer" style={{
+                  width: "48px", height: "48px", borderRadius: "12px", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)",
+                  display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: "20px", transition: "all 0.3s ease"
+                }} className="glow-hover">
+                  <FaLinkedin />
+                </a>
+              )}
             </div>
 
             {/* Awards & Recognition Badge */}
@@ -113,8 +101,9 @@ export default function About() {
                 <span style={{ fontSize: "11px", fontWeight: 800, color: "#A3FF12", textTransform: "uppercase", letterSpacing: "0.1em" }}>Awards & Recognition</span>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                <div style={{ fontSize: "14px", fontWeight: 700, color: "#fff" }}>• 1 Hackathon Winner</div>
-                <div style={{ fontSize: "14px", fontWeight: 700, color: "#fff" }}>• National Level Hackathon Finalist</div>
+                {about.awards?.map((award, i) => (
+                  <div key={i} style={{ fontSize: "14px", fontWeight: 700, color: "#fff" }}>• {award}</div>
+                ))}
               </div>
             </div>
           </div>
@@ -147,8 +136,8 @@ export default function About() {
                 boxShadow: "0 0 60px rgba(163,255,18,0.2)", overflow: "hidden"
               }}>
                 <Image 
-                  src={hero.profileImage} 
-                  alt={hero.name} 
+                  src={about.profileImage} 
+                  alt={about.name} 
                   fill 
                   style={{ objectFit: "cover", objectPosition: "top" }}
                 />
@@ -212,7 +201,7 @@ export default function About() {
             <div className="animate-marquee flex items-center gap-6 md:gap-12 px-6">
               {[...techStack, ...techStack].map((tech, i) => (
                 <div key={i} style={{ display: "flex", alignItems: "center", gap: "8px", color: "#a1a1aa", fontSize: "clamp(14px, 2vw, 18px)", fontWeight: 700, whiteSpace: "nowrap" }}>
-                  <span style={{ fontSize: "clamp(18px, 3vw, 24px)", color: "#fff" }}>{tech.icon}</span>
+                  <span style={{ fontSize: "clamp(18px, 3vw, 24px)", color: "#fff" }}>{iconMap[tech.icon]}</span>
                   {tech.name}
                   <span style={{ color: "#A3FF12", margin: "0 5px" }}>★</span>
                 </div>

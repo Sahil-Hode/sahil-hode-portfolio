@@ -1,38 +1,26 @@
 "use client";
  
 import React, { useState } from "react";
-import { 
-  HiOutlineSparkles, HiOutlineCode, HiOutlineDocumentText, HiOutlineHeart, 
-  HiOutlineShoppingCart, HiOutlineHome, HiOutlineClock, HiOutlineScissors,
-  HiLightningBolt, HiOutlineExternalLink
-} from "react-icons/hi";
+import { HiLightningBolt, HiOutlineExternalLink, HiOutlineCode } from "react-icons/hi";
 import { FaGithub, FaStar } from "react-icons/fa";
 import { usePortfolio } from "@/hooks/usePortfolio";
-
-const iconMap: Record<string, React.ReactNode> = {
-  "Campus++": <HiOutlineSparkles />,
-  "AI Code Reviewer": <HiOutlineCode />,
-  "AI Resume Builder": <HiOutlineDocumentText />,
-  "AI Medication Reminder": <HiOutlineHeart />,
-  "Food Ordering System": <HiOutlineShoppingCart />,
-  "Real Estate Portfolio": <HiOutlineHome />,
-  "Turf Booking App": <HiOutlineClock />,
-  "Salon Booking App": <HiOutlineScissors />,
-};
+import { iconMap } from "@/lib/iconMap";
 
 export default function Projects() {
-  const { data } = usePortfolio();
+  const { data, loading } = usePortfolio();
   const [filter, setFilter] = useState("All");
 
+  if (loading || !data) return null;
+
   const projects = data.projects;
-  const filters = ["All", "AI Projects", "Full Stack", "SaaS", "Web App"];
+  const filters = ["All", ...new Set(projects.map(p => p.type))];
   const filteredProjects = filter === "All" ? projects : projects.filter(p => p.type === filter);
 
   return (
     <section id="projects" style={{ background: "#060606", color: "#fff", padding: "clamp(80px, 10vw, 120px) 24px", position: "relative", overflow: "hidden" }}>
       <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
         
-        {/* Upgraded Header */}
+        {/* Header */}
         <div style={{ display: "flex", flexDirection: "column", gap: "40px", marginBottom: "60px" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "24px" }}>
             <div>
@@ -43,9 +31,6 @@ export default function Projects() {
               <h2 style={{ fontSize: "clamp(40px, 6vw, 64px)", fontWeight: 900, letterSpacing: "-0.04em", marginBottom: "16px" }}>
                 Featured <span style={{ color: "#A3FF12" }}>Projects</span>
               </h2>
-              <p style={{ color: "#71717a", fontSize: "14px", fontWeight: 700 }}>
-                {projects.length} Projects  <span style={{ color: "#A3FF12" }}>·</span>  AI Projects <span style={{ color: "#A3FF12" }}>·</span>  Full Stack <span style={{ color: "#A3FF12" }}>·</span>  SaaS
-              </p>
             </div>
           </div>
 
@@ -70,7 +55,7 @@ export default function Projects() {
 
         {/* Project Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
-          {filteredProjects.map((project, i) => (
+          {filteredProjects.sort((a, b) => a.order - b.order).map((project) => (
             <div 
               key={project.id} 
               className="project-card group"
@@ -88,7 +73,6 @@ export default function Projects() {
                 zIndex: 1
               }}
             >
-              {/* Featured Badge */}
               {project.featured && (
                 <div style={{ 
                   position: "absolute", top: "28px", right: "28px", zIndex: 10,
@@ -99,13 +83,6 @@ export default function Projects() {
                 </div>
               )}
 
-              {/* Project Number (Ghost) */}
-              <span style={{ 
-                position: "absolute", top: project.featured ? "54px" : "28px", right: "28px", fontSize: "32px", fontWeight: 900, 
-                color: "rgba(255,255,255,0.06)", lineHeight: 1, pointerEvents: "none" 
-              }}>{project.id}</span>
-
-              {/* Icon Area */}
               <div className="icon-container" style={{
                 width: "44px", height: "44px", borderRadius: "14px",
                 background: "rgba(163, 255, 18, 0.08)", border: "1px solid rgba(163, 255, 18, 0.12)",
@@ -113,10 +90,10 @@ export default function Projects() {
                 fontSize: "22px", color: "#A3FF12", marginBottom: "24px",
                 transition: "transform 0.4s ease"
               }}>
-                {iconMap[project.title] || <HiOutlineCode />}
+                {/* For projects, we might use a thumbnail or an icon. The user requirement says "dynamic project cards" */}
+                {iconMap[project.tech[0]] || <HiOutlineCode />}
               </div>
 
-              {/* Category Pill */}
               <div style={{ 
                 display: "inline-flex", alignItems: "center", gap: "6px", marginBottom: "12px",
                 padding: "4px 10px", background: "rgba(163, 255, 18, 0.08)", borderRadius: "999px",
@@ -126,10 +103,8 @@ export default function Projects() {
                 <span style={{ fontSize: "10px", color: "#A3FF12", fontWeight: 800 }}>{project.category}</span>
               </div>
 
-              {/* Title */}
               <h3 style={{ fontSize: "20px", fontWeight: 800, marginBottom: "10px", color: "#fff" }}>{project.title}</h3>
 
-              {/* Description (3 lines max) */}
               <p style={{ 
                 color: "#666", fontSize: "13px", lineHeight: 1.6, marginBottom: "20px",
                 display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden"
@@ -137,7 +112,6 @@ export default function Projects() {
                 {project.desc}
               </p>
               
-              {/* Tech Dots */}
               <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginTop: "auto", marginBottom: "24px" }}>
                 {project.tech.map((t, j) => (
                   <span key={j} style={{ 
@@ -149,7 +123,6 @@ export default function Projects() {
                 ))}
               </div>
 
-              {/* Action Row */}
               <div style={{ 
                 paddingTop: "16px", borderTop: "1px solid rgba(255,255,255,0.05)",
                 display: "flex", justifyContent: "space-between", alignItems: "center"
@@ -164,18 +137,10 @@ export default function Projects() {
             </div>
           ))}
         </div>
-
       </div>
-
       <style jsx>{`
-        .project-card:hover {
-          transform: translateY(-6px);
-          border-color: rgba(163, 255, 18, 0.3) !important;
-          background: #151515 !important;
-        }
-        .project-card:hover .icon-container {
-          transform: rotate(8deg);
-        }
+        .project-card:hover { transform: translateY(-6px); border-color: rgba(163, 255, 18, 0.3) !important; background: #151515 !important; }
+        .project-card:hover .icon-container { transform: rotate(8deg); }
       `}</style>
     </section>
   );
