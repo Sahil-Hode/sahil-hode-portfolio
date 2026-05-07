@@ -17,6 +17,8 @@ export default function Hero() {
 
   const { about, socials } = data;
 
+  if (!about || about.error) return null;
+
   return (
     <div id="home" className="relative min-h-screen bg-[#0A0A0A] text-white overflow-hidden font-sans">
       <Navbar />
@@ -33,7 +35,7 @@ export default function Hero() {
             Hello, I&apos;m {about.name} <MdWavingHand />
           </p>
           <h1 style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 900, lineHeight: 1.1, letterSpacing: "-0.03em", marginBottom: "24px" }}>
-            {about.role.split(',')[0]}, <br />
+            {(about.role || "").split(',')[0]}, <br />
             <span style={{ color: "#A3FF12" }}>{about.highlight}</span>
           </h1>
           <p style={{ color: "#a1a1aa", fontSize: "18px", lineHeight: 1.6, maxWidth: "540px", marginBottom: "40px" }}>
