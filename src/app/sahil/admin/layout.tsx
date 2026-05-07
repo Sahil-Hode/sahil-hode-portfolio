@@ -30,11 +30,26 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const res = await fetch('/api/auth/verify');
+        if (!res.ok) {
+          router.push('/sahil/admin/login');
+        }
+      } catch (err) {
+        router.push('/sahil/admin/login');
+      }
+    };
+    
+    if (pathname !== '/sahil/admin/login') {
+      checkAuth();
+    }
+
     const handleResize = () => setIsMobile(window.innerWidth < 1024);
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [pathname, router]);
 
   const handleLogout = async () => {
     // Clear cookie (simplified)
