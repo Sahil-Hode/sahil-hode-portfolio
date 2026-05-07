@@ -1,7 +1,22 @@
 [
   { "id": "s1", "name": "Next.js", "category": "Frontend", "icon": "nextjs" },
-  { "id": "s2", "name": "React", "category": "Frontend", "icon": "react" },
+  { "id": "s2", "name": "React / Native", "category": "Frontend", "icon": "react" },
   { "id": "s3", "name": "TypeScript", "category": "Frontend", "icon": "typescript" },
-  { "id": "s4", "name": "Node.js", "category": "Backend", "icon": "nodejs" },
-  { "id": "s5", "name": "Python", "category": "Language", "icon": "python" }
+  { "id": "s4", "name": "Flutter & Dart", "category": "Frontend", "icon": "flutter" },
+  { "id": "s5", "name": "Tailwind CSS", "category": "Frontend", "icon": "tailwind" },
+  { "id": "s6", "name": "Node / NestJS", "category": "Backend", "icon": "nodejs" },
+  { "id": "s7", "name": "Bun / Express", "category": "Backend", "icon": "express" },
+  { "id": "s8", "name": "MongoDB", "category": "Backend", "icon": "mongodb" },
+  { "id": "s9", "name": "Postgres / MySQL", "category": "Backend", "icon": "postgresql" },
+  { "id": "s10", "name": "REST APIs", "category": "Backend", "icon": "nodejs" },
+  { "id": "s11", "name": "Docker & Git", "category": "Tools", "icon": "docker" },
+  { "id": "s12", "name": "GitHub / GitLab", "category": "Tools", "icon": "github" },
+  { "id": "s13", "name": "Vercel / Netlify", "category": "Tools", "icon": "vercel" },
+  { "id": "s14", "name": "AWS / Railway", "category": "Tools", "icon": "aws" },
+  { "id": "s15", "name": "CI / CD", "category": "Tools", "icon": "github" },
+  { "id": "s16", "name": "Python", "category": "Language", "icon": "python" },
+  { "id": "s17", "name": "LangChain & LangGraph", "category": "Language", "icon": "sparkles" },
+  { "id": "s18", "name": "RAG Systems", "category": "Language", "icon": "brain" },
+  { "id": "s19", "name": "Gemini / OpenAI", "category": "Language", "icon": "openai" },
+  { "id": "s20", "name": "Automation", "category": "Language", "icon": "sparkles" }
 ]

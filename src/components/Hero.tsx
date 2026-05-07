@@ -114,8 +114,8 @@ export default function Hero() {
           {/* Image */}
           <div style={{ position: "relative", zIndex: 5, width: "100%", height: "100%", display: "flex", justifyContent: "center" }}>
             <Image 
-              src={about.profileImage} 
-              alt={about.name} 
+              src={about.profileImage || "/placeholder.png"} 
+              alt={about.name || "Profile"} 
               width={450} 
               height={550} 
               priority={true}

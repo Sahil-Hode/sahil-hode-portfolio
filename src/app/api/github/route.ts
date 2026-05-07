@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-  const username = process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'sahilhode';
+  const username = (process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'Sahil-Hode').trim();
   const token = process.env.GITHUB_TOKEN;
 
   const headers: HeadersInit = {

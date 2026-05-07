@@ -6,10 +6,22 @@ import { HiOutlinePlus, HiOutlineTrash, HiOutlinePencil, HiOutlineSave, HiOutlin
 import { Project } from '@/types/portfolio';
 
 export default function ProjectManager() {
-  const { data, refresh } = usePortfolio();
+  const { data, loading, refresh } = usePortfolio();
   const [projects, setProjects] = useState<Project[]>([]);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
+
+  if (loading || !data) {
+    return (
+      <div className="space-y-10 animate-pulse">
+        <div className="h-20 bg-white/5 rounded-2xl w-1/3" />
+        <div className="grid grid-cols-2 gap-6">
+          <div className="h-64 bg-white/5 rounded-[32px]" />
+          <div className="h-64 bg-white/5 rounded-[32px]" />
+        </div>
+      </div>
+    );
+  }
 
   useEffect(() => {
     if (data?.projects) setProjects([...data.projects].sort((a, b) => a.order - b.order));

@@ -14,7 +14,10 @@ export default function About() {
   if (loading || !data) return null;
 
   const { about, socials } = data;
+  if (!about || about.error) return null;
+  
   const stats = about.stats || [];
+  const profileImage = about.profileImage || "/placeholder.png";
 
   const specialties = [
     { title: "AI Agent Development", desc: "LangChain, RAG pipelines, n8n workflow automation.", icon: <TbBrain /> },
@@ -136,7 +139,7 @@ export default function About() {
                 boxShadow: "0 0 60px rgba(163,255,18,0.2)", overflow: "hidden"
               }}>
                 <Image 
-                  src={about.profileImage} 
+                  src={profileImage} 
                   alt={about.name} 
                   fill 
                   style={{ objectFit: "cover", objectPosition: "top" }}

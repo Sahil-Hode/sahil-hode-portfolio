@@ -1,13 +1,24 @@
 [
   {
     "id": "e1",
-    "company": "Tech Solutions",
-    "role": "Full Stack Intern",
-    "duration": "Jan 2024 - Present",
+    "company": "Yours Faithfully Advisors LLP",
+    "role": "Software Developer & LLM Apps",
+    "duration": "Jan 2026 – Apr 2026",
     "desc": [
-      "Developed responsive web applications using Next.js and Tailwind CSS.",
-      "Integrated AI features using OpenAI API."
+      "Developing and optimizing LLM-based applications and software solutions for complex business workflows.",
+      "Architecting AI-driven automation systems and building scalable enterprise-grade software."
     ],
-    "tech": ["nextjs", "tailwind", "openai"]
+    "tech": ["python", "nextjs", "nestjs", "langchain"]
+  },
+  {
+    "id": "e2",
+    "company": "Gristip Software Private Limited",
+    "role": "Full Stack Developer Intern",
+    "duration": "Aug 2025 – Jan 2026",
+    "desc": [
+      "Engineered and deployed user analytics dashboards and refactored API integration points for live web and mobile projects.",
+      "10% increase in user engagement tracking via MERN dashboards. Reduced data load times by 30% through API refactoring."
+    ],
+    "tech": ["mongodb", "express", "react", "nodejs", "aws"]
   }
 ]
