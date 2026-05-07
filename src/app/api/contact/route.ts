@@ -87,6 +87,33 @@ ${message}
 
     await transporter.sendMail(mailOptions);
 
+    // 5. Store message in messages.json
+    try {
+      const fs = require('fs').promises;
+      const path = require('path');
+      const filePath = path.join(process.cwd(), 'src/data/messages.json');
+      
+      const fileData = await fs.readFile(filePath, 'utf8');
+      const messages = JSON.parse(fileData);
+      
+      const newMessage = {
+        id: Math.random().toString(36).substr(2, 9),
+        name,
+        email,
+        phone,
+        subject,
+        message,
+        date: new Date().toISOString(),
+        read: false
+      };
+      
+      messages.unshift(newMessage);
+      await fs.writeFile(filePath, JSON.stringify(messages, null, 2));
+    } catch (fsError) {
+      console.error('Failed to store message in JSON:', fsError);
+      // We don't return error here because the email was already sent successfully
+    }
+
     return NextResponse.json({ success: true, message: 'Email sent successfully!' });
   } catch (error) {
     console.error('Email sending error:', error);
