@@ -43,5 +43,19 @@ const nextConfig = {
       },
     ]
   },
+  async redirects() {
+    return [
+      {
+        source: '/admin',
+        destination: '/sahil/admin',
+        permanent: true,
+      },
+      {
+        source: '/admin/:path*',
+        destination: '/sahil/admin/:path*',
+        permanent: true,
+      },
+    ]
+  },
 }
 module.exports = nextConfig

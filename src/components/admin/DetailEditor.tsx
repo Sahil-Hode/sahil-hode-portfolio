@@ -149,6 +149,46 @@ export default function DetailEditor() {
           </div>
         </div>
 
+        {/* Contact Info */}
+        <div className="bg-white/[0.02] border border-white/5 p-8 rounded-3xl space-y-8">
+          <h4 className="text-[#A3FF12] font-bold text-lg border-b border-white/5 pb-4">Contact & Reach</h4>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <label className="text-xs font-bold text-gray-500 uppercase">Office Location</label>
+              <input
+                type="text"
+                value={data.contact?.location || ''}
+                onChange={async (e) => {
+                   const updated = { ...data.contact, location: e.target.value };
+                   await fetch('/api/cms/contact', {
+                     method: 'POST',
+                     headers: { 'Content-Type': 'application/json' },
+                     body: JSON.stringify(updated),
+                   });
+                }}
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-[#A3FF12] transition-colors text-white"
+              />
+            </div>
+            <div className="space-y-2">
+              <label className="text-xs font-bold text-gray-500 uppercase">Availability Status</label>
+              <input
+                type="text"
+                value={data.contact?.availability || ''}
+                onChange={async (e) => {
+                   const updated = { ...data.contact, availability: e.target.value };
+                   await fetch('/api/cms/contact', {
+                     method: 'POST',
+                     headers: { 'Content-Type': 'application/json' },
+                     body: JSON.stringify(updated),
+                   });
+                }}
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-[#A3FF12] transition-colors text-white"
+              />
+            </div>
+          </div>
+        </div>
+
         <div className="flex items-center gap-6 sticky bottom-8 bg-[#050505]/80 backdrop-blur-lg p-4 rounded-2xl border border-white/5 shadow-2xl z-50">
           <button
             type="submit"
