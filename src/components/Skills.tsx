@@ -6,7 +6,7 @@ import {
   SiNodedotjs, SiMongodb, SiOpenai,
   SiDocker, SiVercel, SiPython,
   SiPostgresql, SiFlutter, SiRailway,
-  SiGitlab, SiBun
+  SiGitlab, SiBun, SiNestjs, SiExpress, SiMysql, SiAmazonwebservices, SiNetlify
 } from "react-icons/si";
 import { HiOutlineLightningBolt, HiOutlineServer, HiOutlineCog, HiOutlineSparkles } from "react-icons/hi";
 import { TbCloudCode, TbInfinity, TbRoute, TbBrain } from "react-icons/tb";
@@ -14,16 +14,33 @@ import { FaRocket } from "react-icons/fa";
 import { usePortfolio } from "@/hooks/usePortfolio";
 
 const skillIcons: Record<string, React.ReactNode> = {
+  // Frontend
   "Next.js": <SiNextdotjs color="#fff" />,
-  "React": <SiReact color="#61DAFB" />,
+  "React / Native": <SiReact color="#61DAFB" />,
   "TypeScript": <SiTypescript color="#3178C6" />,
-  "Node.js": <SiNodedotjs color="#339933" />,
-  "Docker": <SiDocker color="#2496ED" />,
-  "AWS": <SiRailway color="#fff" />,
-  "Python": <SiPython color="#3776AB" />,
-  "OpenAI": <SiOpenai color="#412991" />,
-  "MongoDB": <SiMongodb color="#47A248" />,
+  "Flutter & Dart": <SiFlutter color="#02569B" />,
   "Tailwind CSS": <SiTailwindcss color="#06B6D4" />,
+  
+  // Backend
+  "Node / NestJS": <SiNestjs color="#E0234E" />,
+  "Bun / Express": <SiExpress color="#fff" />,
+  "MongoDB": <SiMongodb color="#47A248" />,
+  "Postgres / MySQL": <SiPostgresql color="#4169E1" />,
+  "REST APIs": <TbCloudCode color="#A3FF12" />,
+  
+  // Tools
+  "Docker & Git": <SiDocker color="#2496ED" />,
+  "GitHub / GitLab": <SiGitlab color="#FC6D26" />,
+  "Vercel / Netlify": <SiVercel color="#fff" />,
+  "AWS / Railway": <SiRailway color="#fff" />,
+  "CI / CD": <TbInfinity color="#A3FF12" />,
+  
+  // Language / AI
+  "Python": <SiPython color="#3776AB" />,
+  "LangChain & LangGraph": <TbRoute color="#A3FF12" />,
+  "RAG Systems": <TbBrain color="#A3FF12" />,
+  "Gemini / OpenAI": <SiOpenai color="#412991" />,
+  "Automation": <HiOutlineLightningBolt color="#A3FF12" />,
 };
 
 export default function Skills() {

@@ -112,13 +112,32 @@ export const initialPortfolioData = {
     }
   ],
   skills: [
-    { name: "React", category: "Frontend" },
+    // Frontend & Mobile
     { name: "Next.js", category: "Frontend" },
-    { name: "TypeScript", category: "Language" },
-    { name: "Node.js", category: "Backend" },
-    { name: "Docker", category: "Tools" },
-    { name: "AWS", category: "Tools" },
+    { name: "React / Native", category: "Frontend" },
+    { name: "TypeScript", category: "Frontend" },
+    { name: "Flutter & Dart", category: "Frontend" },
+    { name: "Tailwind CSS", category: "Frontend" },
+    
+    // Backend & DB
+    { name: "Node / NestJS", category: "Backend" },
+    { name: "Bun / Express", category: "Backend" },
+    { name: "MongoDB", category: "Backend" },
+    { name: "Postgres / MySQL", category: "Backend" },
+    { name: "REST APIs", category: "Backend" },
+    
+    // DevOps & Cloud
+    { name: "Docker & Git", category: "Tools" },
+    { name: "GitHub / GitLab", category: "Tools" },
+    { name: "Vercel / Netlify", category: "Tools" },
+    { name: "AWS / Railway", category: "Tools" },
+    { name: "CI / CD", category: "Tools" },
+    
+    // AI & Automation
     { name: "Python", category: "Language" },
-    { name: "OpenAI", category: "Language" }
+    { name: "LangChain & LangGraph", category: "Language" },
+    { name: "RAG Systems", category: "Language" },
+    { name: "Gemini / OpenAI", category: "Language" },
+    { name: "Automation", category: "Language" }
   ]
 };
