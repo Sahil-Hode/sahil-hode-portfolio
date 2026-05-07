@@ -82,22 +82,51 @@ export default function Journey() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
-          {/* Achievement Card */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {/* Card 1: 2024 */}
           <div style={{ 
-            background: "#111", padding: "40px", borderRadius: "24px", border: "1px solid rgba(255,255,255,0.06)", borderLeft: "4px solid #A3FF12",
-            position: "relative"
+            background: "#111", padding: "32px", borderRadius: "24px", border: "1px solid rgba(255,255,255,0.06)", borderLeft: "4px solid #A3FF12",
+            position: "relative", minHeight: "240px"
           }}>
-            <span style={{ position: "absolute", top: "20px", right: "20px", fontSize: "80px", fontWeight: 900, color: "rgba(163,255,18,0.06)", lineHeight: 1 }}>2025</span>
-            <div style={{ width: "52px", height: "52px", background: "rgba(163, 255, 18, 0.1)", borderRadius: "16px", display: "flex", alignItems: "center", justifyContent: "center", color: "#A3FF12", fontSize: "24px", marginBottom: "24px" }}>
+            <span style={{ position: "absolute", top: "15px", right: "20px", fontSize: "48px", fontWeight: 900, color: "rgba(163,255,18,0.06)", lineHeight: 1 }}>2024</span>
+            <div style={{ width: "48px", height: "48px", background: "rgba(163, 255, 18, 0.1)", borderRadius: "14px", display: "flex", alignItems: "center", justifyContent: "center", color: "#A3FF12", fontSize: "22px", marginBottom: "20px" }}>
               <FaTrophy />
             </div>
-            <h3 style={{ fontSize: "32px", fontWeight: 900, color: "#A3FF12", marginBottom: "6px" }}>2nd Place</h3>
-            <h4 style={{ fontSize: "20px", fontWeight: 800, color: "#fff", marginBottom: "12px" }}>Invento Competition</h4>
-            <p style={{ color: "#71717a", fontSize: "14px", lineHeight: 1.6 }}>Recognized for innovative AI-powered solution at the regional technology competition.</p>
+            <h3 style={{ fontSize: "28px", fontWeight: 900, color: "#A3FF12", marginBottom: "4px" }}>1st Place</h3>
+            <h4 style={{ fontSize: "18px", fontWeight: 800, color: "#fff", marginBottom: "12px" }}>Invento Competition</h4>
+            <p style={{ color: "#71717a", fontSize: "13px", lineHeight: 1.6 }}>Awarded for excellence and innovation in competitive technical events.</p>
           </div>
 
-          {/* Education Card */}
+          {/* Card 2: 2025 */}
+          <div style={{ 
+            background: "#111", padding: "32px", borderRadius: "24px", border: "1px solid rgba(255,255,255,0.06)", borderLeft: "4px solid #A3FF12",
+            position: "relative", minHeight: "240px"
+          }}>
+            <span style={{ position: "absolute", top: "15px", right: "20px", fontSize: "48px", fontWeight: 900, color: "rgba(163,255,18,0.06)", lineHeight: 1 }}>2025</span>
+            <div style={{ width: "48px", height: "48px", background: "rgba(163, 255, 18, 0.1)", borderRadius: "14px", display: "flex", alignItems: "center", justifyContent: "center", color: "#A3FF12", fontSize: "22px", marginBottom: "20px" }}>
+              <FaTrophy />
+            </div>
+            <h3 style={{ fontSize: "28px", fontWeight: 900, color: "#A3FF12", marginBottom: "4px" }}>1x Winner</h3>
+            <h4 style={{ fontSize: "18px", fontWeight: 800, color: "#fff", marginBottom: "12px" }}>Hackathon Competition</h4>
+            <p style={{ color: "#71717a", fontSize: "13px", lineHeight: 1.6 }}>Awarded for excellence and innovation in competitive technical events.</p>
+          </div>
+
+          {/* Card 3: 2026 */}
+          <div style={{ 
+            background: "#111", padding: "32px", borderRadius: "24px", border: "1px solid rgba(255,255,255,0.06)", borderLeft: "4px solid #A3FF12",
+            position: "relative", minHeight: "240px"
+          }}>
+            <span style={{ position: "absolute", top: "15px", right: "20px", fontSize: "48px", fontWeight: 900, color: "rgba(163,255,18,0.06)", lineHeight: 1 }}>2026</span>
+            <div style={{ width: "48px", height: "48px", background: "rgba(163, 255, 18, 0.1)", borderRadius: "14px", display: "flex", alignItems: "center", justifyContent: "center", color: "#A3FF12", fontSize: "22px", marginBottom: "20px" }}>
+              <FaTrophy />
+            </div>
+            <h3 style={{ fontSize: "28px", fontWeight: 900, color: "#A3FF12", marginBottom: "4px" }}>Finalist</h3>
+            <h4 style={{ fontSize: "18px", fontWeight: 800, color: "#fff", marginBottom: "12px" }}>National Level Hackathon</h4>
+            <p style={{ color: "#71717a", fontSize: "13px", lineHeight: 1.6 }}>Awarded for excellence and innovation in competitive technical events.</p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 gap-6 mb-12">
           <div style={{ background: "#111", padding: "40px", borderRadius: "24px", border: "1px solid rgba(255,255,255,0.06)" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "28px" }}>
               <div style={{ display: "flex", gap: "14px", alignItems: "flex-start" }}>
