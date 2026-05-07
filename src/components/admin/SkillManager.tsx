@@ -1,56 +1,29 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-interface Skill {
-  id: string;
-  name: string;
-  category: string;
-  icon?: string;
-}
+import { usePortfolio } from '@/hooks/usePortfolio';
 
 export default function SkillManager() {
-  const [skills, setSkills] = useState<Skill[]>([]);
+  const { data, updateData } = usePortfolio();
   const [newSkill, setNewSkill] = useState({ name: '', category: 'Frontend' });
-
-  useEffect(() => {
-    const defaultSkills: Skill[] = [
-      { id: '1', name: 'React', category: 'Frontend' },
-      { id: '2', name: 'Next.js', category: 'Frontend' },
-      { id: '3', name: 'TypeScript', category: 'Language' },
-      { id: '4', name: 'Node.js', category: 'Backend' },
-    ];
-
-    const stored = localStorage.getItem('portfolio_skills');
-    if (stored) {
-      setSkills(JSON.parse(stored));
-    } else {
-      setSkills(defaultSkills);
-      localStorage.setItem('portfolio_skills', JSON.stringify(defaultSkills));
-    }
-  }, []);
 
   const addSkill = (e: React.FormEvent) => {
     e.preventDefault();
     if (!newSkill.name) return;
 
-    const skill: Skill = {
-      id: Math.random().toString(36).substr(2, 9),
-      name: newSkill.name,
-      category: newSkill.category,
-    };
-
-    const updated = [...skills, skill];
-    setSkills(updated);
-    localStorage.setItem('portfolio_skills', JSON.stringify(updated));
+    updateData({
+      ...data,
+      skills: [...data.skills, { ...newSkill }]
+    });
     setNewSkill({ ...newSkill, name: '' });
   };
 
-  const removeSkill = (id: string) => {
-    const updated = skills.filter(s => s.id !== id);
-    setSkills(updated);
-    localStorage.setItem('portfolio_skills', JSON.stringify(updated));
+  const removeSkill = (name: string) => {
+    updateData({
+      ...data,
+      skills: data.skills.filter(s => s.name !== name)
+    });
   };
 
   const categories = ['Frontend', 'Backend', 'Language', 'Tools', 'Design'];
@@ -72,12 +45,12 @@ export default function SkillManager() {
             placeholder="Skill name (e.g. Docker)"
             value={newSkill.name}
             onChange={(e) => setNewSkill({ ...newSkill, name: e.target.value })}
-            className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-[#A3FF12] transition-colors"
+            className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-[#A3FF12] transition-colors text-white"
           />
           <select
             value={newSkill.category}
             onChange={(e) => setNewSkill({ ...newSkill, category: e.target.value })}
-            className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-[#A3FF12] transition-colors appearance-none cursor-pointer"
+            className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-[#A3FF12] transition-colors appearance-none cursor-pointer text-white"
           >
             {categories.map(cat => (
               <option key={cat} value={cat} className="bg-[#050505]">{cat}</option>
@@ -101,17 +74,17 @@ export default function SkillManager() {
             </h5>
             <div className="space-y-2">
               <AnimatePresence>
-                {skills.filter(s => s.category === cat).map((skill) => (
+                {data.skills.filter(s => s.category === cat).map((skill) => (
                   <motion.div
-                    key={skill.id}
+                    key={skill.name}
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:border-white/10 transition-all group"
                   >
-                    <span className="font-medium">{skill.name}</span>
+                    <span className="font-medium text-white">{skill.name}</span>
                     <button
-                      onClick={() => removeSkill(skill.id)}
+                      onClick={() => removeSkill(skill.name)}
                       className="text-gray-500 hover:text-red-500 transition-colors opacity-0 group-hover:opacity-100"
                     >
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -121,7 +94,7 @@ export default function SkillManager() {
                   </motion.div>
                 ))}
               </AnimatePresence>
-              {skills.filter(s => s.category === cat).length === 0 && (
+              {data.skills.filter(s => s.category === cat).length === 0 && (
                 <p className="text-xs text-gray-600 italic px-2">No {cat.toLowerCase()} skills added.</p>
               )}
             </div>

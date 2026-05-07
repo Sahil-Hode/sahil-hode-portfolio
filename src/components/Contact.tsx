@@ -25,7 +25,19 @@
        const data = await res.json();
        
        if (res.ok) {
-         setStatus({ type: "success", message: "Message sent! I'll get back to you soon." });
+         // Save to localStorage for Admin Portal
+        const newMessage = {
+          id: Math.random().toString(36).substr(2, 9),
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject || "No Subject",
+          message: formData.message,
+          date: new Date().toISOString(),
+          read: false
+        };
+        const existing = JSON.parse(localStorage.getItem('portfolio_messages') || '[]');
+        localStorage.setItem('portfolio_messages', JSON.stringify([newMessage, ...existing]));
+        setStatus({ type: "success", message: "Message sent! I'll get back to you soon." });
          setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
        } else {
          setStatus({ type: "error", message: data.error || "Something went wrong." });

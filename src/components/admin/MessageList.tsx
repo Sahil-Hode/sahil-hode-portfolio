@@ -17,35 +17,10 @@ export default function MessageList() {
   const [messages, setMessages] = useState<Message[]>([]);
 
   useEffect(() => {
-    // In a real app, this would fetch from an API
-    const mockMessages: Message[] = [
-      {
-        id: '1',
-        name: 'John Doe',
-        email: 'john@example.com',
-        subject: 'Project Inquiry',
-        message: 'Hello, I would like to discuss a potential project with you. Your portfolio looks amazing!',
-        date: new Date().toISOString(),
-        read: false,
-      },
-      {
-        id: '2',
-        name: 'Jane Smith',
-        email: 'jane@company.com',
-        subject: 'Job Opportunity',
-        message: 'We are looking for a frontend developer. Are you available for a quick chat?',
-        date: new Date(Date.now() - 86400000).toISOString(),
-        read: true,
-      }
-    ];
-
-    // Try to load from localStorage if exists (e.g. from contact form)
+    // Load real messages from localStorage (populated by Contact form)
     const stored = localStorage.getItem('portfolio_messages');
     if (stored) {
       setMessages(JSON.parse(stored));
-    } else {
-      setMessages(mockMessages);
-      localStorage.setItem('portfolio_messages', JSON.stringify(mockMessages));
     }
   }, []);
 

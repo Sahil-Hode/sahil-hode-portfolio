@@ -11,56 +11,49 @@ import {
 import { HiOutlineLightningBolt, HiOutlineServer, HiOutlineCog, HiOutlineSparkles } from "react-icons/hi";
 import { TbCloudCode, TbInfinity, TbRoute, TbBrain } from "react-icons/tb";
 import { FaRocket } from "react-icons/fa";
+import { usePortfolio } from "@/hooks/usePortfolio";
+
+const skillIcons: Record<string, React.ReactNode> = {
+  "Next.js": <SiNextdotjs color="#fff" />,
+  "React": <SiReact color="#61DAFB" />,
+  "TypeScript": <SiTypescript color="#3178C6" />,
+  "Node.js": <SiNodedotjs color="#339933" />,
+  "Docker": <SiDocker color="#2496ED" />,
+  "AWS": <SiRailway color="#fff" />,
+  "Python": <SiPython color="#3776AB" />,
+  "OpenAI": <SiOpenai color="#412991" />,
+  "MongoDB": <SiMongodb color="#47A248" />,
+  "Tailwind CSS": <SiTailwindcss color="#06B6D4" />,
+};
 
 export default function Skills() {
+  const { data } = usePortfolio();
+  const { skills } = data;
+
   const categories = [
     {
       title: "Frontend & Mobile",
       icon: <HiOutlineLightningBolt />,
       desc: "Building high-performance interfaces for web and mobile platforms.",
-      skills: [
-        { name: "Next.js", icon: <SiNextdotjs color="#fff" /> },
-        { name: "React / Native", icon: <SiReact color="#61DAFB" /> },
-        { name: "TypeScript", icon: <SiTypescript color="#3178C6" /> },
-        { name: "Flutter & Dart", icon: <SiFlutter color="#02569B" /> },
-        { name: "Tailwind CSS", icon: <SiTailwindcss color="#06B6D4" /> }
-      ]
+      filter: "Frontend"
     },
     {
       title: "Backend & DB",
       icon: <HiOutlineServer />,
       desc: "Architecting scalable server-side systems and robust databases.",
-      skills: [
-        { name: "Node / NestJS", icon: <SiNodedotjs color="#339933" /> },
-        { name: "Bun / Express", icon: <SiBun color="#fff" /> },
-        { name: "MongoDB", icon: <SiMongodb color="#47A248" /> },
-        { name: "Postgres / MySQL", icon: <SiPostgresql color="#4169E1" /> },
-        { name: "REST APIs", icon: <TbCloudCode color="#A3FF12" /> }
-      ]
+      filter: "Backend"
     },
     {
       title: "DevOps & Cloud",
       icon: <HiOutlineCog />,
       desc: "Managing deployments, CI/CD pipelines, and cloud infrastructure.",
-      skills: [
-        { name: "Docker & Git", icon: <SiDocker color="#2496ED" /> },
-        { name: "GitHub / GitLab", icon: <SiGitlab color="#FC6D26" /> },
-        { name: "Vercel / Netlify", icon: <SiVercel color="#fff" /> },
-        { name: "AWS / Railway", icon: <SiRailway color="#fff" /> },
-        { name: "CI / CD", icon: <TbInfinity color="#A3FF12" /> }
-      ]
+      filter: "Tools"
     },
     {
       title: "AI & Automation",
       icon: <HiOutlineSparkles />,
       desc: "Integrating LLMs and building autonomous AI agent workflows.",
-      skills: [
-        { name: "Python", icon: <SiPython color="#3776AB" /> },
-        { name: "LangChain & LangGraph", icon: <TbRoute color="#A3FF12" /> },
-        { name: "RAG Systems", icon: <TbBrain color="#A3FF12" /> },
-        { name: "Gemini / OpenAI", icon: <SiOpenai color="#412991" /> },
-        { name: "Automation", icon: <HiOutlineLightningBolt color="#A3FF12" /> }
-      ]
+      filter: "Language"
     }
   ];
 
@@ -111,10 +104,10 @@ export default function Skills() {
               <p style={{ fontSize: "13px", color: "#71717a", lineHeight: 1.6, marginBottom: "32px" }}>{cat.desc}</p>
               
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-                {cat.skills.map((skill, j) => (
+                {skills.filter(s => s.category === cat.filter).map((skill, j) => (
                   <div key={j} style={{ display: "flex", alignItems: "center", gap: "16px" }}>
                     <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(255,255,255,0.03)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "18px" }}>
-                      {skill.icon}
+                      {skillIcons[skill.name] || <FaRocket color="#A3FF12" />}
                     </div>
                     <span style={{ fontSize: "16px", fontWeight: 600, color: "#a1a1aa" }}>{skill.name}</span>
                   </div>
@@ -142,7 +135,6 @@ export default function Skills() {
             </button>
           </a>
           
-          {/* Decorative Rocket Icon */}
           <div style={{ 
             position: "absolute", left: "20px", top: "50%", transform: "translateY(-50%)", 
             opacity: 0.05, fontSize: "80px", pointerEvents: "none" 

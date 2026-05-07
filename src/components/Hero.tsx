@@ -4,8 +4,12 @@ import Image from "next/image";
 import Navbar from "./Navbar";
 import { MdWavingHand } from "react-icons/md";
 import { FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa";
+import { usePortfolio } from "@/hooks/usePortfolio";
 
 export default function Hero() {
+  const { data } = usePortfolio();
+  const { hero, socials } = data;
+
   return (
     <div id="home" className="relative min-h-screen bg-[#0A0A0A] text-white overflow-hidden font-sans">
       <Navbar />
@@ -19,14 +23,14 @@ export default function Hero() {
         {/* Left Column */}
         <div style={{ zIndex: 10 }}>
           <p style={{ color: "#A3FF12", fontSize: "16px", fontWeight: 600, marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
-            Hello, I&apos;m Sahil <MdWavingHand />
+            Hello, I&apos;m {hero.name} <MdWavingHand />
           </p>
           <h1 style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontWeight: 900, lineHeight: 1.1, letterSpacing: "-0.03em", marginBottom: "24px" }}>
-            SDE & Full Stack Developer, <br />
-            Agentic AI <span style={{ color: "#A3FF12" }}>Developer.</span>
+            {hero.role.split(',')[0]}, <br />
+            <span style={{ color: "#A3FF12" }}>{hero.highlight}</span>
           </h1>
           <p style={{ color: "#a1a1aa", fontSize: "18px", lineHeight: 1.6, maxWidth: "540px", marginBottom: "40px" }}>
-            Expert in complete Agentic AI Development and full-stack Software Engineering (SDE), with strong foundational skills in DevOps. Building scalable applications and intelligent agent workflows.
+            {hero.description}
           </p>
 
           {/* CTAs */}
@@ -43,7 +47,7 @@ export default function Hero() {
                 </svg>
               </button>
             </a>
-            <a href="/SDE Sahil Hode Resume.pdf" download="Sahil_Hode_Resume.pdf" style={{
+            <a href={hero.resumeLink} download="Sahil_Hode_Resume.pdf" style={{
               background: "transparent", color: "#fff", padding: "16px 32px", borderRadius: "12px",
               fontWeight: 700, fontSize: "16px", border: "2px solid rgba(255,255,255,0.1)", cursor: "pointer", display: "flex", alignItems: "center", gap: "10px",
               whiteSpace: "nowrap", justifyContent: "center", textDecoration: "none"
@@ -60,9 +64,9 @@ export default function Hero() {
             <span style={{ fontSize: "14px", color: "#71717a", fontWeight: 600 }}>Follow Me On</span>
             <div style={{ display: "flex", gap: "12px" }}>
               {[
-                { icon: <FaLinkedinIn />, href: "https://www.linkedin.com/in/sahil-hode" },
-                { icon: <FaGithub />, href: "https://github.com/Sahil-Hode" },
-                { icon: <FaWhatsapp />, href: "https://wa.me/918652601566" },
+                { icon: <FaLinkedinIn />, href: socials.linkedin },
+                { icon: <FaGithub />, href: socials.github },
+                { icon: <FaWhatsapp />, href: socials.whatsapp },
               ].map((social, i) => (
                 <a 
                   key={i} 
@@ -100,8 +104,8 @@ export default function Hero() {
           {/* Image */}
           <div style={{ position: "relative", zIndex: 5, width: "100%", height: "100%", display: "flex", justifyContent: "center" }}>
             <Image 
-              src="https://res.cloudinary.com/dvyxf0plo/image/upload/v1777808344/mine_qsf9ji.png" 
-              alt="Sahil Hode" 
+              src={hero.profileImage} 
+              alt={hero.name} 
               width={450} 
               height={550} 
               priority={true}

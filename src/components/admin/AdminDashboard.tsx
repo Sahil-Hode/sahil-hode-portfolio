@@ -5,18 +5,20 @@ import { motion } from 'framer-motion';
 import MessageList from './MessageList';
 import SkillManager from './SkillManager';
 import DetailEditor from './DetailEditor';
+import ProjectManager from './ProjectManager';
 
 interface AdminDashboardProps {
   onLogout: () => void;
 }
 
 export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
-  const [activeTab, setActiveTab] = useState<'messages' | 'skills' | 'details'>('messages');
+  const [activeTab, setActiveTab] = useState<'messages' | 'projects' | 'skills' | 'details'>('messages');
 
   const tabs = [
     { id: 'messages', label: 'Messages', icon: 'M' },
+    { id: 'projects', label: 'Projects', icon: 'P' },
     { id: 'skills', label: 'Skills', icon: 'S' },
-    { id: 'details', label: 'Details', icon: 'D' },
+    { id: 'details', label: 'Identity', icon: 'I' },
   ];
 
   return (
@@ -78,6 +80,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
             transition={{ duration: 0.3 }}
           >
             {activeTab === 'messages' && <MessageList />}
+            {activeTab === 'projects' && <ProjectManager />}
             {activeTab === 'skills' && <SkillManager />}
             {activeTab === 'details' && <DetailEditor />}
           </motion.div>
