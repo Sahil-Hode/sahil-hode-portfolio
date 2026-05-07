@@ -20,7 +20,7 @@ function readLocalJson(section: string) {
 
 export async function GET(
   req: Request,
-  { params }: { params: { section: string } }
+  { params }: { params: Promise<{ section: string }> }
 ) {
   const section = (await params).section;
 
@@ -46,7 +46,7 @@ export async function GET(
 
 export async function POST(
   req: Request,
-  { params }: { params: { section: string } }
+  { params }: { params: Promise<{ section: string }> }
 ) {
   const cookieStore = await cookies();
   const token = cookieStore.get('admin_token')?.value;

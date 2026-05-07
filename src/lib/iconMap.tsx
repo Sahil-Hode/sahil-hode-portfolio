@@ -51,7 +51,7 @@ export const iconMap: Record<string, React.ReactNode> = {
   server: <HiOutlineServer />,
   cog: <HiOutlineCog />,
   sparkles: <HiOutlineSparkles />,
-  langchain: <HiOutlineSparkles color="#A3FF12" />, // Fallback for SiLangchain
+  langchain: <HiOutlineSparkles color="#A3FF12" />, // Fallback to avoid build errors
   firebase: <SiFirebase />,
   supabase: <SiSupabase />,
   redux: <SiRedux />,
