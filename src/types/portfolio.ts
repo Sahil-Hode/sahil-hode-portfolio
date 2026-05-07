@@ -39,7 +39,10 @@ export interface Education {
   degree: string;
   institution: string;
   duration: string;
-  details: string[];
+  progress: number;
+  status: string;
+  coursework: string[];
+  activities: string[];
 }
 
 export interface Skill {

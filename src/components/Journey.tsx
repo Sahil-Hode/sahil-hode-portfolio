@@ -59,8 +59,8 @@ export default function Journey() {
   const { education } = portfolioData;
   const currentEdu = education[0] || {
     degree: "Bachelor of Computer Application",
-    school: "Sahyog College, KKU",
-    year: "2024 → 2027",
+    institution: "Sahyog College, KKU",
+    duration: "2024 → 2027",
     location: "Thane, Maharashtra",
     progress: 66,
     status: "Currently Pursuing",
@@ -106,7 +106,7 @@ export default function Journey() {
                 </div>
                 <div>
                   <h3 style={{ fontSize: "22px", fontWeight: 900, color: "#fff", lineHeight: 1.25 }}>{currentEdu.degree}</h3>
-                  <p style={{ fontSize: "13px", color: "#71717a", fontWeight: 600 }}>{currentEdu.school}</p>
+                  <p style={{ fontSize: "13px", color: "#71717a", fontWeight: 600 }}>{currentEdu.institution}</p>
                 </div>
               </div>
               <div style={{ background: "#A3FF12", color: "#000", padding: "5px 12px", borderRadius: "999px", fontSize: "10px", fontWeight: 900 }}>{currentEdu.status}</div>
@@ -195,7 +195,7 @@ export default function Journey() {
                       textDecoration: "none", transition: "all 0.3s ease"
                     }} className="repo-card group">
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "12px" }}>
-                        <h4 style={{ color: "#fff", fontSize: "15px", fontWeight: 700, groupHover: { color: "#A3FF12" } }}>{repo.name}</h4>
+                        <h4 style={{ color: "#fff", fontSize: "15px", fontWeight: 700 }}>{repo.name}</h4>
                         <div style={{ display: "flex", alignItems: "center", gap: "4px", color: "#555", fontSize: "12px" }}>
                           <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: langColors[repo.language] || "#333" }} />
                           {repo.language}

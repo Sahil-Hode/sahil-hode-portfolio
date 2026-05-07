@@ -17,7 +17,7 @@ export default function Hero() {
 
   const { about, socials } = data;
 
-  if (!about || about.error) return null;
+  if (!about ) return null;
 
   return (
     <div id="home" className="relative min-h-screen bg-[#0A0A0A] text-white overflow-hidden font-sans">

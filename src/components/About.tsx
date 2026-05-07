@@ -14,7 +14,7 @@ export default function About() {
   if (loading || !data) return null;
 
   const { about, socials } = data;
-  if (!about || about.error) return null;
+  if (!about ) return null;
   
   const stats = about.stats || [];
   const profileImage = about.profileImage || "/placeholder.png";
