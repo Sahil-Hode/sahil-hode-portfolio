@@ -4,8 +4,8 @@ const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN,
 });
 
-const owner = process.env.GITHUB_OWNER || "";
-const repo = process.env.GITHUB_REPO || "";
+const owner = process.env.GITHUB_OWNER || "Sahil-Hode";
+const repo = process.env.GITHUB_REPO || "sahil-hode-portfolio";
 
 export async function getFile(path: string) {
   try {
