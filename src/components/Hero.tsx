@@ -56,16 +56,16 @@ export default function Hero() {
                 </svg>
               </button>
             </a>
-            <a href={about.resumeLink} download style={{
-              background: "transparent", color: "#fff", padding: "16px 32px", borderRadius: "12px",
-              fontWeight: 700, fontSize: "16px", border: "2px solid rgba(255,255,255,0.1)", cursor: "pointer", display: "flex", alignItems: "center", gap: "10px",
+            <a href="/Sahil_Hode_Software_Engineer_Resume.pdf" download style={{
+               background: "transparent", color: "#fff", padding: "16px 32px", borderRadius: "12px",
+              fontWeight: 700, fontSize: "16px", border: "2px solid rgba(255,255,255,0.1)", cursor: "pointer", display:                "flex", alignItems: "center", gap: "10px",
               whiteSpace: "nowrap", justifyContent: "center", textDecoration: "none"
-            }}>
-              Download CV
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+      }}>
+            Download CV
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"                            strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
               </svg>
-            </a>
+           </a>
           </div>
 
           {/* Socials */}
