@@ -165,20 +165,19 @@ export default function Navbar() {
           100% { transform: scale(0.95); opacity: 0.8; }
         }
 
-        /* Nav Pills Container */
+        /* Nav Links Container (Seamless floating) */
         .nb-links {
           display: flex;
           align-items: center;
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.06);
-          border-radius: 999px;
-          padding: 4px;
-          gap: 4px;
+          background: transparent;
+          border: none;
+          padding: 0;
+          gap: clamp(4px, 1vw, 12px);
           flex-shrink: 1;
           min-width: 0;
         }
         .nb-link {
-          font-size: clamp(12px, 1.3vw, 13.5px);
+          font-size: clamp(13px, 1.4vw, 14px);
           font-weight: 600;
           color: #a1a1aa;
           text-decoration: none;
@@ -190,14 +189,14 @@ export default function Navbar() {
         }
         .nb-link:hover {
           color: #ffffff;
-          background: rgba(255, 255, 255, 0.06);
+          background: rgba(255, 255, 255, 0.05);
         }
         .nb-link.active {
           color: #A3FF12;
           font-weight: 800;
-          background: rgba(163, 255, 18, 0.1);
+          background: rgba(163, 255, 18, 0.12);
           border-color: rgba(163, 255, 18, 0.25);
-          box-shadow: 0 0 16px rgba(163, 255, 18, 0.12);
+          box-shadow: 0 0 18px rgba(163, 255, 18, 0.15);
         }
 
         /* CTA Button */
