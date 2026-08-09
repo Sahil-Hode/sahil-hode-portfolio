@@ -142,7 +142,8 @@ export default function About() {
                   src={profileImage} 
                   alt={about.name} 
                   fill 
-                  style={{ objectFit: "cover", objectPosition: "top" }}
+                  draggable={false}
+                  style={{ objectFit: "cover", objectPosition: "top", userSelect: "none" }}
                 />
               </div>
             </div>

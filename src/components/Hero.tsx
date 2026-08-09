@@ -119,7 +119,8 @@ export default function Hero() {
               width={450} 
               height={550} 
               priority={true}
-              style={{ objectFit: "contain", position: "relative", zIndex: 10, willChange: "transform" }}
+              draggable={false}
+              style={{ objectFit: "contain", position: "relative", zIndex: 10, willChange: "transform", userSelect: "none" }}
             />
           </div>
 
